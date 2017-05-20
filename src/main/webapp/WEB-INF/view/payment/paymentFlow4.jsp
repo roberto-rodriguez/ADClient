@@ -1,19 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<%@ page language="java" contentType="text/html"  pageEncoding="UTF-8"%> 
-<%@ include file="/WEB-INF/pages/includes.jsp" %>
-<!DOCTYPE html>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        //  alert('start');
-    });
-
-</script>
-<div id="mainContent" class="mainContent">
-    <div class="top-bar">
-        <p class="top-bar-left">Back</p>
+ <input type="hidden" id="flowExecutionUrl" value="${flowExecutionUrl}"/>
+     
+     <div class="top-bar">
+        <p class="top-bar-left" onclick="javascript:back()">Back</p>
         <p class="top-bar-center">Resumen</p> 
-        <p class="top-bar-right">Next</p>
+        <p class="top-bar-right" onclick="javascript:next()">Next</p>
     </div>
 
     <table class="form-table">
@@ -25,14 +15,14 @@
                 <p>Nombre: Roberto Rodriguez</p>  
             </td>
             <td>
-                <p>TelÃ©fono: 786-454-0209</p> 
+                <p>Teléfono: 786-454-0209</p> 
             </td>
         </tr>
         <tr  style="border-bottom: inset 1px #333;padding-bottom:20px">
             <td> 
             </td>
             <td colspan="2">
-                <p>DirecciÃ³n: 9840 Palmetto Club Dr, Miami FL, 30067</p> 
+                <p>Dirección: 9840 Palmetto Club Dr, Miami FL, 30067</p> 
             </td> 
         </tr>
 
@@ -44,14 +34,14 @@
                 <p>Nombre: Phuong Tran</p>  
             </td>
             <td class="border-top">
-                <p>TelÃ©fono: 786-454-0209</p> 
+                <p>Teléfono: 786-454-0209</p> 
             </td>
         </tr>
         <tr>
             <td> 
             </td>
             <td colspan="2">
-                <p>DirecciÃ³n: 9840 Palmetto Club Dr, Miami FL, 30067</p> 
+                <p>Dirección: 9840 Palmetto Club Dr, Miami FL, 30067</p> 
             </td> 
         </tr>
         <tr>
@@ -65,7 +55,7 @@
 
         <tr>
             <td class="border-top"> 
-                <b>Datos del EnvÃ­o</b>
+                <b>Datos del Envío</b>
             </td>
             <td class="border-top">
                 <p>Monto a Enviar: USD 100.0</p>  
@@ -78,7 +68,7 @@
             <td> 
             </td>
             <td>
-                <p>MÃ©todo de Entrega: DEPOSITO</p> 
+                <p>Método de Entrega: DEPOSITO</p> 
             </td> 
             <td>
                 <p>Tarifa: USD 10.0</p> 
@@ -107,13 +97,4 @@
             </td> 
         </tr>
     </table>
-
-</div>
-
-<footer>
-    Copyright &copy; 2017. All rights reserved. 
-</footer>
-
-</body>
-
-</html>
+ 

@@ -99,6 +99,7 @@
     width:10%;
     float: left; 
     text-align:left;
+    cursor: pointer;
 }
 
 .top-bar-center{
@@ -112,6 +113,7 @@
     width:10%;
     float: right; 
     text-align: right;
+    cursor: pointer;
 } 
 
 .mainContent{

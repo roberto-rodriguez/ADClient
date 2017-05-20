@@ -1,25 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<%@ page language="java" contentType="text/html"  pageEncoding="UTF-8"%> 
-<%@ include file="/WEB-INF/pages/includes.jsp" %>
-<!DOCTYPE html>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        //  alert('start');
-    });
-
-</script>
-<div id="mainContent" class="mainContent">
-    <div class="top-bar">
-        <p class="top-bar-left">Back</p>
+     <input type="hidden" id="flowExecutionUrl" value="${flowExecutionUrl}"/>
+     
+     <div class="top-bar">
+        <p class="top-bar-left" onclick="javascript:back()">Back</p>
         <p class="top-bar-center">Tarifas y Punto de Pago</p> 
-        <p class="top-bar-right">Next</p>
+        <p class="top-bar-right" onclick="javascript:next()">Next</p>
     </div>
-
+     
     <table class="form-table" style="border-bottom: inset 1px #333;padding-bottom:20px">
         <tr>
             <td>
-                <p>PaÃ­s:</p><input type="text"> 
+                <p>País:</p><input type="text"> 
             </td>
             <td>
                 <p>Corresponsal (Pto de Pago):</p> <input type="text"> 
@@ -67,12 +57,4 @@
             </td>   
         </tr>
     </table> 
-</div>
  
-<footer>
-    Copyright &copy; 2017. All rights reserved. 
-</footer>
-
-</body>
-
-</html>

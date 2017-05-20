@@ -35,7 +35,7 @@ public class PersistenceConfig {
     
     @Bean
     public DataSource dataSource() {
-        System.out.println("--------- ADReport -> creating dataSource ----------");
+        System.out.println("--------- ADClient -> creating dataSource ----------");
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(env.getProperty("hibernate.connection.driver_class"));
         dataSource.setUrl(env.getProperty("hibernate.connection.url"));

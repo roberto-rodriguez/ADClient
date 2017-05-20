@@ -24,22 +24,12 @@
 
         <!-- Optional -->
         <script type="text/javascript" src="<c:url value="/resources/js/main.js"/>"></script>
-        <script type="text/javascript" src="<c:url value="/resources/js/redirect.js" />"></script> 
-        <script type="text/javascript" src="<c:url value="/resources/js/reports.js" />"></script> 
-        <script type="text/javascript" src="<c:url value="/resources/js/mvc/storesGridView.js" />"></script> 
 
         <title>ADClient</title>
     </head>
     <body class="body" >
         <header class="mainHeader headerBorder"> 
-            <div class="banner ">
-
-<!--                <div class="art-logo"  >
-                    <h1> 
-                        <a href="#" class="art-logo-name">Alo Diga Reports</a>
-                    </h1>
-                    <div id="slogan-text" class="art-logo-text">Maximize your productivity...</div>
-                </div>-->
+            <div class="banner "> 
                 <div style="float: left;margin:50px;">
                     <img src="<c:url value="/resources/images/adlogo.png" />">
                 </div>
@@ -53,4 +43,4 @@
                     </ul>
                 </div> 
             </div>
-        </header> 
+        </header>  
