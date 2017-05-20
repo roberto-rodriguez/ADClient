@@ -1,0 +1,164 @@
+/* 
+    Created on : Jul 6, 2014, 3:20:17 PM
+    Author     : Roberto Rodriguez :: <rrodriguez@jacada.com>
+*/
+
+/*________ HEADER ___________*/
+
+.mainHeader{
+    margin: 2% 0%;
+    height: auto;
+}
+
+.banner{
+    background-image: linear-gradient(to right,#E8BE01 0%, #FDB813 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#E8BE01), to(#FDB813));
+    background-color: #6699FF;
+    height: 200px;
+}
+
+.nav-bar{ 
+    border-top: 1px inset #FFF; 
+    margin: 0 auto;
+    padding:0; 
+    clear: both;
+    height: 51px;
+    background-image: linear-gradient(to right,#E8BE01 0%, #FDB813 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#E8BE01), to(#FDB813)); 
+    background: -webkit-gradient(linear, left top, left bottom, from(#E8BE01), to(#FDB813));
+    background: -moz-linear-gradient(top, #E8BE01, #FDB813);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a4a4a4', endColorstr='#717171',GradientType=0 );
+    box-shadow: none;
+    -webkit-border-radius: 3px 3px 0 0; 
+}
+
+.nav-bar ul{
+    position: relative;
+    height: 51px; 
+    margin:0 auto;
+    padding:0; 
+    overflow: visible;
+}
+
+.nav-bar ul li {
+    float: left;
+    list-style: none; 
+}
+
+.nav-bar ul li a{
+    position: relative; 
+    overflow: hidden;
+    text-decoration: none;
+    text-transform: uppercase;
+    font: bold 14px arial;
+    color: #333; 
+    outline: none;
+    text-align: center; 
+    padding:18px 0px;
+    letter-spacing:1px;
+    float: left; 
+    display: block;
+    margin: auto 20px;
+}
+
+.headerBorder{
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+}
+
+/*________ MAIN ___________*/
+
+.body{ 
+    margin: 0 auto;
+    padding: 0;
+    clear: both;
+    width: 70%;   
+    background: rgba(230,237,242,1);
+    background: -moz-linear-gradient(left, rgba(230,237,242,1) 0%, rgba(214,229,235,1) 0%, rgba(199,222,232,0.9) 52%, rgba(230,237,242,0.8) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(230,237,242,1)), color-stop(0%, rgba(214,229,235,1)), color-stop(52%, rgba(199,222,232,0.9)), color-stop(100%, rgba(230,237,242,0.8)));
+    background: -webkit-linear-gradient(left, rgba(230,237,242,1) 0%, rgba(214,229,235,1) 0%, rgba(199,222,232,0.9) 52%, rgba(230,237,242,0.8) 100%);
+    background: -o-linear-gradient(left, rgba(230,237,242,1) 0%, rgba(214,229,235,1) 0%, rgba(199,222,232,0.9) 52%, rgba(230,237,242,0.8) 100%);
+    background: -ms-linear-gradient(left, rgba(230,237,242,1) 0%, rgba(214,229,235,1) 0%, rgba(199,222,232,0.9) 52%, rgba(230,237,242,0.8) 100%);
+    background: linear-gradient(to right, rgba(230,237,242,1) 0%, rgba(214,229,235,1) 0%, rgba(199,222,232,0.9) 52%, rgba(230,237,242,0.8) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6edf2', endColorstr='#e6edf2', GradientType=1 );
+}
+
+.top-bar{ 
+    margin: 0 auto;
+    padding:0; 
+    clear: both;
+    height: 51px; 
+    border-bottom:inset 1px #AD7F00; 
+    height:50px;
+    width:96%;
+    margin: 8px 2% 10px 2%;
+} 
+
+.top-bar-left{
+    width:10%;
+    float: left; 
+    text-align:left;
+}
+
+.top-bar-center{
+    width:80%; 
+    text-align: center;
+    float: left; 
+    font: normal 20px arial;color:#333;
+} 
+
+.top-bar-right{
+    width:10%;
+    float: right; 
+    text-align: right;
+} 
+
+.mainContent{
+    background-color: #FFF;
+    height: auto; 
+    /*height: 550px;*/
+    border: 1px solid #333; 
+}
+
+.form-table{
+    margin:30px 10% 30px 10%;
+    width:80%;
+    padding-bottom:20px;
+}
+
+.form-table tr{
+    height:50px;
+}
+
+.form-table p{
+    margin:0px;
+    font: normal 14px arial;
+    color: #333;
+}
+
+.border-top{
+    border-top: inset 1px #333;
+    padding-top:20px;
+} 
+
+.resumen-table{
+    width: 100%;
+}
+
+.resumen-table tr td{
+    text-align: center;
+    font-family: arial;
+    color: #333;
+}
+
+/*________ FOOTER ___________*/
+
+footer{
+    font-size: 14px;
+    margin-top: 2px;
+    text-align: center;
+    background-color: #333;
+    padding: 20px;
+    color:white;
+}

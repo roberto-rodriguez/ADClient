@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="alodiga" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e2685591-5f2e-4167-a0cb-c559f7bb8031">
+	<property name="ireport.zoom" value="2.5937424601000028"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1"/>
+	<field name="sales" class="java.lang.String"/>
+	<field name="reportFecha" class="java.lang.String"/>
+	<field name="reportClient" class="java.lang.String"/>
+	<field name="reportStartDate" class="java.lang.String"/>
+	<field name="reportEndDate" class="java.lang.String"/>
+	<field name="clientId" class="java.lang.String"/>
+	<field name="period" class="java.lang.String"/>
+	<field name="commissionStr" class="java.lang.String"/>
+	<field name="net2payStr" class="java.lang.String"/>
+	<field name="salesPromotion" class="java.lang.String"/>
+	<field name="reportPeriod" class="java.lang.String"/>
+	<field name="reportTotalSales" class="java.lang.String"/>
+	<field name="reportTotalCommission" class="java.lang.String"/>
+	<field name="reportTotalNet2Pay" class="java.lang.String"/>
+	<field name="reportTotalSalesPromotion" class="java.lang.String"/>
+	<title>
+		<band height="149" splitType="Stretch">
+			<image>
+				<reportElement x="19" y="37" width="83" height="61" uuid="7defa861-db08-45ca-89ee-052ae272020c"/>
+				<imageExpression><![CDATA["adlogo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="217" y="0" width="139" height="39" uuid="6b67d139-f0a5-49b6-84bf-ffe13b0e0efb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Alo Diga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="39" width="49" height="15" uuid="acff01d3-475d-43e7-bc5d-ca6873c8e4cb"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="54" width="49" height="20" uuid="54b3f891-398e-4ac7-84f7-eb606020a35c"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Client:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="444" y="39" width="100" height="15" uuid="da29efc7-027b-4c16-aa93-ccd4e2fc76f4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{reportFecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="54" width="100" height="20" uuid="c65af045-cbd4-46c3-9b38-75d29fffcdf6"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{reportClient}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="357" y="78" width="198" height="37" backcolor="#F0EFEF" uuid="538ec622-5918-457e-8177-bd744c1a2ddf"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="357" y="78" width="198" height="20" uuid="742fde32-7048-4c48-9af1-cb466a1ab6f8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Report Period]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="98" width="100" height="17" uuid="f5a33494-5cff-4382-8e8e-861cdd1993ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[From]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="457" y="98" width="98" height="17" uuid="c17984c1-1b4d-4d3c-9124-697187519a3e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[To]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="357" y="115" width="100" height="20" uuid="dc4e3aea-4534-4271-bec2-f70db7dd6938"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{reportStartDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="115" width="98" height="20" uuid="0d2037a8-1500-4350-bdd1-61448d4e9b39"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{reportEndDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="77" height="22" backcolor="#F0EFEF" uuid="90d98103-c486-4260-bc82-0d5692c141f5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Client ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="217" y="0" width="85" height="22" backcolor="#F0EFEF" uuid="e5483c96-5ab2-456f-a020-edf3b75b1062"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="481" y="0" width="74" height="22" backcolor="#F0EFEF" uuid="039efb35-a24d-4498-83e4-3fea7e873d6b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Promotion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="77" y="0" width="140" height="22" backcolor="#F0EFEF" uuid="57020d46-603c-4058-948c-75aa515c9541"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Period]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="302" y="0" width="93" height="22" backcolor="#F0EFEF" uuid="3cfb01fc-3d72-44c5-bded-8254857ddf71"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Discount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="395" y="0" width="86" height="22" backcolor="#F0EFEF" uuid="a7846dcf-2e1a-4765-8b29-953c7d3fa26e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net to Pay]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="217" y="0" width="85" height="24" uuid="b6512750-bf26-4e5e-8d31-141af2982f97"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="481" y="0" width="74" height="23" uuid="4013c81c-223b-4efe-8f84-af9dee80c39c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{salesPromotion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="0" width="75" height="24" uuid="18610dc4-4316-4290-b75d-3d5a488df0d7"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{clientId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="0" width="140" height="24" uuid="436c951b-0326-4a0d-bd86-db67f5186b92"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{period}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="0" width="93" height="24" uuid="48cb29ba-931b-45ec-9cd0-2eb8b3dfd73a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{commissionStr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="0" width="86" height="23" uuid="8ca6f9f5-1cb3-44f0-b52f-4e818e67af3f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{net2payStr}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="43">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="19" backcolor="#F0EFEF" uuid="88dac15f-f968-475e-8168-676db2e7c781"/>
+			</rectangle>
+			<textField>
+				<reportElement x="217" y="0" width="85" height="19" uuid="cafecf8c-fe86-47fc-8ca6-00e85aaaff59"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{reportTotalSales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="0" width="140" height="20" uuid="ede15a17-bfba-4480-a298-eeb2dd2842c7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{reportPeriod}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="149" height="20" uuid="ce9b8131-ed2e-4dcf-a160-c1f0eb26d39a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Total ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="302" y="0" width="93" height="20" uuid="7f164542-9114-44d0-9cb7-cd4935d5186a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{reportTotalCommission}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="0" width="86" height="20" uuid="1a09819e-7ba9-4c28-9ca0-90f80bcbb7d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{reportTotalNet2Pay}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="149" height="23" uuid="faf907c3-8aff-453f-bcd6-ade526065538"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="149" y="20" width="68" height="23" uuid="c7db383e-976e-42fb-8ecf-9fb0ab2205bd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="19" width="86" height="24" uuid="37fcee35-07d1-4079-a577-81a3c64f56d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="481" y="0" width="74" height="20" uuid="4ecdc8be-fc64-4311-ba53-d278c524f460"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{reportTotalSalesPromotion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>
