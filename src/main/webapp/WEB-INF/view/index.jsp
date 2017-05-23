@@ -5,7 +5,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $.get( "/ADReport/payment-flow.htm", function(data){ $( '#content' ).html( data );} );
+        $.get( "/ADClient/payment-flow.htm", function(data){ $( '#content' ).html( data );} );
     });
 
 </script>

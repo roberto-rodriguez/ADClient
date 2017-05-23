@@ -15,9 +15,7 @@ function goTo(event) {
     $.ajax({
         type: "GET",
         url: $("#flowExecutionUrl").val() + "&_eventId=" + event,
-        data: {
-            // idAct: id
-        },
+        data:  getData(),
         success: function (data) {
             $('#content').html(data);
         },

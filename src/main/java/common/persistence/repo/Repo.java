@@ -1,8 +1,8 @@
  
 
 package common.persistence.repo;
-
-import common.display.Report;
+ 
+import common.persistence.model.Pais;
 import java.io.Serializable;
 import java.util.List;
 import org.springframework.context.annotation.Scope;
@@ -16,19 +16,21 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS) 
 public class Repo implements Serializable{
-    private List<Report> reports = null;
+    private List<Pais> config;
 
     /**
-     * @return the reports
+     * @return the config
      */
-    public List<Report> getReports() {
-        return reports;
+    public List<Pais> getConfig() {
+        return config;
     }
 
     /**
-     * @param reports the reports to set
+     * @param config the config to set
      */
-    public void setReports(List<Report> reports) {
-        this.reports = reports;
+    public void setConfig(List<Pais> config) {
+        this.config = config;
     }
+
+    
 }
