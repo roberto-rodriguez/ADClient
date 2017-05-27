@@ -17,7 +17,7 @@ public class PaymentCommand implements Serializable{
     private String corresponsal;
     private String formaDeEntrega;
     private String montoAEnviar;
-    private boolean tarifaIncluida;
+    private String tarifaIncluida;
     
     private String tarifa;
     private String tasaDeCambio;
@@ -29,12 +29,13 @@ public class PaymentCommand implements Serializable{
     //Remitente
     private String remitenteNombre;
     private String remitenteTelefono;
-    private String remitenteDirecion;
+    private String remitenteDireccion;
     private String remitenteZipcode;
     private String remitenteEstado;
     private String remitenteCiudad;
     
     //Destinatario
+    private Long destinatarioId;
     private String destinatarioNombre;
     private String destinatarioTelefono;
     private String destinatarioDirecion;
@@ -210,20 +211,7 @@ public class PaymentCommand implements Serializable{
     public void setRemitenteTelefono(String remitenteTelefono) {
         this.remitenteTelefono = remitenteTelefono;
     }
-
-    /**
-     * @return the remitenteDirecion
-     */
-    public String getRemitenteDirecion() {
-        return remitenteDirecion;
-    }
-
-    /**
-     * @param remitenteDirecion the remitenteDirecion to set
-     */
-    public void setRemitenteDirecion(String remitenteDirecion) {
-        this.remitenteDirecion = remitenteDirecion;
-    }
+ 
 
     /**
      * @return the remitenteZipcode
@@ -392,18 +380,46 @@ public class PaymentCommand implements Serializable{
     public void setDestinatarioPais(String destinatarioPais) {
         this.destinatarioPais = destinatarioPais;
     }
-
+ 
     /**
      * @return the tarifaIncluida
      */
-    public boolean isTarifaIncluida() {
+    public String getTarifaIncluida() {
         return tarifaIncluida;
     }
 
     /**
      * @param tarifaIncluida the tarifaIncluida to set
      */
-    public void setTarifaIncluida(boolean tarifaIncluida) {
+    public void setTarifaIncluida(String tarifaIncluida) {
         this.tarifaIncluida = tarifaIncluida;
+    }
+
+    /**
+     * @return the remitenteDireccion
+     */
+    public String getRemitenteDireccion() {
+        return remitenteDireccion;
+    }
+
+    /**
+     * @param remitenteDireccion the remitenteDireccion to set
+     */
+    public void setRemitenteDireccion(String remitenteDireccion) {
+        this.remitenteDireccion = remitenteDireccion;
+    }
+
+    /**
+     * @return the destinatarioId
+     */
+    public Long getDestinatarioId() {
+        return destinatarioId;
+    }
+
+    /**
+     * @param destinatarioId the destinatarioId to set
+     */
+    public void setDestinatarioId(Long destinatarioId) {
+        this.destinatarioId = destinatarioId;
     }
 }

@@ -34,11 +34,7 @@ public class GeneralController {
 
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public ModelAndView index(HttpServletRequest request, @RequestParam(required = false) Integer type) {
-        System.out.println("index...");
-        System.out.println("request.getContextPath() = " + request.getContextPath());
-        System.out.println("request.getRequestURL() = " + request.getRequestURL());
-        System.out.println("request.getLocalName() = " + request.getLocalName());
-        System.out.println("request.getLocalAddr() = " + request.getLocalAddr());
+        System.out.println("index..."); 
         
         String host = request.getRequestURL().toString();
         if(host.contains("/ADClient/")){

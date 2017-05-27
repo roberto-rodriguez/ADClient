@@ -10,15 +10,15 @@
     
     <view-state id="paymentFlow1" view="payment/paymentFlow1"  model="command"> 
         <transition on="next" to="paymentFlow2">
-            <!--<evaluate expression="paymentMultiAction.bind"/>-->
+            <evaluate expression="paymentMultiAction.bind"/>
         </transition>
         <transition on="back" to="paymentFlow5">
-            <!--<evaluate expression="activityMultiAction.putIdCampInFlowScope"/>-->
+            <evaluate expression="activityMultiAction.putIdCampInFlowScope"/>
         </transition>
-        <!--
+        
         <transition on="addCampaign" to="addCampaign">
              <evaluate expression="activityMultiAction.listCampaignNames"/>
-        </transition>-->
+        </transition>
     </view-state>
     
     <view-state id="paymentFlow2" view="payment/paymentFlow2"  model="command"> 

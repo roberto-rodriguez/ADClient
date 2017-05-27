@@ -6,47 +6,21 @@
  */
 package common.persistence.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author rrodriguez
  */
  
-public class FormaEntrega {
-    private String nombre;
-    private String codigo;
+public class FormaEntrega  extends Nomemclator { 
 
     public FormaEntrega() {
     }
 
-    public FormaEntrega(String nombre) {
-        this.nombre = nombre;
-    }
-
-    /**
-     * @return the nombre
-     */
-    public String getNombre() {
-        return nombre;
-    }
-
-    /**
-     * @param nombre the nombre to set
-     */
-   
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    /**
-     * @return the codigo
-     */
-    public String getCodigo() {
-        return codigo;
+    public FormaEntrega(String nombre, String codigo) {
+      super(nombre, codigo);
     }
  
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-    
     
 }

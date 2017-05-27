@@ -8,18 +8,15 @@ package common.persistence.model;
  
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
-import javax.xml.bind.annotation.XmlElement; 
 
 /**
  *
  * @author rrodriguez
  */
  
-public class Corresponsal { 
+public class Corresponsal  extends Nomemclator { 
     private Double tipoCambio;
-    private Double tarifa;
-    private String nombre;
-    private String codigo;
+    private Double tarifa; 
     private String moneda; 
     @JsonIgnore
     private List<FormaEntrega> formaEntregaList;
@@ -28,8 +25,7 @@ public class Corresponsal {
     }
 
     public Corresponsal(String nombre, String codigo) {
-        this.nombre = nombre;
-        this.codigo = codigo;
+       super(nombre, codigo);
     }
 
     public Corresponsal(Double tipoCambio, Double tarifa, String nombre, String codigo) {
@@ -70,29 +66,7 @@ public class Corresponsal {
     public void setTarifa(Double tarifa) {
         this.tarifa = tarifa;
     }
-
-    /**
-     * @return the nombre
-     */
-    public String getNombre() {
-        return nombre;
-    }
- 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    /**
-     * @return the codigo
-     */
-    public String getCodigo() {
-        return codigo;
-    }
- 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
+  
     /**
      * @return the formaEntregaList
      */

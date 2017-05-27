@@ -27,17 +27,7 @@ public class Pais extends Nomemclator {
     public Pais(String nombre, String codigo) {
         super(nombre, codigo);
     }
-
-//    public String getName() {
-//       return super.getNombre();
-//    }
-//
-//    /**
-//     * @param codigo the codigo to set
-//     */
-//    public String getValue(String codigo) {
-//        return super.getCodigo();
-//    }
+ 
 
     /**
      * @return the corresponsales

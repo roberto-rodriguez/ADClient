@@ -22,7 +22,7 @@
             <td> 
             </td>
             <td colspan="2">
-                <p>Dirección: ${command.remitenteDirecion}</p> 
+                <p>Dirección: ${command.remitenteDireccion}</p> 
             </td> 
         </tr>
 

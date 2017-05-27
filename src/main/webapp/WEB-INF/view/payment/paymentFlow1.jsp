@@ -2,88 +2,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
-
-<script type="text/javascript">
-    function getData() {
-        var data = {};
-
-        $('input[type="text"]').each(function (i, e) {
-            data[e.id] = $(e).val();
-        });
-
-        data['tarifaIncluida'] = $('#tarifaIncluida').is(":checked");
-
-        return data;
-    }
- 
-    $(document).ready(function () { 
-        createCombo('paisSelect', '/ADClient/config/paises');
-        createCombo('corresponsalSelect');
-        createCombo('formaDeEntregaSelect');
-
-        $("#paisSelect").on('change', function () { 
-            var val = $(this).val();
-            createCombo('corresponsalSelect', val && '/ADClient/config/corresponsales/' + val);
-              
-        });
-
-        $("#corresponsalSelect").on('change', function () {
-             var val = $(this).val();
-             if(!val){
-                 $('#formaDeEntrega').val('');
-                 createCombo('formaDeEntregaSelect'); 
-             }else{
-                createCombo('formaDeEntregaSelect', val && '/ADClient/config/formasEntrega/' + $('#paisSelect').val() + '/' + val);  
-             } 
-        });
-
-        $("#paisSelect,#corresponsalSelect,#formaDeEntregaSelect").on('change', function () { 
-            $('#' + this.id.split('Select')[0]).val($(this).val());
-        });
- 
-    });
-
-    function createCombo(id, url) {
-        var source = url ?
-                {
-                    datatype: "json",
-                    datafields: [
-                        {name: 'nombre'},
-                        {name: 'codigo'}
-                    ],
-                    url: url,
-                    async: true
-                } : {};
-
-        var dataAdapter = new $.jqx.dataAdapter(source, {
-            loadComplete: function (values) { 
-                var previousValue = $('#' + id.split('Select')[0]).val(); 
-                if(previousValue && $.grep(values, function(elem){return elem.codigo == previousValue}).length > 0){
-                    jQuery('#' + id).jqxComboBox('val', previousValue); 
-                }else{
-                    var newVal = values.length == 1 ? values[0].codigo : null; 
-                    jQuery('#' + id).jqxComboBox('val', newVal);
-                    jQuery('#' + id).change(); 
-                }
-                   
-            }
-        });
-
-        $('#' + id).jqxComboBox(
-                {
-                    source: dataAdapter,
-                    width: 173,
-                    height: 25,
-                    // selectedIndex: 0,
-                    displayMember: 'nombre',
-                    valueMember: 'codigo',
-                    autoDropDownHeight: true
-                }); 
-    }
-
-
-</script>
-
+<script type="text/javascript" src="<c:url value="/resources/js/payment/paymentFlow1.js"/>"></script>
+  
 <input type="hidden" id="flowExecutionUrl" value="${flowExecutionUrl}"/>
 
 <div class="top-bar">
@@ -98,7 +18,7 @@
         <tr>
             <td>
                 Pais<div id="paisSelect"></div>
-                <form:input path="pais" id="pais"/> 
+                <form:input path="pais" id="pais" /> 
             </td>
             <td>
                 Corresponsal (Pto de Pago):<div id="corresponsalSelect"></div> 
@@ -111,15 +31,15 @@
         </tr>
         <tr>
             <td>
-                <input type="button" value="Cotizar" class="button"/> 
+                <input type="button" value="Cotizar" class="button" onclick="javascript:cot()" id="cotizar" data-active="false" style="background-color:gray"/> 
             </td>
             <td>
-                <p>Monto a Enviar: </p><form:input path="montoAEnviar" />
+                <p>Monto a Enviar: </p><form:input path="montoAEnviar" id="montoAEnviar" value="100"/>
                 <!--<input id="montoAEnviar" type="text" value="${command.montoAEnviar}">--> 
             </td>
             <td>
-                Tarifa Incluida:<form:checkbox path="tarifaIncluida" />
-                <!--<input id="tarifaIncluida" type="checkbox"  value="${command.tarifaIncluida}">-->
+                <form:input path="tarifaIncluida"  id="tarifaIncluida"/>
+                Tarifa Incluida: <input id="tarifaIncluidaCheckbox" type="checkbox">
             </td>
         </tr>
     </table>
@@ -127,21 +47,22 @@
     <table class="form-table" style="border-spacing: 0px;">
         <tr>
             <td style="width: 270px;">
-                <p>Tarifa: </p><form:input path="tarifa" />
+                <p>Tarifa:</p><div id="tarifaSelect"></div> 
+                <form:input path="tarifa"  id="tarifa"/>
                 <!--<input id="tarifa"  type="text"  value="${command.tarifa}">--> 
             </td>
             <td colspan="2" class="td-border-left">
-                <p>Monto Real a Enviar:</p> <form:input path="montoRealAEnviar" />
+                <p>Monto Real a Enviar:</p> <form:input path="montoRealAEnviar" id="montoRealAEnviar"/>
                 <!--<input id="montoRealAEnviar" type="text"  value="${command.montoRealAEnviar}">--> 
             </td>   
         </tr>
         <tr>
             <td style="width: 270px;">
-                <p>Tasa de Cambio: </p><form:input path="tasaDeCambio" />
+                <p>Tasa de Cambio: </p><form:input path="tasaDeCambio" id="tasaDeCambio"/>
                 <!--<input id="tasaDeCambio" type="text"  value="${command.tasaDeCambio}">--> 
             </td>
             <td colspan="2" class="td-border-left">
-                <p>Monto Real a Pagar: </p><form:input path="montoRealAPagar" />
+                <p>Monto Real a Pagar: </p><form:input path="montoRealAPagar" id="montoRealAPagar"/>
                 <!--<input id="montoRealAPagar" type="text"  value="${command.montoRealAPagar}">--> 
             </td>   
         </tr>
@@ -150,7 +71,7 @@
                 <input type="button" value="Continuar" class="button"/> 
             </td>
             <td colspan="2"  class="td-border-left">
-                <p>Total a Pagar: </p><form:input path="totalAPagar" />
+                <p>Total a Pagar: </p><form:input path="totalAPagar" id="totalAPagar"/>
                 <!--<input id="totalAPagar" type="text"  value="${command.totalAPagar}">--> 
             </td>   
         </tr>
