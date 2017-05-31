@@ -1,16 +1,16 @@
- 
-
 package common.persistence.model;
 
 import java.io.Serializable;
-import java.util.Map;
-
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date; 
 
 /**
  * @author @Roberto Rodriguez :: <RobertoSoftwareEngineer@gmail.com>
  */
-
-public class PaymentCommand implements Serializable{
+public class PaymentCommand implements Serializable {
+    private static DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+    
     private String agenciaOrigen;
     //Tarifas
     private String pais;
@@ -18,14 +18,15 @@ public class PaymentCommand implements Serializable{
     private String formaDeEntrega;
     private String montoAEnviar;
     private String tarifaIncluida;
-    
+
     private String tarifa;
+    private String tarifaTagId;
     private String tasaDeCambio;
-    
+
     private String montoRealAEnviar;
     private String montoRealAPagar;
     private String totalAPagar;
-    
+
     //Remitente
     private String remitenteNombre;
     private String remitenteTelefono;
@@ -33,43 +34,48 @@ public class PaymentCommand implements Serializable{
     private String remitenteZipcode;
     private String remitenteEstado;
     private String remitenteCiudad;
-    
+
     //Destinatario
     private Long destinatarioId;
     private String destinatarioNombre;
     private String destinatarioTelefono;
-    private String destinatarioDirecion;
+    private String destinatarioDireccion;
     private String destinatarioPais;
     private String destinatarioEstado;
     private String destinatarioCiudad;
     private String numeroDeCuenta;
 
-//    public void build(Map map){
-//        if(map.containsKey("pais"))this.pais = (String)map.get("pais");
-//        if(map.containsKey("corresponsal"))this.corresponsal = (String)map.get("corresponsal");
-//        if(map.containsKey("formaDeEntrega"))this.formaDeEntrega = (String)map.get("formaDeEntrega");
-//        if(map.containsKey("montoAEnviar"))this.montoAEnviar = (String)map.get("montoAEnviar"); 
-//        if(map.containsKey("tarifa"))this.tarifa = (String)map.get("tarifa");
-//        if(map.containsKey("tasaDeCambio"))this.tasaDeCambio = (String)map.get("tasaDeCambio");
-//        if(map.containsKey("montoRealAEnviar"))this.montoRealAEnviar = (String)map.get("montoRealAEnviar");
-//        if(map.containsKey("montoRealAPagar"))this.montoRealAPagar = (String)map.get("montoRealAPagar");
-//        if(map.containsKey("totalAPagar"))this.totalAPagar = (String)map.get("totalAPagar");
-//        if(map.containsKey("remitenteNombre"))this.remitenteNombre = (String)map.get("remitenteNombre");
-//        if(map.containsKey("remitenteTelefono"))this.remitenteTelefono = (String)map.get("remitenteTelefono");
-//        if(map.containsKey("remitenteDirecion"))this.remitenteDirecion = (String)map.get("remitenteDirecion");
-//        if(map.containsKey("remitenteZipcode"))this.remitenteZipcode = (String)map.get("remitenteZipcode");
-//        if(map.containsKey("remitenteEstado"))this.remitenteEstado = (String)map.get("remitenteEstado");
-//        if(map.containsKey("remitenteCiudad"))this.remitenteCiudad = (String)map.get("remitenteCiudad");
-//        if(map.containsKey("destinatarioNombre"))this.destinatarioNombre = (String)map.get("destinatarioNombre");
-//        if(map.containsKey("destinatarioNombre"))this.destinatarioNombre = (String)map.get("destinatarioNombre");
-//        if(map.containsKey("destinatarioTelefono"))this.destinatarioTelefono = (String)map.get("destinatarioTelefono");
-//        if(map.containsKey("destinatarioDirecion"))this.destinatarioDirecion = (String)map.get("destinatarioDirecion");
-//        if(map.containsKey("destinatarioPais"))this.destinatarioPais = (String)map.get("destinatarioPais");
-//        if(map.containsKey("destinatarioEstado"))this.destinatarioEstado = (String)map.get("destinatarioEstado");
-//        if(map.containsKey("destinatarioCiudad"))this.destinatarioCiudad = (String)map.get("destinatarioCiudad");
-//        if(map.containsKey("numeroDeCuenta"))this.numeroDeCuenta = (String)map.get("numeroDeCuenta");
-//    }
-    
+    //TODO include Agencia Origen
+    public String toUrl() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("&codCorresponsal=" + corresponsal);
+        sb.append("&codCiudadRemite=" + remitenteCiudad);
+        sb.append("&codCiudadDestinatario=" + destinatarioCiudad);
+        sb.append("&dirRemite=" + remitenteDireccion);
+        sb.append("&dirDestinatario=" + destinatarioDireccion);
+        sb.append("&tipoCambio=" + tasaDeCambio);
+        sb.append("&totalPagar=" + totalAPagar);
+        sb.append("&dineroEntregado=" + montoRealAEnviar);
+        sb.append("&montoEntregar=" + montoRealAPagar);
+        sb.append("&nomRemite=" + remitenteNombre);
+        sb.append("&nomDestinatario=" + destinatarioNombre);
+        sb.append("&telRemite=" + remitenteTelefono);
+        sb.append("&telDestinatario=" + destinatarioTelefono);
+        sb.append("&zipRemite=" + remitenteZipcode);
+        sb.append("&codEstadoRemite=" + remitenteEstado);
+        sb.append("&codEstadoDestinatario=" + destinatarioEstado);
+        sb.append("&codPaisDestinatario=" + destinatarioPais);
+        sb.append("&nomCiudadRemite=" + remitenteCiudad);
+        sb.append("&nomCiudadDestinatario=" + destinatarioCiudad);
+        sb.append("&numeroCuenta=" + numeroDeCuenta);
+        sb.append("&formaPago=" + formaDeEntrega);
+        sb.append("&incluyeComision=" + tarifaIncluida);
+        sb.append("&tarifaTagId=" + tarifaTagId); 
+        sb.append("&fecha=" + dateFormat.format(new Date()));
+         
+        return sb.toString();
+    }
+     
     /**
      * @return the pais
      */
@@ -83,7 +89,6 @@ public class PaymentCommand implements Serializable{
     public void setPais(String pais) {
         this.pais = pais;
     }
- 
 
     /**
      * @return the formaDeEntrega
@@ -112,7 +117,6 @@ public class PaymentCommand implements Serializable{
     public void setMontoAEnviar(String montoAEnviar) {
         this.montoAEnviar = montoAEnviar;
     }
- 
 
     /**
      * @return the tarifa
@@ -211,7 +215,6 @@ public class PaymentCommand implements Serializable{
     public void setRemitenteTelefono(String remitenteTelefono) {
         this.remitenteTelefono = remitenteTelefono;
     }
- 
 
     /**
      * @return the remitenteZipcode
@@ -284,20 +287,6 @@ public class PaymentCommand implements Serializable{
     }
 
     /**
-     * @return the destinatarioDirecion
-     */
-    public String getDestinatarioDirecion() {
-        return destinatarioDirecion;
-    }
-
-    /**
-     * @param destinatarioDirecion the destinatarioDirecion to set
-     */
-    public void setDestinatarioDirecion(String destinatarioDirecion) {
-        this.destinatarioDirecion = destinatarioDirecion;
-    }
- 
-    /**
      * @return the destinatarioEstado
      */
     public String getDestinatarioEstado() {
@@ -366,7 +355,7 @@ public class PaymentCommand implements Serializable{
     public void setCorresponsal(String corresponsal) {
         this.corresponsal = corresponsal;
     }
- 
+
     /**
      * @return the destinatarioPais
      */
@@ -380,7 +369,7 @@ public class PaymentCommand implements Serializable{
     public void setDestinatarioPais(String destinatarioPais) {
         this.destinatarioPais = destinatarioPais;
     }
- 
+
     /**
      * @return the tarifaIncluida
      */
@@ -421,5 +410,33 @@ public class PaymentCommand implements Serializable{
      */
     public void setDestinatarioId(Long destinatarioId) {
         this.destinatarioId = destinatarioId;
+    }
+
+    /**
+     * @return the destinatarioDireccion
+     */
+    public String getDestinatarioDireccion() {
+        return destinatarioDireccion;
+    }
+
+    /**
+     * @param destinatarioDireccion the destinatarioDireccion to set
+     */
+    public void setDestinatarioDireccion(String destinatarioDireccion) {
+        this.destinatarioDireccion = destinatarioDireccion;
+    }
+
+    /**
+     * @return the tarifaTagId
+     */
+    public String getTarifaTagId() {
+        return tarifaTagId;
+    }
+
+    /**
+     * @param tarifaTagId the tarifaTagId to set
+     */
+    public void setTarifaTagId(String tarifaTagId) {
+        this.tarifaTagId = tarifaTagId;
     }
 }

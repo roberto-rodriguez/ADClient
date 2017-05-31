@@ -2,16 +2,31 @@
 $(document).ready(function () {
     createCombo('destinatarioEstadoSelect', '/ADClient/config/state/' + $('#pais').val());
 
-    $("#destinatarioEstadoSelect").on('change', function () {
+    $("#destinatarioEstadoSelect").on('change', function () { 
         $('#' + this.id.split('Select')[0]).val($(this).val());
     });
+    
+     $("#destinatarioIdSelect").on('change', function (e) { 
+         var id = $(this).val();
+        $('#destinatarioId').val(id);
 
+            $('#destinatarioNombre').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.nombre : '');
+            $('#destinatarioTelefono').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.telefono : '');
+            $('#destinatarioDireccion').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.direccion : '');
+            $('#destinatarioEstado').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.departamento : '');
+            $('#destinatarioCiudad').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.municipio : '');
+
+            $("#destinatarioEstadoSelect").jqxComboBox('val', $('#destinatarioEstado').val());
+    });destinatarioEstado
+
+    tieneDestinatarios();
 });
 
 function tieneDestinatarios() {
     $.get("/ADClient/config/destinatario/" + $('#remitenteTelefono').val(),
             {},
             function (resultData) {
+                debugger;
                 var source = {
                     localdata: resultData,
                     datatype: "json",
@@ -29,25 +44,13 @@ function tieneDestinatarios() {
 
                 var dataAdapter = new $.jqx.dataAdapter(source, {
                     loadComplete: function (values) {
-                        if(!values || values.length == 0)return;
-                        
-                        $('#destinatariosSection').show();
-                        var id = 'destinatarioIdSelect',
-                         previousValue = $('#' + id.split('Select')[0]).val();
-                 
-                        if (previousValue && $.grep(values, function (elem) {
-                            return elem.codigo == previousValue
-                        }).length > 0) {
-                            jQuery('#' + id).jqxComboBox('val', previousValue);
-                        } else {
-                            var newVal = values.length > 0 ? values[0].codigo : null;
-                            jQuery('#' + id).jqxComboBox('val', newVal);
-                            jQuery('#' + id).change();
-                        }
+                        if (!values || values.length > 1){
+                           $('#destinatariosSection').show(); 
+                        } 
                     }
                 });
 
-                $('#tarifaSelect').jqxComboBox(
+                $('#destinatarioIdSelect').jqxComboBox(
                         {
                             source: dataAdapter,
                             width: 173,
@@ -57,6 +60,16 @@ function tieneDestinatarios() {
                             valueMember: 'id',
                             autoDropDownHeight: true
                         });
+
+                $("#destinatarioIdSelect").ready(function () {
+                    debugger;
+                    if ($('#destinatarioId').val()) {
+                        $("#destinatarioIdSelect").jqxComboBox('val', $('#destinatarioId').val());
+                    } else {
+                        $("#destinatarioIdSelect").jqxComboBox('selectedIndex', 0);
+                        $("#destinatarioIdSelect").change();
+                    }
+                });
             });
 
 }

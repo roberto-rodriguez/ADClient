@@ -1,6 +1,6 @@
 
-var host = "http://adreporttomcat-env.us-east-1.elasticbeanstalk.com/";
-//var host = "http://localhost:8098/ADReport/"; 
+//var host = "http://adreporttomcat-env.us-east-1.elasticbeanstalk.com/";
+var host = "http://localhost:8098/ADClient/"; 
 
 
 function next() {
@@ -24,7 +24,7 @@ function getData() {
 function goTo(event) {
     $.ajax({
         type: "GET",
-        url: $("#flowExecutionUrl").val() + "&_eventId=" + event,
+        url:$("#flowExecutionUrl").val() + "&_eventId=" + event,
         data: getData(),
         success: function (data) {
             $('#content').html(data);

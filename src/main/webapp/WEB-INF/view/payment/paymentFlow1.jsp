@@ -7,7 +7,7 @@
 <input type="hidden" id="flowExecutionUrl" value="${flowExecutionUrl}"/>
 
 <div class="top-bar">
-    <p class="top-bar-left" onclick="javascript:back()">Back</p>
+    <p class="top-bar-left" onclick="javascript:back()"></p>
     <p class="top-bar-center">Tarifas y Punto de Pago</p> 
     <p class="top-bar-right" onclick="javascript:next()">Next</p>
 </div>

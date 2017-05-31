@@ -14,25 +14,23 @@
 <br>
 <div id="destinatariosSection" style="margin:20px 10% 0px 10%;border-bottom: inset 1px #333;padding-bottom:20px" hidden="true">
     Destinatarios Guardados
-    <div id="destinatarioIdSelect"></div>
-    <form:input path="destinatarioId" id="destinatarioId"/>
+    <div id="destinatarioIdSelect"></div> 
 </div>
 
 <form:form commandName="command">
     <table class="form-table" style="padding-bottom:20px">
         <tr>
             <td>
-                <p>Nombre:</p><form:input path="destinatarioNombre" />
+                <p>Nombre:</p><form:input path="destinatarioNombre" id="destinatarioNombre"/>
                 <form:input path="remitenteTelefono" id="remitenteTelefono"/>
                  
             </td>
             <td>
-                <p>Teléfono:</p><form:input path="destinatarioTelefono" />
+                <p>Teléfono:</p><form:input path="destinatarioTelefono" id="destinatarioTelefono"/>
                 <form:input path="destinatarioId" id="destinatarioId"/>
             </td>
             <td>
-                <p>Dirección</p><form:input path="destinatarioDirecion" />
-                <form:input path="destinatarioId" id="destinatarioId"/>
+                <p>Dirección</p><form:input path="destinatarioDireccion" id="destinatarioDireccion"/> 
             </td>
         </tr>
         <tr>
@@ -44,12 +42,12 @@
                 <form:input path="destinatarioEstado" id="destinatarioEstado"/> 
             </td>
             <td>
-                <p>Ciudad:</p><form:input path="destinatarioCiudad" /> 
+                <p>Ciudad:</p><form:input path="destinatarioCiudad" id="destinatarioCiudad"/> 
             </td>
         </tr>
         <tr>
             <td>
-                <p>Número de Cuenta </p><form:input path="numeroDeCuenta" /> 
+                <p>Número de Cuenta </p><form:input path="numeroDeCuenta" id="numeroDeCuenta"/> 
             </td> 
         </tr>
         <tr>

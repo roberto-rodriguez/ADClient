@@ -193,7 +193,11 @@ public class ConfigController {
        
        if(remitente != null){
            System.out.println("remitente.getDestinatarios().size() = " + remitente.getDestinatarios().size());
-           return remitente.getDestinatarios();
+           List<Destinatario> list = remitente.getDestinatarios();
+           if(list != null && !list.isEmpty()){
+               list.add(0, new Destinatario(0L, "Nuevo Destinatario."));
+           }
+           return list;
        }
         System.out.println("null");
        return null;

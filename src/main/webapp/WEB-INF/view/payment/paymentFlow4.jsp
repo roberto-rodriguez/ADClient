@@ -41,7 +41,7 @@
             <td> 
             </td>
             <td colspan="2">
-                <p>Dirección: ${command.destinatarioDirecion}</p> 
+                <p>Dirección: ${command.destinatarioDireccion}</p> 
             </td> 
         </tr>
         <tr>

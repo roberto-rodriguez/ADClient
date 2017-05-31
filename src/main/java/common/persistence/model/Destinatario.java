@@ -17,6 +17,14 @@ public class Destinatario{
     private String pais;
  
     private String telefono; 
+
+    public Destinatario() {
+    }
+
+    public Destinatario(Long id, String nombre) {
+        this.id = id;
+        this.nombre = nombre; 
+    }
      
      
     
