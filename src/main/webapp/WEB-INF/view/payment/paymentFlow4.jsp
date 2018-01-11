@@ -12,17 +12,17 @@
                 <b>Remitente</b>
             </td>
             <td>
-                <p>Nombre: ${command.remitenteNombre}</p>  
+                <p>Nombre: ${command.nomRemite}</p>  
             </td>
             <td>
-                <p>Teléfono: ${command.remitenteTelefono}</p> 
+                <p>Teléfono: ${command.telRemite}</p> 
             </td>
         </tr>
         <tr  style="border-bottom: inset 1px #333;padding-bottom:20px">
             <td> 
             </td>
             <td colspan="2">
-                <p>Dirección: ${command.remitenteDireccion}</p> 
+                <p>Dirección: ${command.dirRemite}</p> 
             </td> 
         </tr>
 
@@ -31,24 +31,24 @@
                 <b>Destinatario</b>
             </td>
             <td class="border-top">
-                <p>Nombre: ${command.destinatarioNombre}</p>  
+                <p>Nombre: ${command.nomDestinatario}</p>  
             </td>
             <td class="border-top">
-                <p>Teléfono: ${command.destinatarioTelefono}</p> 
+                <p>Teléfono: ${command.telDestinatario}</p> 
             </td>
         </tr>
         <tr>
             <td> 
             </td>
             <td colspan="2">
-                <p>Dirección: ${command.destinatarioDireccion}</p> 
+                <p>Dirección: ${command.dirDestinatario}</p> 
             </td> 
         </tr>
         <tr>
             <td> 
             </td>
             <td colspan="2">
-                <p>Cuenta: ${command.numeroDeCuenta}</p> 
+                <p>Cuenta: ${command.numeroCuenta}</p> 
             </td> 
         </tr>
 
@@ -58,20 +58,20 @@
                 <b>Datos del Envío</b>
             </td>
             <td class="border-top">
-                <p>Monto a Enviar: USD ${command.montoAEnviar}</p>  
+                <p>Monto a Enviar: USD ${command.montoEntregar}</p>  
             </td>
             <td class="border-top">
-                <p>Punto de Pago: ${command.corresponsal}</p> 
+                <p>Punto de Pago: ${command.codCorresponsalLabel}</p> 
             </td>
         </tr>
         <tr>
             <td> 
             </td>
             <td>
-                <p>Método de Entrega: ${command.formaDeEntrega}</p> 
+                <p>Método de Entrega: ${command.formaPagoLabel}</p> 
             </td> 
             <td>
-                <p>Tarifa: USD ${command.tarifa}</p> 
+                <p>Tarifa: USD ${command.tipoCambio}</p> 
             </td> 
         </tr>
         <tr>
@@ -81,19 +81,19 @@
                 <p>Tasa de Cambio: ${command.tasaDeCambio}</p> 
             </td> 
             <td>
-                <p>Monto a Entregar en ${command.pais}: GTQ ${command.montoRealAPagar}</p> 
+                <p>Monto a Entregar en ${command.codPaisDestinatario}: GTQ ${command.dineroEntregado}</p> 
             </td> 
         </tr>
         <tr>
             <td> 
             </td>
             <td>
-                <p>Total a Pagar: USD ${command.totalAPagar}</p> 
+                <p>Total a Pagar: USD ${command.totalPagar}</p> 
             </td>  
         </tr>
         <tr>
             <td>
-                <input type="button" value="Continuar" class="button"/>
+                <input type="button" value="Continuar" class="button" onclick="javascript:next()"/>
             </td> 
         </tr>
     </table>

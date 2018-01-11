@@ -5,13 +5,13 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $.get( "/ADClient/payment-flow.htm", function(data){ $( '#content' ).html( data );} );
+        $.get( host + "payment-flow.htm", function(data){ $( '#content' ).html( data );} );
     });
 
 </script>
 <div id="mainContent" class="mainContent"> 
     <div id="content">
-        content
+        
     </div>
 </div>
  

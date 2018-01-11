@@ -1,14 +1,14 @@
 
 $(document).ready(function () {
-    createCombo('remitenteEstadoSelect', '/ADClient/config/state/US');
-    createCombo('remitenteCiudadSelect');
+    createCombo('codEstadoRemiteSelect', host + 'config/state/US');
+    createCombo('nomCiudadRemiteSelect');
 
-    $("#remitenteEstadoSelect").on('change', function () {
+    $("#codEstadoRemiteSelect").on('change', function () {
         var val = $(this).val();
-        createCombo('remitenteCiudadSelect', val && '/ADClient/config/city/' + val);
+        createCombo('nomCiudadRemiteSelect', val && host + 'config/city/' + val);
     });
 
-    $("#remitenteEstadoSelect,#remitenteCiudadSelect").on('change', function () {
+    $("#codEstadoRemiteSelect,#nomCiudadRemiteSelect").on('change', function () {
         $('#' + this.id.split('Select')[0]).val($(this).val()); 
     });
 
@@ -19,16 +19,16 @@ $(document).ready(function () {
 });
 
 function validateTelefono() { 
-    $.get("/ADClient/config/remitente/" + $('#remitenteTelefono').val(),
+    $.get(host + "config/remitente/" + $('#remitenteTelefono').val(),
             function (resultData) {
                 if (resultData) {
                     $('#remitenteNombre').val(resultData.name);
-                    $('#remitenteDireccion').val(resultData.direccion);
+                    $('#dirRemite').val(resultData.direccion);
                     $('#remitenteZipcode').val(resultData.zipcode);
-                    jQuery('#remitenteEstadoSelect').jqxComboBox('val', resultData.estado);
-                    $('#remitenteEstado').val(resultData.estado);
-                    $('#remitenteCiudad').val(resultData.ciudad);
-                    createCombo('remitenteCiudadSelect', resultData.estado && '/ADClient/config/city/' + resultData.estado);
+                    jQuery('#codEstadoRemiteSelect').jqxComboBox('val', resultData.estado);
+                    $('#codEstadoRemite').val(resultData.estado);
+                    $('#nomCiudadRemite').val(resultData.ciudad);
+                    createCombo('nomCiudadRemiteSelect', resultData.estado && host + 'config/city/' + resultData.estado);
                 }
             }
     );

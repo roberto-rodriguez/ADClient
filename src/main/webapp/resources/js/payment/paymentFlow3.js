@@ -1,8 +1,8 @@
 
 $(document).ready(function () {
-    createCombo('destinatarioEstadoSelect', '/ADClient/config/state/' + $('#pais').val());
+    createCombo('codEstadoDestinatarioSelect', host + 'config/state/' + $('#codPaisDestinatario').val());
 
-    $("#destinatarioEstadoSelect").on('change', function () { 
+    $("#codEstadoDestinatarioSelect").on('change', function () { 
         $('#' + this.id.split('Select')[0]).val($(this).val());
     });
     
@@ -10,23 +10,22 @@ $(document).ready(function () {
          var id = $(this).val();
         $('#destinatarioId').val(id);
 
-            $('#destinatarioNombre').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.nombre : '');
-            $('#destinatarioTelefono').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.telefono : '');
-            $('#destinatarioDireccion').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.direccion : '');
-            $('#destinatarioEstado').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.departamento : '');
-            $('#destinatarioCiudad').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.municipio : '');
+            $('#nomDestinatario').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.nombre : '');
+            $('#telDestinatario').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.telefono : '');
+            $('#dirDestinatario').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.direccion : '');
+            $('#codEstadoDestinatario').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.departamento : '');
+            $('#nomCiudadDestinatario').val(id != 0 ? e.args.item && e.args.item.originalItem && e.args.item.originalItem.municipio : '');
 
-            $("#destinatarioEstadoSelect").jqxComboBox('val', $('#destinatarioEstado').val());
-    });destinatarioEstado
+            $("#codEstadoDestinatarioSelect").jqxComboBox('val', $('#codEstadoDestinatario').val());
+    });
 
     tieneDestinatarios();
 });
 
 function tieneDestinatarios() {
-    $.get("/ADClient/config/destinatario/" + $('#remitenteTelefono').val(),
+    $.get(host + "config/destinatario/" + $('#telRemite').val(),
             {},
-            function (resultData) {
-                debugger;
+            function (resultData) { 
                 var source = {
                     localdata: resultData,
                     datatype: "json",
@@ -61,8 +60,7 @@ function tieneDestinatarios() {
                             autoDropDownHeight: true
                         });
 
-                $("#destinatarioIdSelect").ready(function () {
-                    debugger;
+                $("#destinatarioIdSelect").ready(function () { 
                     if ($('#destinatarioId').val()) {
                         $("#destinatarioIdSelect").jqxComboBox('val', $('#destinatarioId').val());
                     } else {

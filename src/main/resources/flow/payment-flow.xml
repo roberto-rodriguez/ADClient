@@ -9,52 +9,31 @@
     </on-start>
     
     <view-state id="paymentFlow1" view="payment/paymentFlow1"  model="command"> 
-        <transition on="next" to="paymentFlow2">
-            <evaluate expression="paymentMultiAction.bind"/>
-        </transition>
-        <transition on="back" to="paymentFlow5">
-            <evaluate expression="activityMultiAction.putIdCampInFlowScope"/>
-        </transition>
-        
-        <transition on="addCampaign" to="addCampaign">
-             <evaluate expression="activityMultiAction.listCampaignNames"/>
-        </transition>
+        <transition on="next" to="paymentFlow2"/> 
+        <transition on="back" to="paymentFlow5"/>  
     </view-state>
     
     <view-state id="paymentFlow2" view="payment/paymentFlow2"  model="command"> 
-        <transition on="next" to="paymentFlow3">
-            <!--<evaluate expression="paymentMultiAction.bind"/>-->
-        </transition>
-        <transition on="back" to="paymentFlow1">
-            <!--<evaluate expression="activityMultiAction.putIdCampInFlowScope"/>-->
-        </transition>
+        <transition on="next" to="paymentFlow3"/> 
+        <transition on="back" to="paymentFlow1"/> 
     </view-state>
     
     <view-state id="paymentFlow3" view="payment/paymentFlow3"  model="command"> 
-        <transition on="next" to="paymentFlow4">
-           <!--<evaluate expression="paymentMultiAction.bind"/>-->
-        </transition>
-        <transition on="back" to="paymentFlow2">
-            <!--<evaluate expression="activityMultiAction.putIdCampInFlowScope"/>-->
-        </transition>
+        <transition on="next" to="paymentFlow4"/> 
+        <transition on="back" to="paymentFlow2"/> 
     </view-state>
     
     <view-state id="paymentFlow4" view="payment/paymentFlow4"  model="command"> 
         <transition on="next" to="paymentFlow5">
-            <!--<evaluate expression="activityMultiAction.putIdCampInFlowScope"/>-->
+           <evaluate expression="paymentMultiAction.enviar"/>
         </transition>
-        <transition on="back" to="paymentFlow3">
-            <!--<evaluate expression="activityMultiAction.putIdCampInFlowScope"/>-->
-        </transition>
+        <transition on="back" to="paymentFlow3"/> 
     </view-state>
     
     <view-state id="paymentFlow5" view="payment/paymentFlow5"> 
         <transition on="next" to="paymentFlow1">
-            <evaluate expression="paymentMultiAction.enviar"/>
-        </transition>
-        <transition on="back" to="paymentFlow4">
-            <!--<evaluate expression="activityMultiAction.putIdCampInFlowScope"/>-->
-        </transition>
+            <evaluate expression="paymentMultiAction.inicializarFlujo" />
+        </transition> 
     </view-state>
      
 </flow>

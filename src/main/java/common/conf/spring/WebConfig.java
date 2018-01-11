@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
+import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module; 
 import java.util.List;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,9 +20,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
-@EnableWebMvc
+@EnableWebMvc 
 @ComponentScan({"common"})
 public class WebConfig extends WebMvcConfigurerAdapter {
+  
 
     static {
         System.setProperty("java.awt.headless", "true");
@@ -36,7 +37,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
-
+ 
+     
     @Bean
     public ViewResolver viewResolver() {
         System.out.println("--------- ADClient creating view resolver ----------");

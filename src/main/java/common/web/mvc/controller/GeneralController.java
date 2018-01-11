@@ -9,9 +9,12 @@ import com.google.gson.Gson;
 import common.persistence.model.Pais;
 import common.persistence.repo.Repo;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,34 +28,38 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Roberto Rodriguez
  */
 @Controller
+@PropertySource({"classpath:env.properties"})
 @RequestMapping(value = "/", method = RequestMethod.GET)
-public class GeneralController { 
+public class GeneralController {
+
     @Autowired
     private RestTemplate restTemplate;
     @Autowired
     private Repo repo;
 
+    @Autowired
+    private Environment env;
+
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public ModelAndView index(HttpServletRequest request, @RequestParam(required = false) Integer type) {
-        System.out.println("index..."); 
-        
-        String host = request.getRequestURL().toString();
-        if(host.contains("/ADClient/")){
-            host = host.split("/ADClient/")[0];
-        }
-        
-        ResponseEntity<String> response = restTemplate.getForEntity(host + "/ADServer/alodiga/mobile/config", String.class);
+        System.out.println("index...");
+        String host = env.getProperty("adserver.url");
+        System.out.println("host = " + host);
+
+        ResponseEntity<String> response = restTemplate.getForEntity(host + "alodiga/mobile/config", String.class);
 
         String str = response.getBody();
         Gson gson = new Gson(); // Or use new GsonBuilder().create();
         Pais[] paisesArray = gson.fromJson(str, Pais[].class);
-        
+
         List<Pais> paises = Arrays.asList(paisesArray);
-        
+
         repo.setConfig(paises);
-        
+
         String agenciaOrigen = (String) request.getParameter("agenciaOrigen");
 
+        agenciaOrigen = "MIA-1";
+        
         request.getSession().setAttribute("agenciaOrigen", agenciaOrigen);
 
         System.out.println("agenciaOrigen = " + agenciaOrigen);
@@ -61,4 +68,7 @@ public class GeneralController {
         return new ModelAndView("index");
     }
 
+    public static void main(String[] args) {
+        System.out.println(new Date());
+    }
 }

@@ -1,91 +1,108 @@
 
 $(document).ready(function () {
-    if (!$('#pais').val())
-        $('#pais').val('GTM');
+    var loading = true;
 
-    $('#tarifaIncluidaCheckbox').prop('checked', $('#tarifaIncluida').val() == 'true');
-    createCombo('paisSelect', '/ADClient/config/paises');
-    createCombo('corresponsalSelect');
-    createCombo('formaDeEntregaSelect');
-    createCombo('tarifaSelect');
+    if (!$('#codPaisDestinatario').val())
+        $('#codPaisDestinatario').val('GTM');
 
-    $("#paisSelect").on('change', function () {
+    $('#tarifaIncluidaCheckbox').prop('checked', $('#incluyeComision').val() == 'true');
+    createCombo('codPaisDestinatarioSelect', host + 'config/paises');
+    createCombo('codCorresponsalSelect');
+    createCombo('formaPagoSelect');
+    createCombo('tipoCambioSelect');
+
+    $("#codPaisDestinatarioSelect").on('change', function () {
         var val = $(this).val();
-        createCombo('corresponsalSelect', val && '/ADClient/config/corresponsales/' + val);
+        createCombo('codCorresponsalSelect', val && host + 'config/corresponsales/' + val);
     });
 
-    $("#corresponsalSelect").on('change', function () {
+    $("#codCorresponsalSelect").on('change', function (e) {
         var val = $(this).val();
+        
+         $('#codCorresponsalLabel').val(e.args && e.args.item && e.args.item.label);
+         
+        
         if (!val) {
-            $('#formaDeEntrega').val('');
-            createCombo('formaDeEntregaSelect');
+            $('#formaPago').val('');
+            createCombo('formaPagoSelect');
         } else {
-            createCombo('formaDeEntregaSelect', val && '/ADClient/config/formasEntrega/' + $('#paisSelect').val() + '/' + val);
+            createCombo('formaPagoSelect', val && host + 'config/formasEntrega/' + $('#codPaisDestinatarioSelect').val() + '/' + val);
         }
     });
 
-    $("#paisSelect,#corresponsalSelect,#formaDeEntregaSelect").on('change', function () {
+    $("#codPaisDestinatarioSelect,#codCorresponsalSelect").on('change', function () {
         $('#' + this.id.split('Select')[0]).val($(this).val());
         validateCotizarForm();
     });
 
+    $("#formaPagoSelect").on('change', function (e) {
+        $('#formaPagoLabel').val(e.args && e.args.item && e.args.item.label);
+          
+        $('#' + this.id.split('Select')[0]).val($(this).val());
+        if (validateCotizarForm() && loading) {
+            loading = false;
+            cot(true);
+        }
+    });
+
     $("#tarifaIncluidaCheckbox").on('change', function () {
-        $('#tarifaIncluida').val($('#tarifaIncluidaCheckbox').is(":checked"));
+        $('#incluyeComision').val($('#tarifaIncluidaCheckbox').is(":checked"));
     });
 
 
-    $("#tarifaSelect").on('change', function (e) { 
+    $("#tipoCambioSelect").on('change', function (e) {
         $('#tasaDeCambio').val($(this).val());
+       
+        var tipoCambio = e.args && e.args.item && e.args.item.originalItem && e.args.item.originalItem.nombre;
+        $('#tipoCambio').val(tipoCambio);
 
-        var tarifa = e.args && e.args.item && e.args.item.originalItem && e.args.item.originalItem.nombre;
-         $('#tarifa').val(tarifa);
-
-        if (tarifa) {
-//            var tarifaIncluida = $('#tarifaIncluidaCheckbox').prop('checked');
-            $('#totalAPagar').val(e.args && e.args.item && e.args.item.originalItem && e.args.item.originalItem.totalPagar);
-            $('#montoRealAPagar').val(e.args && e.args.item && e.args.item.originalItem && e.args.item.originalItem.montoEntregar);
-            $('#montoRealAEnviar').val(e.args && e.args.item && e.args.item.originalItem && e.args.item.originalItem.dineroEntregado);
-//            $('#totalAPagar').val(parseFloat($('#montoAEnviar').val()) + parseFloat((tarifaIncluida ? tarifa : 0)));
-//            $('#montoRealAPagar').val(parseFloat($('#montoAEnviar').val()) - parseFloat((tarifaIncluida ? 0 : tarifa)));
-//            $('#montoRealAEnviar').val(parseFloat($('#montoRealAPagar').val()) * parseFloat($('#tasaDeCambio').val()));
+        if (tipoCambio) {
+//            var incluyeComision = $('#tarifaIncluidaCheckbox').prop('checked');
+            $('#totalPagar').val(e.args && e.args.item && e.args.item.originalItem && e.args.item.originalItem.totalPagar);
+            $('#montoRealAEnviar').val(e.args && e.args.item && e.args.item.originalItem && e.args.item.originalItem.montoEntregar);
+            $('#dineroEntregado').val(e.args && e.args.item && e.args.item.originalItem && e.args.item.originalItem.dineroEntregado);
+            $('#tarifaTagId').val(e.args && e.args.item && e.args.item.originalItem && e.args.item.originalItem.tarifaTagId);
+//            $('#totalPagar').val(parseFloat($('#montoEntregar').val()) + parseFloat((incluyeComision ? tipoCambio : 0)));
+//            $('#dineroEntregado').val(parseFloat($('#montoEntregar').val()) - parseFloat((incluyeComision ? 0 : tipoCambio)));
+//            $('#montoRealAEnviar').val(parseFloat($('#dineroEntregado').val()) * parseFloat($('#tipoCambio').val()));
         }
 //        else {
 //            cleanResultFields();
 //        }
     });
 
-    $('#montoAEnviar').on('blur', function () {
+    $('#montoEntregar').on('blur', function () {
         validateCotizarForm();
     });
-
-    if (validateCotizarForm()) {
-        cot(true);
-    }
+//debugger;
+//    if (validateCotizarForm()) {
+//        console.log('cotizar...');
+//        cot(true);
+//    }
 });
 
 function cot(keepTasaDeCambio) {
-    debugger;
     if (!$('#cotizar').data('active'))
         return;
 
-    cleanResultFields(keepTasaDeCambio);
+    // cleanResultFields(keepTasaDeCambio);
 
     var data = {
-        monto: $('#montoAEnviar').val() + "",
-        corresponsal: $('#corresponsal').val() + "",
-        formaEntrega: $('#formaDeEntrega').val() + "",
-        incluyeComision: $('#tarifaIncluida').val() + ""
+        monto: $('#montoEntregar').val() + "",
+        corresponsal: $('#codCorresponsal').val() + "",
+        formaEntrega: $('#formaPago').val() + "",
+        incluyeComision: $('#incluyeComision').val() + ""
     };
 
-    $.get("/ADClient/config/cotizar",
+    $.get(host + "config/cotizar",
             data,
             function (resultData) {
                 var source = {
                     localdata: resultData,
                     datatype: "json",
                     datafields: [
-//                        {name: 'tarifa'},
-//                        {name: 'tasaDeCambio'},
+//                        {name: 'tipoCambio'},
+                        {name: 'tarifaTagId'},
                         {name: 'montoEntregar'},
                         {name: 'dineroEntregado'},
                         {name: 'totalPagar'},
@@ -96,11 +113,11 @@ function cot(keepTasaDeCambio) {
                 };
 
                 var dataAdapter = new $.jqx.dataAdapter(source, {
-                    loadComplete: function (values) { 
+                    loadComplete: function (values) {
                     }
                 });
 
-                $('#tarifaSelect').jqxComboBox(
+                $('#tipoCambioSelect').jqxComboBox(
                         {
                             source: dataAdapter,
                             width: 173,
@@ -110,11 +127,24 @@ function cot(keepTasaDeCambio) {
                             autoDropDownHeight: true
                         });
 
-                $("#tarifaSelect").ready(function () {  
-                    if ($('#tasaDeCambio').val()) {
-                        $("#tarifaSelect").jqxComboBox('val', $('#tasaDeCambio').val());
+                $("#tipoCambioSelect").ready(function () {
+                    if ($('#tipoCambio').val()) {
+                        $("#tipoCambioSelect").jqxComboBox('val', $('#tipoCambio').val());
                     } else {
-                        $("#tarifaSelect").jqxComboBox('selectedIndex', 0);
+                        $("#tipoCambioSelect").jqxComboBox('selectedIndex', 0);
+                    }
+
+                    var currentData = $.grep(resultData, function (elem) {
+                        return elem.tarifa == $("#tipoCambioSelect").val()
+                    })
+ 
+                    if (currentData.length > 0){
+                        currentData = currentData[0];
+                        
+                        $('#totalPagar').val(currentData.totalPagar);
+                        $('#montoRealAEnviar').val(currentData.montoEntregar);
+                        $('#dineroEntregado').val(currentData.dineroEntregado);
+                        $('#tarifaTagId').val(currentData.tarifaTagId);
                     }
                 });
 
@@ -124,7 +154,7 @@ function cot(keepTasaDeCambio) {
 
 
 function validateCotizarForm() {
-    var valid = $('#pais').val() && $('#montoAEnviar').val() && $('#corresponsal').val() && $('#formaDeEntrega').val();
+    var valid = $('#codPaisDestinatario').val() && $('#montoEntregar').val() && $('#codCorresponsal').val() && $('#formaPago').val();
 
     $('#cotizar').data('active', valid);
     $('#cotizar').css('background-color', valid ? '#333' : 'grey');
@@ -133,11 +163,11 @@ function validateCotizarForm() {
 
 function cleanResultFields(keepTasaDeCambio) {
     $('#montoRealAEnviar').val('');
-    $('#totalAPagar').val('');
-    $('#montoRealAPagar').val(''); 
-    $('#tarifa').val('');
-    
-    if(!keepTasaDeCambio){
-        $('#tasaDeCambio').val(''); 
+    $('#totalPagar').val('');
+    $('#dineroEntregado').val('');
+    $('#tipoCambio').val('');
+
+    if (!keepTasaDeCambio) {
+        $('#tasaDeCambio').val('');
     }
 }

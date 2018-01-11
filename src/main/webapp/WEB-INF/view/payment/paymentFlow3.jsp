@@ -18,41 +18,42 @@
 </div>
 
 <form:form commandName="command">
+    <div style="visibility: hidden">
+        <form:input path="telRemite" id="telRemite"/> 
+        <form:input path="destinatarioId" id="destinatarioId"/>
+        <form:input path="codEstadoDestinatario" id="codEstadoDestinatario"/>
+     </div>
     <table class="form-table" style="padding-bottom:20px">
         <tr>
             <td>
-                <p>Nombre:</p><form:input path="destinatarioNombre" id="destinatarioNombre"/>
-                <form:input path="remitenteTelefono" id="remitenteTelefono"/>
-                 
+                <p>Nombre:</p><form:input path="nomDestinatario" id="nomDestinatario"/> 
+             </td>
+            <td>
+                <p>Teléfono:</p><form:input path="telDestinatario" id="telDestinatario"/> 
             </td>
             <td>
-                <p>Teléfono:</p><form:input path="destinatarioTelefono" id="destinatarioTelefono"/>
-                <form:input path="destinatarioId" id="destinatarioId"/>
-            </td>
-            <td>
-                <p>Dirección</p><form:input path="destinatarioDireccion" id="destinatarioDireccion"/> 
+                <p>Dirección</p><form:input path="dirDestinatario" id="dirDestinatario"/> 
             </td>
         </tr>
         <tr>
             <td>
-                <p>País </p><form:input path="pais" id="pais" disabled="true"/> 
+                <p>País </p><form:input path="codPaisDestinatario" id="codPaisDestinatario" disabled="true"/>  
             </td>
             <td>  
-                <p>Estado: </p><div id="destinatarioEstadoSelect"></div> 
-                <form:input path="destinatarioEstado" id="destinatarioEstado"/> 
+                <p>Estado: </p><div id="codEstadoDestinatarioSelect"></div> 
             </td>
             <td>
-                <p>Ciudad:</p><form:input path="destinatarioCiudad" id="destinatarioCiudad"/> 
+                <p>Ciudad:</p><form:input path="nomCiudadDestinatario" id="nomCiudadDestinatario"/> 
             </td>
         </tr>
         <tr>
             <td>
-                <p>Número de Cuenta </p><form:input path="numeroDeCuenta" id="numeroDeCuenta"/> 
+                <p>Número de Cuenta </p><form:input path="numeroCuenta" id="numeroCuenta"/> 
             </td> 
         </tr>
         <tr>
             <td>
-                <input type="button" value="Continuar" class="button"/>
+                <input type="button" value="Continuar" class="button" onclick="javascript:next()"/>
             </td> 
         </tr>
     </table>

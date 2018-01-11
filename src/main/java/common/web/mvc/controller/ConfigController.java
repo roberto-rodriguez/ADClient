@@ -22,11 +22,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod; 
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -36,8 +37,11 @@ import org.springframework.web.client.RestTemplate;
  * @author Roberto Rodriguez
  */
 @RestController
+@PropertySource({"classpath:env.properties"})
 @RequestMapping(value = "/config", method = RequestMethod.GET)
 public class ConfigController {
+   @Autowired
+    private Environment env;
 
     @Autowired
     private Repo repo;
@@ -80,14 +84,11 @@ public class ConfigController {
 
         System.out.println("cotizar: monto = " + monto);
 
-        String host = request.getRequestURL().toString();
-        if (host.contains("/ADClient/")) {
-            host = host.split("/ADClient/")[0];
-        }
+        String host = env.getProperty("adserver.url");
 
         String params = "?monto=" + monto + "&corresponsal=" + corresponsal + "&formaEntrega=" + formaEntrega + "&incluyeComision=" + incluyeComision + "&agenciaOrigen=MIA-1";
 
-        String url = host + "/ADServer/alodiga/mobile/cotizar2" + params;
+        String url = host + "alodiga/mobile/cotizar2" + params;
 
         try {
             ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
@@ -111,12 +112,9 @@ public class ConfigController {
     Estado[] state(HttpServletRequest request, @PathVariable("pais") String pais) {
         System.out.println("state");
 
-        String host = request.getRequestURL().toString();
-        if (host.contains("/ADClient/")) {
-            host = host.split("/ADClient/")[0];
-        }
+        String host =  env.getProperty("adserver.url");
 
-        String url = host + "/ADServer/alodiga/mobile/listarEstados?pais=" + pais;
+        String url = host + "alodiga/mobile/listarEstados?pais=" + pais;
 
         try {
             ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
@@ -138,12 +136,9 @@ public class ConfigController {
     List<Nomemclator> city(HttpServletRequest request, @PathVariable("state") String state) {
         System.out.println("state");
 
-        String host = request.getRequestURL().toString();
-        if (host.contains("/ADClient/")) {
-            host = host.split("/ADClient/")[0];
-        }
+        String host = env.getProperty("adserver.url");
 
-        String url = host + "/ADServer/alodiga/mobile/listCities?state=" + state;
+        String url = host + "/alodiga/mobile/listCities?state=" + state;
 
         try {
             ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
@@ -166,12 +161,9 @@ public class ConfigController {
     public @ResponseBody
     Remitente remitente(HttpServletRequest request, @PathVariable("telefono") String telefono) {
         System.out.println("remitente");
-        String host = request.getRequestURL().toString();
-        if (host.contains("/ADClient/")) {
-            host = host.split("/ADClient/")[0];
-        }
+        String host = env.getProperty("adserver.url");
 
-        String url = host + "/ADServer/alodiga/mobile/remitente?agenciaOrigen=MIA-1&telefono=" + telefono;
+        String url = host + "alodiga/mobile/remitente?agenciaOrigen=MIA-1&telefono=" + telefono;
 
         try {
             ResponseEntity<Remitente> response = restTemplate.getForEntity(url, Remitente.class);
@@ -188,18 +180,16 @@ public class ConfigController {
     @RequestMapping(value = "/destinatario/{telefono}", method = RequestMethod.GET/*, produces = MediaType.APPLICATION_JSON_VALUE*/)
     public @ResponseBody
     List<Destinatario> destinatario(HttpServletRequest request, @PathVariable("telefono") String telefono) {
-        System.out.println("destinatario");
+  
        Remitente remitente = remitente( request,telefono);
        
        if(remitente != null){
-           System.out.println("remitente.getDestinatarios().size() = " + remitente.getDestinatarios().size());
            List<Destinatario> list = remitente.getDestinatarios();
            if(list != null && !list.isEmpty()){
                list.add(0, new Destinatario(0L, "Nuevo Destinatario."));
            }
            return list;
-       }
-        System.out.println("null");
+       } 
        return null;
     }
 

@@ -13,36 +13,38 @@
 </div>
 
 <form:form commandName="command">
+    <div style="visibility: hidden">
+        <%--<form:input path="codPaisDestinatario"  id="pais"/>--%> 
+        <form:input path="codEstadoRemite"  id="codEstadoRemite"/>
+        <form:input path="nomCiudadRemite" id="nomCiudadRemite"/>
+    </div>
 
     <table class="form-table" style="padding-bottom:20px">
         <tr>
             <td>
-                <p>Nombre:</p><form:input path="remitenteNombre" id="remitenteNombre"/> 
-                <form:input path="pais"  id="pais"/> 
+                <p>Nombre:</p><form:input path="nomRemite" id="nomRemite"/>  
             </td>
             <td>
-                <p>Teléfono:</p><form:input path="remitenteTelefono" id="remitenteTelefono"/> 
+                <p>Teléfono:</p><form:input path="telRemite" id="telRemite"/> 
             </td>
             <td>
-                <p>Dirección</p><form:input path="remitenteDireccion" id="remitenteDireccion"/> 
+                <p>Dirección</p><form:input path="dirRemite" id="dirRemite"/> 
             </td>
         </tr>
         <tr>
             <td>
-                <p>ZipCode: </p><form:input path="remitenteZipcode" id="remitenteZipcode"/> 
+                <p>ZipCode: </p><form:input path="dirPostalRemite" id="dirPostalRemite"/> 
             </td>
             <td> 
-                <p>Estado: </p><div id="remitenteEstadoSelect"></div>
-                <form:input path="remitenteEstado"  id="remitenteEstado"/> 
+                <p>Estado: </p><div id="codEstadoRemiteSelect"></div> 
             </td>
             <td>
-                <p>Ciudad:</p><div id="remitenteCiudadSelect"></div>
-                <form:input path="remitenteCiudad" id="remitenteCiudad"/>
+                <p>Ciudad:</p><div id="nomCiudadRemiteSelect"></div> 
             </td>
         </tr>
         <tr>
             <td>
-                <input type="button" value="Continuar" class="button"/>
+                <input type="button" value="Continuar" class="button" onclick="javascript:next()"/>
             </td> 
         </tr>
     </table>
