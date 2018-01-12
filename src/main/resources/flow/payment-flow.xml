@@ -8,29 +8,52 @@
         <evaluate expression="paymentMultiAction.inicializarFlujo" />
     </on-start>
     
+    
+    
     <view-state id="paymentFlow1" view="payment/paymentFlow1"  model="command"> 
-        <transition on="next" to="paymentFlow2"/> 
-        <transition on="back" to="paymentFlow5"/>  
+        <transition on="next" to="paymentFlow2"/>  
     </view-state>
     
     <view-state id="paymentFlow2" view="payment/paymentFlow2"  model="command"> 
-        <transition on="next" to="paymentFlow3"/> 
+        <transition on="next" to="isCubaNext"/> 
         <transition on="back" to="paymentFlow1"/> 
     </view-state>
     
-    <view-state id="paymentFlow3" view="payment/paymentFlow3"  model="command"> 
-        <transition on="next" to="paymentFlow4"/> 
-        <transition on="back" to="paymentFlow2"/> 
+    <decision-state id="isCubaNext">
+        <if test="paymentMultiAction.isCuba(flowRequestContext)" then="paymentFlowAfidavit" else="paymentFlow3" />
+    </decision-state>
+    
+    <view-state id="paymentFlowAfidavit" view="payment/paymentFlowAfidavit"  model="command"> 
+        <transition on="next" to="paymentFlow3"/> 
+        <transition on="back" to="paymentFlow2"/>  
     </view-state>
     
+    <decision-state id="isCubaBack">
+        <if test="paymentMultiAction.isCuba(flowRequestContext)" then="paymentFlowAfidavit" else="paymentFlow2" />
+    </decision-state>
+    
+    <view-state id="paymentFlow3" view="payment/paymentFlow3"  model="command"> 
+        <transition on="next" to="paymentFlow4"/> 
+        <transition on="back" to="isCubaBack"/> 
+    </view-state>
+       
     <view-state id="paymentFlow4" view="payment/paymentFlow4"  model="command"> 
-        <transition on="next" to="paymentFlow5">
+        <transition on="next" to="paymentFlowResponse">
            <evaluate expression="paymentMultiAction.enviar"/>
         </transition>
+<!--        <transition on="next" to="paymentFlow5">
+           <evaluate expression="paymentMultiAction.enviar"/>
+        </transition>-->
         <transition on="back" to="paymentFlow3"/> 
     </view-state>
     
     <view-state id="paymentFlow5" view="payment/paymentFlow5"> 
+        <transition on="next" to="paymentFlow1">
+            <evaluate expression="paymentMultiAction.inicializarFlujo" />
+        </transition> 
+    </view-state>
+    
+    <view-state id="paymentFlowResponse" view="payment/paymentFlowResponse"> 
         <transition on="next" to="paymentFlow1">
             <evaluate expression="paymentMultiAction.inicializarFlujo" />
         </transition> 

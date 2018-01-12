@@ -6,6 +6,7 @@
 package common.web.mvc.controller;
 
 import com.google.gson.Gson;
+import common.persistence.dto.Nom;
 import common.persistence.model.BaseCotizar;
 import common.persistence.model.Corresponsal;
 import common.persistence.model.Destinatario;
@@ -17,6 +18,7 @@ import common.persistence.model.Remitente;
 import common.persistence.repo.Repo;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -192,6 +194,7 @@ public class ConfigController {
        } 
        return null;
     }
+ 
 
     static String urlEncodeUTF8(String s) {
         try {

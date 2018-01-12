@@ -61,6 +61,22 @@ public class PaymentCommand implements Serializable {
     private String codEstadoDestinatario;
     private String nomCiudadDestinatario;
     private String numeroCuenta;
+    
+     //Para envios a Cuba
+    private String fechaNacRemite;
+    private String apellidoMaterno;
+    private String numId;
+    private String fechaExpiracion;
+    private String tipoId;
+    private String tipoIdIndex;
+    private Boolean remitentePresente;
+    private String relacionDestinatario;
+    private String relacionDestinatarioIndex;
+    private String declaracionRemitente;
+    private String confirmacionFamilia;
+    private String confirmacionNoGobierno;
+    private String confirmacionNoProhibido;
+    private String confirmacionNoEmigracion;
 
     public void complete(){
         this.zipRemite = dirPostalRemite;
@@ -505,6 +521,203 @@ public class PaymentCommand implements Serializable {
      */
     public void setNumeroCuenta(String numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
+    }
+
+    /**
+     * @return the apellidoMaterno
+     */
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
+    }
+
+    /**
+     * @param apellidoMaterno the apellidoMaterno to set
+     */
+    public void setApellidoMaterno(String apellidoMaterno) {
+        this.apellidoMaterno = apellidoMaterno;
+    }
+
+    /**
+     * @return the numId
+     */
+    public String getNumId() {
+        return numId;
+    }
+
+    /**
+     * @param numId the numId to set
+     */
+    public void setNumId(String numId) {
+        this.numId = numId;
+    }
+
+    /**
+     * @return the fechaExpiracion
+     */
+    public String getFechaExpiracion() {
+        return fechaExpiracion;
+    }
+
+    /**
+     * @param fechaExpiracion the fechaExpiracion to set
+     */
+    public void setFechaExpiracion(String fechaExpiracion) {
+        this.fechaExpiracion = fechaExpiracion;
+    }
+
+    /**
+     * @return the tipoId
+     */
+    public String getTipoId() {
+        return tipoId;
+    }
+
+    /**
+     * @param tipoId the tipoId to set
+     */
+    public void setTipoId(String tipoId) {
+        this.tipoId = tipoId;
+    }
+
+  
+    /**
+     * @return the relacionDestinatario
+     */
+    public String getRelacionDestinatario() {
+        return relacionDestinatario;
+    }
+
+    /**
+     * @param relacionDestinatario the relacionDestinatario to set
+     */
+    public void setRelacionDestinatario(String relacionDestinatario) {
+        this.relacionDestinatario = relacionDestinatario;
+    }
+
+    /**
+     * @return the declaracionRemitente
+     */
+    public String getDeclaracionRemitente() {
+        return declaracionRemitente;
+    }
+
+    /**
+     * @param declaracionRemitente the declaracionRemitente to set
+     */
+    public void setDeclaracionRemitente(String declaracionRemitente) {
+        this.declaracionRemitente = declaracionRemitente;
+    }
+
+    /**
+     * @return the confirmacionFamilia
+     */
+    public String getConfirmacionFamilia() {
+        return confirmacionFamilia;
+    }
+
+    /**
+     * @param confirmacionFamilia the confirmacionFamilia to set
+     */
+    public void setConfirmacionFamilia(String confirmacionFamilia) {
+        this.confirmacionFamilia = confirmacionFamilia;
+    }
+
+    /**
+     * @return the confirmacionNoGobierno
+     */
+    public String getConfirmacionNoGobierno() {
+        return confirmacionNoGobierno;
+    }
+
+    /**
+     * @param confirmacionNoGobierno the confirmacionNoGobierno to set
+     */
+    public void setConfirmacionNoGobierno(String confirmacionNoGobierno) {
+        this.confirmacionNoGobierno = confirmacionNoGobierno;
+    }
+
+    /**
+     * @return the confirmacionNoProhibido
+     */
+    public String getConfirmacionNoProhibido() {
+        return confirmacionNoProhibido;
+    }
+
+    /**
+     * @param confirmacionNoProhibido the confirmacionNoProhibido to set
+     */
+    public void setConfirmacionNoProhibido(String confirmacionNoProhibido) {
+        this.confirmacionNoProhibido = confirmacionNoProhibido;
+    }
+
+    /**
+     * @return the confirmacionNoEmigracion
+     */
+    public String getConfirmacionNoEmigracion() {
+        return confirmacionNoEmigracion;
+    }
+
+    /**
+     * @param confirmacionNoEmigracion the confirmacionNoEmigracion to set
+     */
+    public void setConfirmacionNoEmigracion(String confirmacionNoEmigracion) {
+        this.confirmacionNoEmigracion = confirmacionNoEmigracion;
+    }
+
+    /**
+     * @return the fechaNacRemite
+     */
+    public String getFechaNacRemite() {
+        return fechaNacRemite;
+    }
+
+    /**
+     * @param fechaNacRemite the fechaNacRemite to set
+     */
+    public void setFechaNacRemite(String fechaNacRemite) {
+        this.fechaNacRemite = fechaNacRemite;
+    }
+
+    /**
+     * @return the remitentePresente
+     */
+    public Boolean getRemitentePresente() {
+        return remitentePresente;
+    }
+
+    /**
+     * @param remitentePresente the remitentePresente to set
+     */
+    public void setRemitentePresente(Boolean remitentePresente) {
+        this.remitentePresente = remitentePresente;
+    }
+
+    /**
+     * @return the tipoIdIndex
+     */
+    public String getTipoIdIndex() {
+        return tipoIdIndex;
+    }
+
+    /**
+     * @param tipoIdIndex the tipoIdIndex to set
+     */
+    public void setTipoIdIndex(String tipoIdIndex) {
+        this.tipoIdIndex = tipoIdIndex;
+    }
+
+    /**
+     * @return the relacionDestinatarioIndex
+     */
+    public String getRelacionDestinatarioIndex() {
+        return relacionDestinatarioIndex;
+    }
+
+    /**
+     * @param relacionDestinatarioIndex the relacionDestinatarioIndex to set
+     */
+    public void setRelacionDestinatarioIndex(String relacionDestinatarioIndex) {
+        this.relacionDestinatarioIndex = relacionDestinatarioIndex;
     }
     
     

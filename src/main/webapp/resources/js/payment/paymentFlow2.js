@@ -1,5 +1,11 @@
 
 $(document).ready(function () {
+     var isCuba = $('#pais').val() === 'CUB';
+     
+     if(!isCuba){
+          $('#cubaForm').hide();
+     } 
+    
     createCombo('codEstadoRemiteSelect', host + 'config/state/US');
     createCombo('nomCiudadRemiteSelect');
 
@@ -15,6 +21,55 @@ $(document).ready(function () {
     $("#remitenteTelefono").on('blur', function () {
         validateTelefono();
     });
+ 
+   
+    
+    if(isCuba){
+        $('#fechaNacRemite').datepicker({dateFormat: 'dd-mm-yy'});//.datepicker("setDate", new Date()); 
+        $('#fechaExpiracion').datepicker({dateFormat: 'dd-mm-yy'});//.datepicker("setDate", new Date()); 
+        
+        $('#remitentePresenteCheckbox').prop('checked', $('#remitentePresente').val() == 'true');
+        $("#remitentePresenteCheckbox").on('change', function () {
+            $('#remitentePresente').val($('#remitentePresenteCheckbox').is(":checked"));
+        });
+         
+        var tipoId = [
+            "Identificación Nacional",
+            "Pasaporte",
+            "Licencia de Conducción",
+            "Matrícula Consular"
+        ]; 
+        
+        var relation = [
+            "Padre",
+            "Madre",
+            "Esposo",
+            "Hijo",
+            "Hermano",
+            "Tio",
+            "Abuelo",
+            "Nieto",
+            "Primo",
+            "Sobrino",
+            "Otro"
+        ]
+        
+        $("#tipoIdSelect").jqxComboBox({ source: tipoId, selectedIndex: 0});
+        $("#relacionDestinatarioSelect").jqxComboBox({ source: relation, selectedIndex: 0});
+
+        $("#tipoIdSelect,#relacionDestinatarioSelect").on('change', function () {
+              $('#' + this.id.split('Select')[0]).val($(this).val()); 
+              $('#' + this.id.split('Select')[0] + 'Index').val($(this).jqxComboBox('selectedIndex')); 
+          });
+          
+          if($('#tipoIdIndex').val()){
+             $("#tipoIdSelect").jqxComboBox({ selectedIndex: $('#tipoIdIndex').val()}); 
+          }
+          
+          if($('#relacionDestinatarioIndex').val()){
+             $("#relacionDestinatarioSelect").jqxComboBox({ selectedIndex: $('#relacionDestinatarioIndex').val()}); 
+          }
+    }
  
 });
 

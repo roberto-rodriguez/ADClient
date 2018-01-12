@@ -22,6 +22,7 @@
         <form:input path="telRemite" id="telRemite"/> 
         <form:input path="destinatarioId" id="destinatarioId"/>
         <form:input path="codEstadoDestinatario" id="codEstadoDestinatario"/>
+        <form:input path="formaPagoLabel" id="formaPagoLabel"/>
      </div>
     <table class="form-table" style="padding-bottom:20px">
         <tr>
@@ -47,7 +48,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td id="numeroCuentaTD">
                 <p>Número de Cuenta </p><form:input path="numeroCuenta" id="numeroCuenta"/> 
             </td> 
         </tr>

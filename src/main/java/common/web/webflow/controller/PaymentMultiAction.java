@@ -1,7 +1,7 @@
 package common.web.webflow.controller;
 
 import common.persistence.model.PaymentCommand;
-import java.io.Serializable; 
+import java.io.Serializable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
@@ -29,12 +29,12 @@ public class PaymentMultiAction extends MultiAction implements Serializable {
 
         return success();
     }
-  
+
     public Event enviar(RequestContext context) {
         System.out.println("PaymentMultiAction -> enviar");
 
         PaymentCommand command = (PaymentCommand) context.getFlowScope().get("command");
-          
+
         String host = env.getProperty("adserver.url");
 
         System.out.println("Sending to HOST = " + host);
@@ -46,12 +46,21 @@ public class PaymentMultiAction extends MultiAction implements Serializable {
 
             String str = response.getBody();
 
-            System.out.println("response = " + str);
-  
+            System.out.println("response ----> " + str);
+            
+            context.getFlowScope().put("resp", str);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return success();
+    }
+
+    public Boolean isCuba( RequestContext context) {
+        System.out.println("context = " + (context != null));
+        
+        PaymentCommand command = (PaymentCommand) context.getFlowScope().get("command");
+        return command != null && command.getCodPaisDestinatario() != null && command.getCodPaisDestinatario().equalsIgnoreCase("CUB");
     }
 }

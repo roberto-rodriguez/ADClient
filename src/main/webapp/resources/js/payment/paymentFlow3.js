@@ -1,5 +1,12 @@
 
 $(document).ready(function () {
+    var formaPago = $('#formaPagoLabel').val();
+    if(formaPago && formaPago === 'VENTANILLA'){
+        $('#numeroCuentaTD').show();
+    }else{
+        $('#numeroCuentaTD').hide();
+    }
+    
     createCombo('codEstadoDestinatarioSelect', host + 'config/state/' + $('#codPaisDestinatario').val());
 
     $("#codEstadoDestinatarioSelect").on('change', function () { 
@@ -20,6 +27,8 @@ $(document).ready(function () {
     });
 
     tieneDestinatarios();
+    
+    
 });
 
 function tieneDestinatarios() {
