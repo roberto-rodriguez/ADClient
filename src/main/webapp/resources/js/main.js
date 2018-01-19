@@ -1,6 +1,17 @@
- 
-var host = "/ADClient/"; 
+
+var host = "/ADClient/";
 //var host = "/"; 
+
+function login() {
+    window.location = host + "login?username=" + $('#username').val()
+//    $.get(host + "login", 
+//            function (result) {
+//                debugger;
+//            }
+//    )
+
+
+}
 
 
 function next() {
@@ -24,7 +35,7 @@ function getData() {
 function goTo(event) {
     $.ajax({
         type: "GET",
-        url:$("#flowExecutionUrl").val() + "&_eventId=" + event,
+        url: $("#flowExecutionUrl").val() + "&_eventId=" + event,
         data: getData(),
         success: function (data) {
             $('#content').html(data);
@@ -48,7 +59,7 @@ function createCombo(id, url) {
             } : {};
 
     var dataAdapter = new $.jqx.dataAdapter(source, {
-        loadComplete: function (values) { 
+        loadComplete: function (values) {
             var previousValue = $('#' + id.split('Select')[0]).val();
             if (previousValue && $.grep(values, function (elem) {
                 return elem.codigo == previousValue
@@ -61,17 +72,17 @@ function createCombo(id, url) {
             }
         }
     });
-    
-    var config =  {
-                source: dataAdapter,
-                width: 173,
-                height: 25,
-                displayMember: 'nombre',
-                valueMember: 'codigo', 
-                autoDropDownHeight: true
-            };
-             
 
-    $('#' + id).jqxComboBox( config );
-             
+    var config = {
+        source: dataAdapter,
+        width: 173,
+        height: 25,
+        displayMember: 'nombre',
+        valueMember: 'codigo',
+        autoDropDownHeight: true
+    };
+
+
+    $('#' + id).jqxComboBox(config);
+
 }
