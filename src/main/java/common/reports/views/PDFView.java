@@ -20,7 +20,7 @@ public class PDFView extends JasperReportsPdfView {
         String clientId = (String)request.getParameter("clientId");
          
         
-        model.put("storeName", "It wirks!!");
+        model.put("storeName", "It works!!");
         
         response.setHeader("Content-disposition", "attachment;filename=report_" + clientId +".pdf");
          

@@ -86,3 +86,10 @@ function createCombo(id, url) {
     $('#' + id).jqxComboBox(config);
 
 }
+
+
+function generateReceipt() {
+    console.log('generatePDF'); 
+    window.open(host + "reports/receipt" , 'window',  'HEIGHT=660,resizable=yes,scrollbars=yes,WIDTH=710,target="blank_"');
+//    window.open("/ADReport/facturas/facturasReport/" + clientId, 'window',  'HEIGHT=660,resizable=yes,scrollbars=yes,WIDTH=710,target="blank_"');
+ }

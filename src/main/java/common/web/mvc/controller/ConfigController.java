@@ -17,11 +17,10 @@ import common.persistence.model.Pais;
 import common.persistence.model.Remitente;
 import common.persistence.repo.Repo;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.net.URLEncoder; 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.List; 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
@@ -61,18 +60,19 @@ public class ConfigController {
     public @ResponseBody
     List<Corresponsal> corresponsales(@PathVariable("pais") String pais) {
         System.out.println("corresponsales... pais = " + pais);
-        return repo.getConfig().stream().filter(p -> p.getCodigo().equalsIgnoreCase(pais)).findAny().get().getCorresponsales();
+        return new ArrayList<Corresponsal>();//  repo.getConfig().stream().filter(p -> p.getCodigo().equalsIgnoreCase(pais)).findAny().get().getCorresponsales();
     }
 
     @RequestMapping(value = "/formasEntrega/{pais}/{corresponsal}", method = RequestMethod.GET)
     public @ResponseBody
     List<FormaEntrega> formasEntrega(@PathVariable("pais") String pais, @PathVariable("corresponsal") String corresponsal) {
         System.out.println("corresponsales... corresponsal = " + corresponsal);
-        return repo.getConfig()
-                .stream().filter(p -> p.getCodigo().equalsIgnoreCase(pais))
-                .findAny().get().getCorresponsales()
-                .stream().filter(c -> c.getCodigo().equalsIgnoreCase(corresponsal))
-                .findAny().get().getFormaEntregaList();
+//        return repo.getConfig()
+//                .stream().filter(p -> p.getCodigo().equalsIgnoreCase(pais))
+//                .findAny().get().getCorresponsales()
+//                .stream().filter(c -> c.getCodigo().equalsIgnoreCase(corresponsal))
+//                .findAny().get().getFormaEntregaList();
+        return new ArrayList<>();
     }
 
     @RequestMapping(value = "cotizar")
@@ -102,7 +102,8 @@ public class ConfigController {
             Gson gson = new Gson(); // Or use new GsonBuilder().create();
             BaseCotizar[] list = gson.fromJson(str, BaseCotizar[].class);
 
-            return Arrays.asList(list).stream().filter(b -> b != null).collect(Collectors.toList());
+           // return Arrays.asList(list).stream().filter(b -> b != null).collect(Collectors.toList());
+             return new ArrayList<>();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -151,8 +152,8 @@ public class ConfigController {
 
             Gson gson = new Gson(); // Or use new GsonBuilder().create();
             List<String> list = Arrays.asList(gson.fromJson(str, String[].class));
-
-            return list.stream().map(s -> new Nomemclator(s, s)).collect(Collectors.toList());
+ return new ArrayList<>();
+          //  return list.stream().map(s -> new Nomemclator(s, s)).collect(Collectors.toList());
         } catch (Exception e) {
             e.printStackTrace();
         }

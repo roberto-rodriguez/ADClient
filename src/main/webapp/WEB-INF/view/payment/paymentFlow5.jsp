@@ -23,6 +23,11 @@
     </tr>  
     <tr>
         <td>
+            <input type="button" value="Imprimir Recibo"  onclick="javascript:generateReceipt()" class="button" style="background-color: #E8BE01; color:#333"/> 
+        </td> 
+    </tr>
+    <tr>
+        <td>
             <input type="button" value="Otra Transacción"  onclick="javascript:next()" class="button"/> 
         </td> 
     </tr>

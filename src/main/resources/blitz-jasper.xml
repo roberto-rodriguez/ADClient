@@ -8,13 +8,10 @@
   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
   http://www.springframework.org/schema/util 
   http://www.springframework.org/schema/util/spring-util-3.0.xsd">
-        
-    <!--p:url="classpath:reports/CampaignPDF.jasper"-->
+         
     <bean id="reportPDFView" class="common.reports.views.PDFView"
-          p:url="classpath:reports/alodiga.jasper"
-          p:reportDataKey="datasource"/> 
+          p:url="classpath:reports/receipt.jasper" 
+    /> 
     
-    <bean id="resumenPDFView" class="common.reports.views.PDFView"
-          p:url="classpath:reports/resumen.jasper"
-          p:reportDataKey="datasource"/> 
+ 
 </beans>
