@@ -8,6 +8,7 @@ package common.web.mvc.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,7 @@ public class ReportController {
  
         Map<String, Object> parameterMap = new HashMap<>();
 //        parameterMap.put("datasource", new JRBeanCollectionDataSource(new ArrayList<>()));
+          parameterMap.put("datasource", new JREmptyDataSource( ));
         return new ModelAndView("reportPDFView", parameterMap);
     }
 }

@@ -2,61 +2,228 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="receipt" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="de846d7c-0adb-4208-bf5c-b8362cb05d17">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="167"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
-			<staticText>
-				<reportElement x="123" y="0" width="351" height="67" uuid="45ea91b9-82fc-4f72-9c9b-7655d319ca70"/>
-				<textElement>
-					<font size="48"/>
-				</textElement>
-				<text><![CDATA[This is a receipt]]></text>
-			</staticText>
+		<band height="61" splitType="Stretch">
+			<image>
+				<reportElement x="245" y="0" width="83" height="61" uuid="5ad366b2-9a4c-4686-971f-36b4ba68e865"/>
+				<imageExpression><![CDATA["adlogo.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="110" splitType="Stretch">
+		<band height="723" splitType="Stretch">
 			<staticText>
-				<reportElement x="167" y="29" width="297" height="55" uuid="af53951d-48f7-4bc5-af82-919431187208"/>
+				<reportElement x="15" y="1" width="257" height="20" uuid="23718f74-5e7d-4361-ae34-89a9a00b6740"/>
 				<textElement>
-					<font size="36"/>
+					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Header here]]></text>
+				<text><![CDATA[Nombre del Remesador/ Money Transmitter:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="1" width="233" height="20" uuid="7e0de5ad-c53b-4f7d-ae9c-33828e896188"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Agente/ Agent:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="21" width="257" height="20" uuid="b6c801a5-c8c7-4089-a0fc-ddb776090371"/>
+				<text><![CDATA[Opexchange MSB]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="21" width="233" height="20" uuid="f5653963-757e-47ba-916c-ac6e98e52083"/>
+				<text><![CDATA[Alo Diga Pruebas Miami]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="41" width="257" height="20" uuid="7df03738-06d4-4942-96d9-7d1e86972529"/>
+				<text><![CDATA[175 SW 7th St. Suite 1712 Miami FL, 33130]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="41" width="233" height="20" uuid="f4e384b8-72b6-479b-b7eb-3cc332819b63"/>
+				<text><![CDATA[175 SW 7th St. Suite 1712 Miami FL, 33130]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="61" width="257" height="20" uuid="31f50af8-fb52-4549-897d-42ee456f028a"/>
+				<text><![CDATA[1-800-954-3211]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="61" width="233" height="20" uuid="85471812-bf26-402f-83f1-1b799930dd70"/>
+				<text><![CDATA[786-393-5485]]></text>
+			</staticText>
+			<line>
+				<reportElement x="15" y="91" width="531" height="1" uuid="5957b8eb-3e89-4a5c-a069-55a2b976d4d3"/>
+			</line>
+			<staticText>
+				<reportElement x="15" y="97" width="368" height="20" uuid="d2db0893-c658-4af4-94c0-f6735408554e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripcion del Envio/ Transaction Description:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="117" width="257" height="20" uuid="f263d666-6734-419d-8b48-60de85656287"/>
+				<text><![CDATA[Transaccion/ Transaction: 001T91]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="137" width="257" height="20" uuid="3adc3d9f-73ea-4d87-a5c6-2233499feaf8"/>
+				<text><![CDATA[Fecha/ Date: 11/14/2017]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="157" width="257" height="20" uuid="99cc4340-a310-4550-b3f6-5f2f4a73a9ed"/>
+				<text><![CDATA[Clave de Pago/ Payment Code: 05555812135654008]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="177" width="257" height="20" uuid="0a62327c-0306-4d4d-a6d7-3c6d63474f90"/>
+				<text><![CDATA[Pais Destino/ Destination Country: Guatemala]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="197" width="257" height="20" uuid="9185972a-84b6-4799-a655-f823deaeff13"/>
+				<text><![CDATA[Punto de Pago/ Payment Point: BANRURAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="117" width="233" height="20" uuid="0949506f-44fa-4eee-9c03-6dce6a39e4df"/>
+				<text><![CDATA[Forma de Entrega/ Delivery Method: DEPOSITO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="137" width="233" height="20" uuid="89c28a6c-bbc3-4131-a2da-e9811aeada8a"/>
+				<text><![CDATA[Monto Enviado/Sent Amount: USD 150.0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="157" width="233" height="20" uuid="6b4aa722-ea48-4f46-a4a6-e105b5d49c32"/>
+				<text><![CDATA[Tasa de Cambio/ Exchange Rate: 7.8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="177" width="233" height="20" uuid="fbb9b748-f5e0-4bad-bebc-165b35c26aa9"/>
+				<text><![CDATA[Monto a Entregar/ Paid Amount: GTQ 1170.0]]></text>
+			</staticText>
+			<line>
+				<reportElement x="15" y="227" width="527" height="1" uuid="a207317c-c81d-4b6c-b56d-64d196e70512"/>
+			</line>
+			<staticText>
+				<reportElement x="16" y="238" width="257" height="20" uuid="78e4b11b-4dce-4e0d-a611-0be3e5e35170"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Remitente/ Sender:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="258" width="257" height="20" uuid="e6d6d055-06bb-4861-8bf2-d6d24a1c8d05"/>
+				<text><![CDATA[Derick Brol]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="278" width="257" height="20" uuid="591fd939-c54f-4fb2-803c-8b0a31835f20"/>
+				<text><![CDATA[175 SW 7TH ST Alachua Florida USA ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="298" width="257" height="20" uuid="6093d4e4-f61b-4447-aff6-4a3a95f3c864"/>
+				<text><![CDATA[786-606-7820]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="238" width="233" height="20" uuid="98d22392-9c00-460b-a4a9-62255f416a55"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Destinatario/ Receiver: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="258" width="233" height="20" uuid="69d81de7-38d4-449e-9900-1438b54eaf7c"/>
+				<text><![CDATA[Luis Fernando Cordoba]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="278" width="233" height="20" uuid="376b3d77-9612-4277-b780-3f4b59869fd5"/>
+				<text><![CDATA[Barrio Alegre Cartago Guatemala, Guatemala.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="298" width="233" height="20" uuid="fec3b3ec-7877-40fc-9f7d-bd0d5b351e98"/>
+				<text><![CDATA[504-236-6589]]></text>
+			</staticText>
+			<line>
+				<reportElement x="19" y="328" width="527" height="1" uuid="d3a26546-97e4-44aa-af8f-d2f0bb8e1272"/>
+			</line>
+			<staticText>
+				<reportElement x="16" y="339" width="257" height="20" uuid="da864ea9-db4d-4645-8694-6b3ec32f3ffa"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Resumen de Pago/ Payment Summary: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="359" width="149" height="20" uuid="7695581e-48ba-4ae1-beb5-b6334635a82f"/>
+				<text><![CDATA[Monto Envio/ Sent Amount:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="359" width="108" height="20" uuid="471a528b-300e-4669-ac44-614f72ac8059"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[$150.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="379" width="149" height="20" uuid="a9314aa2-d2f9-4dff-a234-1fb9988b1cbd"/>
+				<text><![CDATA[Tarifa por Envio/ Fee:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="379" width="108" height="20" uuid="3c19dd36-0cb5-47ac-b3a7-231ffae9bb08"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[$8.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="339" width="137" height="20" uuid="56f4959f-5fd4-4aef-b6d6-77cb16178b8b"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total a Pagar/ Total Due:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="447" y="339" width="96" height="20" uuid="0a7d19f5-02f3-4b5e-9128-2f95fbfc9274"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[158.00]]></text>
+			</staticText>
+			<line>
+				<reportElement x="19" y="411" width="527" height="1" uuid="23fba8e3-1002-455e-8eef-dff52af7440d"/>
+			</line>
+			<line>
+				<reportElement x="42" y="466" width="230" height="2" uuid="d8440c82-6ff8-4a3e-a40d-5ec10e43af48"/>
+			</line>
+			<staticText>
+				<reportElement x="42" y="479" width="230" height="20" uuid="b2de48b6-9f76-47bc-adec-620f23bf0918"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Firma del Cliente/ Customer Signature]]></text>
+			</staticText>
+			<line>
+				<reportElement x="321" y="468" width="222" height="1" uuid="1068767a-7bec-4fe9-a560-2b5bd0294e13"/>
+			</line>
+			<staticText>
+				<reportElement x="339" y="479" width="194" height="20" uuid="03ea1dd7-6ba8-4c8e-acc2-9f630ed09fe8"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Firma Cajero/ Cashier Signature]]></text>
+			</staticText>
+			<line>
+				<reportElement x="15" y="510" width="527" height="1" uuid="cd2a3d71-21cc-4da4-bb49-a37e1829c1b7"/>
+			</line>
+			<staticText>
+				<reportElement x="19" y="511" width="100" height="20" uuid="a9fa0410-224b-4ccc-9d7d-2a09047bb98b"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Privacidad:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="531" width="555" height="80" uuid="57e2d7c4-8cfd-47b9-bb75-31b5b78a6742"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Alo Diga es una marca registrada, operada por Opexchange MSBLLC bajo acuerdo de licenciamiento. Los envios de dinero son ofrecidos y operados por Opexchange MSB, LLC un transmisor con licensia para envio de dinero. Los envios de dinero pueden implicar un diferencial cambiario con la moneda oficial del pais de destino, para lo cual este recibo de pago debera indicar la tasa cuando aplique. Alodiga puede ganar dinero en la conversion de moneda, en adicion a la tarifa de envio. La entrega de dinero en el pais de destino esta sujeta a la validacion de la identidad del Destinatario y a las normas del envio de dinerodel regulador local en el pais de destino.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="611" width="555" height="90" uuid="44e903c2-ae0b-4ddf-ad16-eec0c4ea9525"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Alodiga y sus agentes guarden su nombre, direccion y cualquier otra informacion que le identifique que tanto usted como el destinatatio o un tercero pueden proporcionar, junto con los detalles de su transferencia. Alodiga puede divulgar informacion personal privada a compañías que comercializan para o con Alodiga, o para cumplir con alguna situacion permitida o requerida por la ley. Alodiga ha establecido metodos  y procedimientos de seguridad para restringir el acceso a la informacion personal privada a dichas partes, que necesitan informacion para proporcionarle a  usted productos o servicios. Pueden aplicarse restricciones adicionales. Para acceso a los terminos y condiciones completadas, por favor visite www.alodiga.com.]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch">
-			<staticText>
-				<reportElement x="167" y="0" width="242" height="44" uuid="ffd3dfcd-c06f-4d24-bcc0-791a23e0b422"/>
-				<textElement>
-					<font size="24"/>
-				</textElement>
-				<text><![CDATA[Columns header]]></text>
-			</staticText>
-		</band>
-	</columnHeader>
-	<detail>
-		<band height="125" splitType="Stretch">
-			<staticText>
-				<reportElement x="167" y="18" width="206" height="57" uuid="be7594e9-69d9-4897-81a4-50e33b66dee0"/>
-				<textElement>
-					<font size="36"/>
-				</textElement>
-				<text><![CDATA[Details]]></text>
-			</staticText>
-		</band>
-	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>
