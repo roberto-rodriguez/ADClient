@@ -14,6 +14,16 @@ public class LoginCommand {
    private String password;
    private Boolean invalidCredentials;
 
+    public LoginCommand() {
+    }
+
+    public LoginCommand(String username, String password ) {
+        this.username = username;
+        this.password = password; 
+    }
+   
+   
+
     /**
      * @return the username
      */

@@ -84,10 +84,25 @@ public class GeneralController {
     }
 
     private boolean doLogin(LoginCommand loginCommand) {
-        return "sad".equalsIgnoreCase(loginCommand.getUsername()) && "sad".equalsIgnoreCase(loginCommand.getPassword());
+        String url = "http://sales.alodiga.us:8080/ESPServlet/ESPServlet?method=login&login=" + loginCommand.getUsername() +"&password=" + loginCommand.getPassword();
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+
+        String str = response.getBody();
+        
+        System.out.println("Login Result = " + str);
+        
+        return str != null && !str.isEmpty() && str.charAt(0) == '0';
     }
 
     public static void main(String[] args) {
-        System.out.println(new Date());
+       RestTemplate restTemplate = new RestTemplate();
+          String url = "http://sales.alodiga.us:8080/ESPServlet/ESPServlet?method=login&login=11502223&password=5074" ;
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+
+        String str = response.getBody();
+        
+        System.out.println("str = " + str);
+         
+         
     }
 }
