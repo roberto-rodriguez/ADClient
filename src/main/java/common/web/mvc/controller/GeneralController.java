@@ -74,7 +74,7 @@ public class GeneralController {
 
         String agenciaOrigen = (String) request.getParameter("agenciaOrigen");
 
-        agenciaOrigen = "MIA-1";
+        agenciaOrigen =  loginCommand.getUsername();//"MIA-1";
 
         request.getSession().setAttribute("agenciaOrigen", agenciaOrigen);
 

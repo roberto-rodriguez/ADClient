@@ -11,7 +11,7 @@
     
     
     <view-state id="paymentFlow1" view="payment/paymentFlow1"  model="command"> 
-        <transition on="next" to="paymentFlow5"/>  
+        <transition on="next" to="paymentFlow2"/>  
     </view-state>
     
     <view-state id="paymentFlow2" view="payment/paymentFlow2"  model="command"> 

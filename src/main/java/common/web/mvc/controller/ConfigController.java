@@ -21,7 +21,9 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List; 
+import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -60,24 +62,24 @@ public class ConfigController {
     public @ResponseBody
     List<Corresponsal> corresponsales(@PathVariable("pais") String pais) {
         System.out.println("corresponsales... pais = " + pais);
-        return new ArrayList<Corresponsal>();//  repo.getConfig().stream().filter(p -> p.getCodigo().equalsIgnoreCase(pais)).findAny().get().getCorresponsales();
+        return repo.getConfig().stream().filter(p -> p.getCodigo().equalsIgnoreCase(pais)).findAny().get().getCorresponsales();
     }
 
     @RequestMapping(value = "/formasEntrega/{pais}/{corresponsal}", method = RequestMethod.GET)
     public @ResponseBody
     List<FormaEntrega> formasEntrega(@PathVariable("pais") String pais, @PathVariable("corresponsal") String corresponsal) {
         System.out.println("corresponsales... corresponsal = " + corresponsal);
-//        return repo.getConfig()
-//                .stream().filter(p -> p.getCodigo().equalsIgnoreCase(pais))
-//                .findAny().get().getCorresponsales()
-//                .stream().filter(c -> c.getCodigo().equalsIgnoreCase(corresponsal))
-//                .findAny().get().getFormaEntregaList();
-        return new ArrayList<>();
+        return repo.getConfig()
+                .stream().filter(p -> p.getCodigo().equalsIgnoreCase(pais))
+                .findAny().get().getCorresponsales()
+                .stream().filter(c -> c.getCodigo().equalsIgnoreCase(corresponsal))
+                .findAny().get().getFormaEntregaList();
+       
     }
 
     @RequestMapping(value = "cotizar")
     public @ResponseBody
-    List<BaseCotizar> cotizar(HttpServletRequest request) {
+    List<BaseCotizar> cotizar(HttpServletRequest request,  HttpSession session) {
 
         String monto = request.getParameter("monto");
         String corresponsal = request.getParameter("corresponsal");
@@ -87,8 +89,12 @@ public class ConfigController {
         System.out.println("cotizar: monto = " + monto);
 
         String host = env.getProperty("adserver.url");
+        
+        
+        String agenciaOrigen = (String)session.getAttribute("agenciaOrigen");
+        System.out.println("agenciaOrigen = " + agenciaOrigen);
 
-        String params = "?monto=" + monto + "&corresponsal=" + corresponsal + "&formaEntrega=" + formaEntrega + "&incluyeComision=" + incluyeComision + "&agenciaOrigen=MIA-1";
+        String params = "?monto=" + monto + "&corresponsal=" + corresponsal + "&formaEntrega=" + formaEntrega + "&incluyeComision=" + incluyeComision + "&agenciaOrigen=" + agenciaOrigen;
 
         String url = host + "alodiga/mobile/cotizar2" + params;
 
@@ -102,8 +108,8 @@ public class ConfigController {
             Gson gson = new Gson(); // Or use new GsonBuilder().create();
             BaseCotizar[] list = gson.fromJson(str, BaseCotizar[].class);
 
-           // return Arrays.asList(list).stream().filter(b -> b != null).collect(Collectors.toList());
-             return new ArrayList<>();
+          return Arrays.asList(list).stream().filter(b -> b != null).collect(Collectors.toList());
+             
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -152,8 +158,8 @@ public class ConfigController {
 
             Gson gson = new Gson(); // Or use new GsonBuilder().create();
             List<String> list = Arrays.asList(gson.fromJson(str, String[].class));
- return new ArrayList<>();
-          //  return list.stream().map(s -> new Nomemclator(s, s)).collect(Collectors.toList());
+ 
+          return list.stream().map(s -> new Nomemclator(s, s)).collect(Collectors.toList());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -162,11 +168,14 @@ public class ConfigController {
 
     @RequestMapping(value = "/remitente/{telefono}", method = RequestMethod.GET/*, produces = MediaType.APPLICATION_JSON_VALUE*/)
     public @ResponseBody
-    Remitente remitente(HttpServletRequest request, @PathVariable("telefono") String telefono) {
+    Remitente remitente(HttpServletRequest request, @PathVariable("telefono") String telefono,  HttpSession session) {
         System.out.println("remitente");
         String host = env.getProperty("adserver.url");
+        
+        String agenciaOrigen = (String)session.getAttribute("agenciaOrigen");
+        System.out.println("agenciaOrigen = " + agenciaOrigen);
 
-        String url = host + "alodiga/mobile/remitente?agenciaOrigen=MIA-1&telefono=" + telefono;
+        String url = host + "alodiga/mobile/remitente?agenciaOrigen=" + agenciaOrigen + "&telefono=" + telefono;
 
         try {
             ResponseEntity<Remitente> response = restTemplate.getForEntity(url, Remitente.class);
@@ -182,9 +191,9 @@ public class ConfigController {
 
     @RequestMapping(value = "/destinatario/{telefono}", method = RequestMethod.GET/*, produces = MediaType.APPLICATION_JSON_VALUE*/)
     public @ResponseBody
-    List<Destinatario> destinatario(HttpServletRequest request, @PathVariable("telefono") String telefono) {
+    List<Destinatario> destinatario(HttpServletRequest request, @PathVariable("telefono") String telefono,  HttpSession session) {
   
-       Remitente remitente = remitente( request,telefono);
+       Remitente remitente = remitente( request, telefono, session);
        
        if(remitente != null){
            List<Destinatario> list = remitente.getDestinatarios();
