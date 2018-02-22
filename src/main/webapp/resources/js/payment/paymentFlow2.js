@@ -18,7 +18,7 @@ $(document).ready(function () {
         $('#' + this.id.split('Select')[0]).val($(this).val()); 
     });
 
-    $("#remitenteTelefono").on('blur', function () {
+    $("#telRemite").on('blur', function () {
         validateTelefono();
     });
  
@@ -74,12 +74,12 @@ $(document).ready(function () {
 });
 
 function validateTelefono() { 
-    $.get(host + "config/remitente/" + $('#remitenteTelefono').val(),
+    $.get(host + "config/remitente/" + $('#telRemite').val(),
             function (resultData) {
                 if (resultData) {
-                    $('#remitenteNombre').val(resultData.name);
+                    $('#nomRemite').val(resultData.name);
                     $('#dirRemite').val(resultData.direccion);
-                    $('#remitenteZipcode').val(resultData.zipcode);
+                    $('#dirPostalRemite').val(resultData.zipcode);
                     jQuery('#codEstadoRemiteSelect').jqxComboBox('val', resultData.estado);
                     $('#codEstadoRemite').val(resultData.estado);
                     $('#nomCiudadRemite').val(resultData.ciudad);
