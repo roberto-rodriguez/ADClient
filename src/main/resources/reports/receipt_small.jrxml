@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="receipt" language="groovy" pageWidth="288" pageHeight="2160" columnWidth="288" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="de846d7c-0adb-4208-bf5c-b8362cb05d17">
-	<property name="ireport.zoom" value="1.0000000000000002"/>
+	<property name="ireport.zoom" value="1.3310000000000006"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1719"/>
+	<property name="ireport.y" value="2683"/>
+	<field name="fecha" class="java.lang.String"/>
+	<field name="montoEnviado" class="java.lang.String"/>
+	<field name="clavePago" class="java.lang.String"/>
+	<field name="paisDestino" class="java.lang.String"/>
+	<field name="puntoDePago" class="java.lang.String"/>
+	<field name="formaDeEntrega" class="java.lang.String"/>
+	<field name="tasaDeCambio" class="java.lang.String"/>
+	<field name="montoEntregar" class="java.lang.String"/>
+	<field name="senderName" class="java.lang.String"/>
+	<field name="senderAddress" class="java.lang.String"/>
+	<field name="senderPhone" class="java.lang.String"/>
+	<field name="receiverPhone" class="java.lang.String"/>
+	<field name="receiverName" class="java.lang.String"/>
+	<field name="receiverAddress" class="java.lang.String"/>
+	<field name="sentAmount" class="java.lang.String"/>
+	<field name="fee" class="java.lang.String"/>
+	<field name="totalPagar" class="java.lang.String"/>
+	<field name="codEnvio" class="java.lang.String"/>
 	<title>
 		<band height="61" splitType="Stretch"/>
 	</title>
@@ -75,67 +93,67 @@
 				<text><![CDATA[Descripcion del Envio:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="7" y="221" width="270" height="20" uuid="f263d666-6734-419d-8b48-60de85656287"/>
-				<textElement textAlignment="Center">
+				<reportElement x="7" y="221" width="125" height="20" uuid="f263d666-6734-419d-8b48-60de85656287"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Transaccion: 001T91]]></text>
+				<text><![CDATA[Transaccion: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="8" y="241" width="270" height="20" uuid="3adc3d9f-73ea-4d87-a5c6-2233499feaf8"/>
-				<textElement textAlignment="Center">
+				<reportElement x="9" y="241" width="124" height="20" uuid="3adc3d9f-73ea-4d87-a5c6-2233499feaf8"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Fecha/ Date: 11/14/2017]]></text>
+				<text><![CDATA[Fecha: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="8" y="281" width="270" height="20" uuid="99cc4340-a310-4550-b3f6-5f2f4a73a9ed"/>
-				<textElement textAlignment="Center">
+				<reportElement x="9" y="281" width="124" height="20" uuid="99cc4340-a310-4550-b3f6-5f2f4a73a9ed"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Clave de Pago: 05555812135654008]]></text>
+				<text><![CDATA[Clave de Pago: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="9" y="301" width="270" height="20" uuid="0a62327c-0306-4d4d-a6d7-3c6d63474f90"/>
-				<textElement textAlignment="Center">
+				<reportElement x="10" y="301" width="123" height="20" uuid="0a62327c-0306-4d4d-a6d7-3c6d63474f90"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
 				<text><![CDATA[Pais Destino: Guatemala]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="9" y="321" width="270" height="20" uuid="9185972a-84b6-4799-a655-f823deaeff13"/>
-				<textElement textAlignment="Center">
+				<reportElement x="10" y="321" width="123" height="20" uuid="9185972a-84b6-4799-a655-f823deaeff13"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Punto de Pago: BANRURAL]]></text>
+				<text><![CDATA[Punto de Pago: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="11" y="370" width="268" height="20" uuid="0949506f-44fa-4eee-9c03-6dce6a39e4df"/>
-				<textElement textAlignment="Center">
+				<reportElement x="13" y="342" width="119" height="20" uuid="0949506f-44fa-4eee-9c03-6dce6a39e4df"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Forma de Entrega: DEPOSITO]]></text>
+				<text><![CDATA[Forma de Entrega: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="9" y="261" width="268" height="20" uuid="89c28a6c-bbc3-4131-a2da-e9811aeada8a"/>
-				<textElement textAlignment="Center">
+				<reportElement x="10" y="261" width="123" height="20" uuid="89c28a6c-bbc3-4131-a2da-e9811aeada8a"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Monto Enviado: USD 150.0]]></text>
+				<text><![CDATA[Monto Enviado: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="9" y="390" width="268" height="20" uuid="6b4aa722-ea48-4f46-a4a6-e105b5d49c32"/>
-				<textElement textAlignment="Center">
+				<reportElement x="12" y="362" width="120" height="20" uuid="6b4aa722-ea48-4f46-a4a6-e105b5d49c32"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Tasa de Cambio: 7.8]]></text>
+				<text><![CDATA[Tasa de Cambio:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="9" y="410" width="268" height="20" uuid="fbb9b748-f5e0-4bad-bebc-165b35c26aa9"/>
-				<textElement textAlignment="Center">
+				<reportElement x="11" y="382" width="121" height="20" uuid="fbb9b748-f5e0-4bad-bebc-165b35c26aa9"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Monto a Entregar: GTQ 1170.0]]></text>
+				<text><![CDATA[Monto a Entregar: ]]></text>
 			</staticText>
 			<line>
 				<reportElement x="8" y="172" width="270" height="1" uuid="a207317c-c81d-4b6c-b56d-64d196e70512"/>
@@ -148,105 +166,42 @@
 				<text><![CDATA[Remitente/ Sender:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="467" width="268" height="20" uuid="e6d6d055-06bb-4861-8bf2-d6d24a1c8d05"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[Derick Brol]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="11" y="487" width="268" height="20" uuid="591fd939-c54f-4fb2-803c-8b0a31835f20"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[175 SW 7TH ST Alachua Florida  USA ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="11" y="507" width="268" height="20" uuid="6093d4e4-f61b-4447-aff6-4a3a95f3c864"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[786-606-7820]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="11" y="554" width="268" height="20" uuid="98d22392-9c00-460b-a4a9-62255f416a55"/>
+				<reportElement x="7" y="554" width="272" height="20" uuid="98d22392-9c00-460b-a4a9-62255f416a55"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Destinatario/ Receiver: ]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="10" y="574" width="268" height="20" uuid="69d81de7-38d4-449e-9900-1438b54eaf7c"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[Luis Fernando Cordoba]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="11" y="594" width="266" height="20" uuid="376b3d77-9612-4277-b780-3f4b59869fd5"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[Barrio Alegre Cartago Guatemala, Guatemala.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="11" y="614" width="268" height="20" uuid="fec3b3ec-7877-40fc-9f7d-bd0d5b351e98"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[504-236-6589]]></text>
-			</staticText>
 			<line>
-				<reportElement x="8" y="341" width="269" height="1" uuid="d3a26546-97e4-44aa-af8f-d2f0bb8e1272"/>
+				<reportElement x="9" y="425" width="269" height="1" uuid="d3a26546-97e4-44aa-af8f-d2f0bb8e1272"/>
 			</line>
 			<staticText>
-				<reportElement x="11" y="666" width="269" height="20" uuid="da864ea9-db4d-4645-8694-6b3ec32f3ffa"/>
-				<textElement>
+				<reportElement x="9" y="666" width="269" height="20" uuid="da864ea9-db4d-4645-8694-6b3ec32f3ffa"/>
+				<textElement textAlignment="Center">
 					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Resumen de Pago: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="11" y="686" width="266" height="20" uuid="7695581e-48ba-4ae1-beb5-b6334635a82f"/>
-				<textElement>
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[Monto Envio/ Sent Amount:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="192" y="686" width="88" height="20" uuid="471a528b-300e-4669-ac44-614f72ac8059"/>
+				<reportElement x="11" y="686" width="122" height="20" uuid="7695581e-48ba-4ae1-beb5-b6334635a82f"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[$150.00]]></text>
+				<text><![CDATA[Monto Enviado : ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="11" y="708" width="213" height="20" uuid="a9314aa2-d2f9-4dff-a234-1fb9988b1cbd"/>
-				<textElement>
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[Tarifa por Envio/ Fee:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="160" y="708" width="120" height="20" uuid="3c19dd36-0cb5-47ac-b3a7-231ffae9bb08"/>
+				<reportElement x="11" y="708" width="122" height="20" uuid="a9314aa2-d2f9-4dff-a234-1fb9988b1cbd"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[$8.00]]></text>
+				<text><![CDATA[Tarifa por Envio:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="12" y="740" width="201" height="20" uuid="56f4959f-5fd4-4aef-b6d6-77cb16178b8b"/>
-				<textElement>
+				<reportElement x="16" y="730" width="117" height="20" uuid="56f4959f-5fd4-4aef-b6d6-77cb16178b8b"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Total a Pagar/ Total Due:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="149" y="740" width="131" height="20" uuid="0a7d19f5-02f3-4b5e-9128-2f95fbfc9274"/>
-				<textElement textAlignment="Right">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[158.00]]></text>
+				<text><![CDATA[Total a Pagar:]]></text>
 			</staticText>
 			<line>
 				<reportElement x="11" y="976" width="267" height="2" uuid="d8440c82-6ff8-4a3e-a40d-5ec10e43af48"/>
@@ -295,6 +250,135 @@
 			<break>
 				<reportElement x="0" y="1761" width="288" height="1" uuid="61f7f8f9-926d-48f4-a8b7-a3182a4513e1"/>
 			</break>
+			<textField>
+				<reportElement x="149" y="241" width="126" height="20" uuid="c02dc714-5c7c-403a-b5fc-51f44d25a3e7"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="261" width="130" height="20" uuid="69539021-b7e4-4f6c-9218-473c1b378d0a"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoEnviado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="281" width="128" height="20" uuid="eac0e52c-227a-43ba-9a7e-bed46bd31398"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clavePago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="301" width="124" height="20" uuid="10ece64f-858f-4d36-99bf-06a1674bb36b"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paisDestino}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="321" width="123" height="20" uuid="5b0c32f7-84cd-4500-b2a1-cc5ac4fb5dc5"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{puntoDePago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="342" width="125" height="20" uuid="ee794fd3-9f95-4e13-af07-bd7c640e79ad"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{formaDeEntrega}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="362" width="124" height="20" uuid="7bf45471-89f0-4d76-b7b2-f7f77aedadb5"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tasaDeCambio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="382" width="124" height="20" uuid="e33ffed7-294b-4d88-bf8a-7ec8ae1c062a"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoEntregar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="467" width="268" height="20" uuid="46cea1b0-7ba0-4307-92e0-c48903f28ec0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{senderName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="507" width="271" height="47" uuid="520caad4-7fbf-4301-871b-c9c06cf7b4fc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{senderAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="487" width="266" height="20" uuid="df65d1c6-ac3f-4e8d-a3f5-5de588858a9e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{senderPhone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="594" width="269" height="20" uuid="5284b28a-2f6f-47d7-a346-c27ffae426c4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receiverPhone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="574" width="270" height="20" uuid="aa8b0823-28ed-4d89-9753-b1f897cca104"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receiverName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="614" width="269" height="38" uuid="3bacd157-546d-4987-9948-b0967aee581c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receiverAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="686" width="124" height="20" uuid="603822f7-eb45-466d-8ea6-fd1b4f22e494"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sentAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="706" width="124" height="20" uuid="842c55ca-ab65-4b99-8375-d08b0036a43b"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="728" width="124" height="20" uuid="ee691017-428f-450c-9baf-6b4389d9c435"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalPagar}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="11" y="660" width="262" height="1" uuid="c7b6e7e9-c61a-4ca7-9a85-25b150fc9a9b"/>
+			</line>
+			<textField>
+				<reportElement x="149" y="221" width="126" height="20" uuid="174ec2b5-282f-40d9-acaa-422e927958e7"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codEnvio}]]></textFieldExpression>
+			</textField>
 		</band>
 		<band height="1033">
 			<staticText>
@@ -333,7 +417,7 @@
 				<text><![CDATA[175 SW 7th St. Suite 1712 Miami FL, 33130]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="142" width="277" height="20" uuid="76b33d4f-cf4c-4b31-932a-5926113b9c8c"/>
+				<reportElement x="4" y="142" width="277" height="20" uuid="76b33d4f-cf4c-4b31-932a-5926113b9c8c"/>
 				<textElement>
 					<font fontName="Arial" size="14"/>
 				</textElement>
@@ -354,7 +438,7 @@
 				<text><![CDATA[786-393-5485]]></text>
 			</staticText>
 			<line>
-				<reportElement x="0" y="90" width="273" height="1" uuid="39b6c6f6-078b-490e-9ca0-4a3fce4c56a1"/>
+				<reportElement x="7" y="90" width="273" height="1" uuid="39b6c6f6-078b-490e-9ca0-4a3fce4c56a1"/>
 			</line>
 			<staticText>
 				<reportElement x="8" y="211" width="270" height="20" uuid="91f8cee9-ee98-4727-bf0d-62dd17ea4a9b"/>
@@ -364,181 +448,70 @@
 				<text><![CDATA[Descripcion del Envio:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="7" y="231" width="270" height="20" uuid="f4fd3ceb-ece0-4cb8-b280-0662359fdbe7"/>
-				<textElement textAlignment="Center">
+				<reportElement x="7" y="231" width="126" height="20" uuid="f4fd3ceb-ece0-4cb8-b280-0662359fdbe7"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Transaccion: 001T91]]></text>
+				<text><![CDATA[Transaccion: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="8" y="251" width="270" height="20" uuid="d3cba5d8-e429-4d9f-9916-121fbac01016"/>
-				<textElement textAlignment="Center">
+				<reportElement x="8" y="251" width="124" height="20" uuid="d3cba5d8-e429-4d9f-9916-121fbac01016"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Fecha/ Date: 11/14/2017]]></text>
+				<text><![CDATA[Fecha: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="8" y="291" width="270" height="20" uuid="7c64d068-1b10-4a21-aec5-1cce34edaae1"/>
-				<textElement textAlignment="Center">
+				<reportElement x="8" y="291" width="124" height="20" uuid="7c64d068-1b10-4a21-aec5-1cce34edaae1"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Clave de Pago: 05555812135654008]]></text>
+				<text><![CDATA[Clave de Pago:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="9" y="311" width="270" height="20" uuid="ac3649e2-071f-4291-bfa0-952882580772"/>
-				<textElement textAlignment="Center">
+				<reportElement x="9" y="311" width="123" height="20" uuid="ac3649e2-071f-4291-bfa0-952882580772"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Pais Destino: Guatemala]]></text>
+				<text><![CDATA[Pais Destino: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="9" y="331" width="270" height="20" uuid="8be0f1aa-dca7-47bd-be17-5aaf50c5f4e9"/>
-				<textElement textAlignment="Center">
+				<reportElement x="9" y="331" width="123" height="20" uuid="8be0f1aa-dca7-47bd-be17-5aaf50c5f4e9"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Punto de Pago: BANRURAL]]></text>
+				<text><![CDATA[Punto de Pago: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="11" y="380" width="268" height="20" uuid="7e72df4c-55b3-4e77-814c-b23e7a2ec740"/>
+				<reportElement x="10" y="350" width="122" height="20" uuid="7e72df4c-55b3-4e77-814c-b23e7a2ec740"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Forma de Entrega: DEPOSITO]]></text>
+				<text><![CDATA[Forma de Entrega: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="9" y="271" width="268" height="20" uuid="190e4ec7-bda3-4ae2-8045-34f071d32028"/>
-				<textElement textAlignment="Center">
+				<reportElement x="15" y="271" width="165" height="20" uuid="190e4ec7-bda3-4ae2-8045-34f071d32028"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Monto Enviado: USD 150.0]]></text>
+				<text><![CDATA[Monto Enviado:    USD ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="9" y="400" width="268" height="20" uuid="ef5ed885-c02c-48cd-9513-1d73addf47a0"/>
-				<textElement textAlignment="Center">
+				<reportElement x="6" y="370" width="126" height="20" uuid="ef5ed885-c02c-48cd-9513-1d73addf47a0"/>
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Tasa de Cambio: 7.8]]></text>
+				<text><![CDATA[Tasa de Cambio:  ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="9" y="420" width="268" height="20" uuid="be420b83-1790-4986-81dd-9f759bd6d897"/>
+				<reportElement x="10" y="390" width="123" height="20" uuid="be420b83-1790-4986-81dd-9f759bd6d897"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Monto a Entregar: GTQ 1170.0]]></text>
+				<text><![CDATA[Monto a Entregar: ]]></text>
 			</staticText>
 			<line>
 				<reportElement x="12" y="182" width="270" height="1" uuid="03e274d3-ac16-49e9-a5b2-674c91e75203"/>
-			</line>
-			<staticText>
-				<reportElement x="11" y="457" width="268" height="20" uuid="6bde98f3-1ddd-4b1e-8afa-c149dd531cf8"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Remitente/ Sender:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="10" y="477" width="268" height="20" uuid="e9215815-7717-48ed-8ccf-d19cf624d1d2"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[Derick Brol]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="11" y="497" width="268" height="20" uuid="54cc5169-d0e3-46e7-b080-f26ca8beda15"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[175 SW 7TH ST Alachua Florida  USA ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="11" y="517" width="268" height="20" uuid="9f15d32b-d9c4-495c-96ae-a7bbf34e51ec"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[786-606-7820]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="11" y="564" width="268" height="20" uuid="337cbb2f-ee02-45db-8c60-a942f6748776"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Destinatario/ Receiver: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="10" y="584" width="268" height="20" uuid="3dbac24a-4ea3-4989-9c80-ca534acbd8e6"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[Luis Fernando Cordoba]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="11" y="604" width="266" height="20" uuid="f02e8ca6-7038-48aa-b665-37123b42ea62"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[Barrio Alegre Cartago Guatemala, Guatemala.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="11" y="624" width="268" height="20" uuid="97aaf932-81ea-405a-9108-27665dbffd88"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[504-236-6589]]></text>
-			</staticText>
-			<line>
-				<reportElement x="8" y="350" width="269" height="1" uuid="78d5d19e-6b87-446e-a8cc-f354068c30e5"/>
-			</line>
-			<staticText>
-				<reportElement x="11" y="676" width="269" height="20" uuid="0ff07fa3-dd2d-4930-b8f4-c997abf06fa7"/>
-				<textElement>
-					<font fontName="Arial" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Resumen de Pago: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="11" y="696" width="266" height="20" uuid="caf96477-c707-4c24-ada8-a16b0d456ed1"/>
-				<textElement>
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[Monto Envio/ Sent Amount:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="192" y="696" width="88" height="20" uuid="687c4a07-aa74-4bb3-8a7c-9d0983ce3542"/>
-				<textElement textAlignment="Right">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[$150.00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="11" y="718" width="213" height="20" uuid="1d665f1d-8d06-4cf7-8fa5-2d42643ae6f8"/>
-				<textElement>
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[Tarifa por Envio/ Fee:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="160" y="718" width="120" height="20" uuid="5518204d-cc31-40d2-8207-f8818bec4685"/>
-				<textElement textAlignment="Right">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[$8.00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="12" y="750" width="201" height="20" uuid="4394e1ed-0621-48a1-af8c-1ea1e0a3fa22"/>
-				<textElement>
-					<font fontName="Arial" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Total a Pagar/ Total Due:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="149" y="750" width="131" height="20" uuid="f87656e3-0771-40c9-885e-147b8086e6dc"/>
-				<textElement textAlignment="Right">
-					<font fontName="Arial" size="14"/>
-				</textElement>
-				<text><![CDATA[158.00]]></text>
-			</staticText>
-			<line>
-				<reportElement x="12" y="986" width="267" height="2" uuid="76c27f4a-b5d9-4fbd-97b4-7e6ccf30b0ef"/>
 			</line>
 			<staticText>
 				<reportElement x="12" y="874" width="239" height="20" uuid="8252e807-6c42-4bf8-be92-d853d77a35dd"/>
@@ -548,7 +521,7 @@
 				<text><![CDATA[Firma del Cliente]]></text>
 			</staticText>
 			<line>
-				<reportElement x="12" y="769" width="268" height="1" uuid="5cd4090d-d88a-4d29-8fed-7107f8831124"/>
+				<reportElement x="12" y="987" width="268" height="1" uuid="5cd4090d-d88a-4d29-8fed-7107f8831124"/>
 			</line>
 			<staticText>
 				<reportElement x="15" y="988" width="264" height="20" uuid="128debff-f6f3-4e6a-96a7-381080cff7c9"/>
@@ -560,6 +533,177 @@
 			<line>
 				<reportElement x="12" y="874" width="268" height="2" uuid="f9cc3077-14a9-4ac4-a489-c9c149a154c6"/>
 			</line>
+			<textField>
+				<reportElement x="149" y="231" width="128" height="20" uuid="2b413eaa-1950-44ab-9449-2299d3feb3a7"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codEnvio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="251" width="124" height="20" uuid="97c7c10d-9501-4c85-95a1-579a438fc46b"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="271" width="87" height="20" uuid="1e1bae79-8fd3-472e-aa55-920050cbb8c2"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoEnviado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="291" width="124" height="20" uuid="79bdb5ac-5bb8-47ab-b011-e85dc580c3bb"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clavePago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="311" width="124" height="20" uuid="ce851ae6-edbd-4e34-9eac-a3fd3d75e782"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paisDestino}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="330" width="123" height="20" uuid="e494794c-8525-488b-ba85-5b3c63e91f26"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{puntoDePago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="350" width="123" height="20" uuid="5700347f-a45b-4d53-b6d0-595cd1336c93"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{formaDeEntrega}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="370" width="122" height="20" uuid="224a0014-495d-4cc0-80ab-72123dd04d24"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tasaDeCambio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="389" width="122" height="20" uuid="8fe5b49f-f774-4bb2-a460-a59529ef200f"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoEntregar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="9" y="547" width="272" height="20" uuid="80af29b9-28f0-4096-89e7-d15729ee4235"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Destinatario/ Receiver: ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="13" y="743" width="262" height="1" uuid="e23e714b-9138-49cf-966f-7a144d3057c9"/>
+			</line>
+			<staticText>
+				<reportElement x="13" y="701" width="122" height="20" uuid="34c86863-45c9-4322-a40f-0cd7636970d1"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[Tarifa por Envio:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="151" y="679" width="124" height="20" uuid="26c7652a-971f-45c1-b7ef-8bd5aecacfb9"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sentAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="699" width="124" height="20" uuid="333845a0-8b53-4cc8-8abc-b4fbe2c5ad47"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="480" width="266" height="20" uuid="e090cb8c-e5dd-4703-a44c-bb6fcebfb6ef"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{senderPhone}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="18" y="723" width="117" height="20" uuid="bb6cf2a3-6e44-4773-aa92-d7637151827b"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total a Pagar:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="587" width="269" height="20" uuid="edd7a4ff-18f3-4731-bc87-2e344a38c872"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receiverPhone}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="440" width="268" height="20" uuid="37dea1d6-de7c-41af-be72-8038c9bc8601"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Remitente/ Sender:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="679" width="122" height="20" uuid="d8d5a820-6719-47cf-ace7-dcdb562bf6f5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[Monto Enviado : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="13" y="460" width="268" height="20" uuid="1e432aa7-a434-4687-9dea-d18cd63ec896"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{senderName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="500" width="271" height="47" uuid="114ab354-a50f-4b92-ac07-101038411de5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{senderAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="607" width="269" height="38" uuid="f008247e-d21a-463e-8aa8-18a4951a6d67"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receiverAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="721" width="124" height="20" uuid="e50c7f36-96b9-47fc-886f-ff14139bfcbd"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalPagar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="659" width="269" height="20" uuid="4db1aa98-4393-4e88-872b-25281611f324"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Resumen de Pago: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="567" width="270" height="20" uuid="886d42c4-c589-41f9-802d-3dac8f7acf1d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receiverName}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 </jasperReport>

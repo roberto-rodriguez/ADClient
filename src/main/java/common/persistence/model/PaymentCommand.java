@@ -1,13 +1,16 @@
 package common.persistence.model;
 
+import common.persistence.dto.ReportData;
 import java.io.Serializable;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat; 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @author @Roberto Rodriguez :: <RobertoSoftwareEngineer@gmail.com>
  */
 public class PaymentCommand implements Serializable {
+
     private static DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 
     /**
@@ -23,7 +26,7 @@ public class PaymentCommand implements Serializable {
     public static void setDateFormat(DateFormat aDateFormat) {
         dateFormat = aDateFormat;
     }
-    
+
     private String agenciaOrigen;
     //Tarifas 
     private String codCorresponsal;
@@ -33,7 +36,7 @@ public class PaymentCommand implements Serializable {
     private String dineroEntregado;
     private String incluyeComision;
 
-   // private String tarifa;
+    // private String tarifa;
     private String tarifaTagId;
     private String tipoCambio;
     private String tasaDeCambio;
@@ -61,8 +64,8 @@ public class PaymentCommand implements Serializable {
     private String codEstadoDestinatario;
     private String nomCiudadDestinatario;
     private String numeroCuenta;
-    
-     //Para envios a Cuba
+
+    //Para envios a Cuba
     private String fechaNacRemite;
     private String apellidoMaterno;
     private String numId;
@@ -78,44 +81,37 @@ public class PaymentCommand implements Serializable {
     private String confirmacionNoProhibido;
     private String confirmacionNoEmigracion;
 
-    public void complete(){
+    public void complete() {
         this.zipRemite = dirPostalRemite;
     }
-    
-    //TODO include Agencia Origen
-//    public String toUrl() {
-//        StringBuilder sb = new StringBuilder();
-//        sb.append("&codCorresponsal=" + corresponsal);
-//        sb.append("&codCiudadRemite=" + remitenteCiudad);
-//        sb.append("&codCiudadDestinatario=" + destinatarioCiudad);
-//        sb.append("&dirRemite=" + remitenteDireccion);
-//        sb.append("&dirDestinatario=" + destinatarioDireccion);
-//        sb.append("&tipoCambio=" + tasaDeCambio);
-//        sb.append("&totalPagar=" + totalPagar);
-//        sb.append("&dineroEntregado=" + montoRealAEnviar);
-//        sb.append("&montoEntregar=" + montoRealAPagar);
-//        sb.append("&nomRemite=" + remitenteNombre);
-//        sb.append("&nomDestinatario=" + destinatarioNombre);
-//        sb.append("&telRemite=" + remitenteTelefono);
-//        sb.append("&telDestinatario=" + destinatarioTelefono);
-//        sb.append("&zipRemite=" + remitenteZipcode);
-//        sb.append("&codEstadoRemite=" + remitenteEstado);
-//        sb.append("&codEstadoDestinatario=" + destinatarioEstado);
-//        sb.append("&codPaisDestinatario=" + destinatarioPais);
-//        sb.append("&nomCiudadRemite=" + remitenteCiudad);
-//        sb.append("&nomCiudadDestinatario=" + destinatarioCiudad);
-//        sb.append("&numeroCuenta=" + numeroDeCuenta);
-//        sb.append("&formaPago=" + formaPago);
-//        sb.append("&incluyeComision=" + incluyeComision);
-//        sb.append("&tarifaTagId=" + tarifaTagId); 
-//        sb.append("&fecha=" + dateFormat.format(new Date()));
-//         
-//        return sb.toString();
-//    }
 
-    /**
-     * @return the agenciaOrigen
-     */
+    public ReportData toReportData() {
+        ReportData reportData = new ReportData();
+
+        reportData.setFecha(dateFormat.format(new Date()));
+        reportData.setMontoEnviado(montoRealAEnviar);
+        reportData.setClavePago(tasaDeCambio);
+        reportData.setPaisDestino(codPaisDestinatario);
+        reportData.setPuntoDePago(codCorresponsalLabel);
+        reportData.setFormaDeEntrega(formaPagoLabel);
+        reportData.setTasaDeCambio(tasaDeCambio);
+        reportData.setMontoEntregar(montoRealAPagar);
+
+        reportData.setSenderName(nomRemite);
+        reportData.setSenderAddress(dirRemite + " " + nomCiudadRemite + " " + codEstadoRemite + " " + dirPostalRemite);
+        reportData.setSenderPhone(telRemite);
+
+        reportData.setReceiverName(nomDestinatario);
+        reportData.setReceiverPhone(telDestinatario);
+        reportData.setReceiverAddress(dirDestinatario + " " + nomCiudadDestinatario + " " + codEstadoDestinatario + " " + codPaisDestinatario);
+
+        reportData.setSentAmount(montoRealAPagar);
+        reportData.setFee(tasaDeCambio);
+        reportData.setTotalPagar(totalPagar);
+
+        return reportData;
+    }
+
     public String getAgenciaOrigen() {
         return agenciaOrigen;
     }
@@ -294,7 +290,7 @@ public class PaymentCommand implements Serializable {
     public void setTelRemite(String telRemite) {
         this.telRemite = telRemite;
     }
- 
+
     /**
      * @return the zipRemite
      */
@@ -407,8 +403,6 @@ public class PaymentCommand implements Serializable {
         this.dirDestinatario = dirDestinatario;
     }
 
-     
-
     /**
      * @return the codEstadoDestinatario
      */
@@ -436,8 +430,6 @@ public class PaymentCommand implements Serializable {
     public void setNomCiudadDestinatario(String nomCiudadDestinatario) {
         this.nomCiudadDestinatario = nomCiudadDestinatario;
     }
-
-   
 
     /**
      * @return the codPaisDestinatario
@@ -579,7 +571,6 @@ public class PaymentCommand implements Serializable {
         this.tipoId = tipoId;
     }
 
-  
     /**
      * @return the relacionDestinatario
      */
@@ -719,6 +710,5 @@ public class PaymentCommand implements Serializable {
     public void setRelacionDestinatarioIndex(String relacionDestinatarioIndex) {
         this.relacionDestinatarioIndex = relacionDestinatarioIndex;
     }
-    
-    
-      }
+
+}

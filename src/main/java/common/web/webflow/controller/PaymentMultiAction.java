@@ -1,5 +1,9 @@
 package common.web.webflow.controller;
 
+import com.google.gson.Gson;
+import common.persistence.dto.ReportData;
+import common.persistence.dto.Transferencia;
+import common.persistence.model.Pais;
 import common.persistence.model.PaymentCommand;
 import java.io.Serializable;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +51,26 @@ public class PaymentMultiAction extends MultiAction implements Serializable {
             String str = response.getBody();
 
             System.out.println("response ----> " + str);
-            
+
+            Gson gson = new Gson(); // Or use new GsonBuilder().create();
+            Transferencia transferencia = gson.fromJson(str, Transferencia.class);
+
+            System.out.println("*** transferencia = " + (transferencia != null));
+
+            if (transferencia != null) {
+                System.out.println(transferencia.getRespuesta());
+            }
+
             context.getFlowScope().put("resp", str);
+            
+            ReportData reportData = command.toReportData();
+            
+            if(transferencia != null){
+                reportData.setCodEnvio(transferencia.getCodEnvio());
+            }
+           
+            System.out.println("PaymentMultiAction ->  context.getExternalContext().getSessionMap().put(reportData , reportData)");
+            context.getExternalContext().getSessionMap().put("reportData", reportData);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,9 +79,9 @@ public class PaymentMultiAction extends MultiAction implements Serializable {
         return success();
     }
 
-    public Boolean isCuba( RequestContext context) {
+    public Boolean isCuba(RequestContext context) {
         System.out.println("context = " + (context != null));
-        
+
         PaymentCommand command = (PaymentCommand) context.getFlowScope().get("command");
         return command != null && command.getCodPaisDestinatario() != null && command.getCodPaisDestinatario().equalsIgnoreCase("CUB");
     }
