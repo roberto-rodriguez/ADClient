@@ -8,9 +8,10 @@ $(document).ready(function () {
     
     createCombo('codEstadoRemiteSelect', host + 'config/state/US');
     createCombo('nomCiudadRemiteSelect');
-
-    $("#codEstadoRemiteSelect").on('change', function () {
+ 
+    $("#codEstadoRemiteSelect").on('change', function (e) {
         var val = $(this).val();
+         $('#codEstadoRemiteLabel').val(e.args && e.args.item && e.args.item.label);
         createCombo('nomCiudadRemiteSelect', val && host + 'config/city/' + val);
     });
 

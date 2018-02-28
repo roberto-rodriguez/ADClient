@@ -22,6 +22,7 @@
         <form:input path="tipoIdIndex" id="tipoIdIndex"/> 
         <form:input path="relacionDestinatario" id="relacionDestinatario"/> 
         <form:input path="relacionDestinatarioIndex" id="relacionDestinatarioIndex"/> 
+        <form:input path="codEstadoRemiteLabel"  id="codEstadoRemiteLabel"/>
     </div>
 
     <table class="form-table" >

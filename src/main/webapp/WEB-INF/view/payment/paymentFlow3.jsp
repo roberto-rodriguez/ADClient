@@ -23,6 +23,7 @@
         <form:input path="destinatarioId" id="destinatarioId"/>
         <form:input path="codEstadoDestinatario" id="codEstadoDestinatario"/>
         <form:input path="formaPagoLabel" id="formaPagoLabel"/>
+        <form:input path="codEstadoDestinatarioLabel"  id="codEstadoDestinatarioLabel"/>
      </div>
     <table class="form-table" style="padding-bottom:20px">
         <tr>

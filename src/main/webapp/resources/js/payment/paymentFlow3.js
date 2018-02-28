@@ -9,7 +9,8 @@ $(document).ready(function () {
     
     createCombo('codEstadoDestinatarioSelect', host + 'config/state/' + $('#codPaisDestinatario').val());
 
-    $("#codEstadoDestinatarioSelect").on('change', function () { 
+    $("#codEstadoDestinatarioSelect").on('change', function () {  
+        $('#codEstadoDestinatarioLabel').val(e.args && e.args.item && e.args.item.label);
         $('#' + this.id.split('Select')[0]).val($(this).val());
     });
     

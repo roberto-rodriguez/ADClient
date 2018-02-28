@@ -52,8 +52,8 @@
         <div id="mainContent" class="mainContent" style="text-align: center; vertical-align: middle;  background-color: white; height: 300px; width:100%"> 
             <form:form commandName="loginCommand" method="post" action="/ADClient/login">
                 <div style="display: inline-block; vertical-align: middle; height: 120px; width: 200px; margin-top: 90px">
-                    <form:input  path="username" id="username" placeholder="Usuario" />
-                    <form:password path="password" id="password" placeholder="Password" style="margin: 15px"/>
+                    <form:input  path="username" id="username" placeholder="Usuario" value='11502223'/>
+                    <form:password path="password" id="password" placeholder="Password" value='5074' style="margin: 15px"/>
                     <input type="submit" value="Login" class="button" onclick="javascript:login()"/> 
                     <c:if test="${loginCommand.invalidCredentials}">
                         <span id='errorMsg' style="color:red; margin-top: 15px">Invalid Login Credentials</span>

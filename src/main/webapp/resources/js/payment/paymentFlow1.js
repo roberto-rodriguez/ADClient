@@ -30,9 +30,15 @@ $(document).ready(function () {
         }
     });
 
-    $("#codPaisDestinatarioSelect,#codCorresponsalSelect").on('change', function () {
+    $("#codPaisDestinatarioSelect,#codCorresponsalSelect").on('change', function (e) {
         $('#' + this.id.split('Select')[0]).val($(this).val());
         validateCotizarForm();
+        debugger;
+        var id = $(this) && $(this)[0] && $(this)[0].id
+        
+        if( id === 'codPaisDestinatarioSelect'){
+             $('#codPaisDestinatarioLabel').val(e.args && e.args.item && e.args.item.label);
+        }
     });
 
     $("#formaPagoSelect").on('change', function (e) {

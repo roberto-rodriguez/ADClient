@@ -53,6 +53,7 @@ public class PaymentCommand implements Serializable {
     private String zipRemite;
     private String dirPostalRemite;
     private String codEstadoRemite;
+    private String codEstadoRemiteLabel;
     private String nomCiudadRemite;
 
     //Destinatario
@@ -61,7 +62,9 @@ public class PaymentCommand implements Serializable {
     private String telDestinatario;
     private String dirDestinatario;
     private String codPaisDestinatario;
+    private String codPaisDestinatarioLabel;
     private String codEstadoDestinatario;
+    private String codEstadoDestinatarioLabel;
     private String nomCiudadDestinatario;
     private String numeroCuenta;
 
@@ -85,27 +88,44 @@ public class PaymentCommand implements Serializable {
         this.zipRemite = dirPostalRemite;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<PaymentCommand>");
+        sb.append("    <montoEntregar>" + montoEntregar + "<montoEntregar>");
+        sb.append("    <montoRealAEnviar>" + montoRealAEnviar + "<montoRealAEnviar>");
+        sb.append("    <montoRealAPagar>" + montoRealAPagar + "<montoRealAPagar>");
+        sb.append("    <totalPagar>" + totalPagar + "<totalPagar>");
+        sb.append("    <dineroEntregado>" + dineroEntregado + "<dineroEntregado>");
+        sb.append("    <tipoCambio>" + tipoCambio + "<tipoCambio>");
+        sb.append("    <tasaDeCambio>" + tasaDeCambio + "<tasaDeCambio>");
+        sb.append("    <tarifaTagId>" + tarifaTagId + "<tarifaTagId>");
+        sb.append("</PaymentCommand>");
+
+        return sb.toString();
+    }
+
     public ReportData toReportData() {
         ReportData reportData = new ReportData();
 
         reportData.setFecha(dateFormat.format(new Date()));
         reportData.setMontoEnviado(montoRealAEnviar);
         reportData.setClavePago(tasaDeCambio);
-        reportData.setPaisDestino(codPaisDestinatario);
+        reportData.setPaisDestino(codPaisDestinatarioLabel);
         reportData.setPuntoDePago(codCorresponsalLabel);
         reportData.setFormaDeEntrega(formaPagoLabel);
         reportData.setTasaDeCambio(tasaDeCambio);
-        reportData.setMontoEntregar(montoRealAPagar);
+        reportData.setMontoEntregar(montoEntregar);
 
         reportData.setSenderName(nomRemite);
-        reportData.setSenderAddress(dirRemite + " " + nomCiudadRemite + " " + codEstadoRemite + " " + dirPostalRemite);
+        reportData.setSenderAddress(dirRemite + " " + nomCiudadRemite + " " + codEstadoRemiteLabel + " " + dirPostalRemite);
         reportData.setSenderPhone(telRemite);
 
         reportData.setReceiverName(nomDestinatario);
         reportData.setReceiverPhone(telDestinatario);
-        reportData.setReceiverAddress(dirDestinatario + " " + nomCiudadDestinatario + " " + codEstadoDestinatario + " " + codPaisDestinatario);
+        reportData.setReceiverAddress(dirDestinatario + " " + nomCiudadDestinatario + " " + codEstadoDestinatarioLabel + " " + codPaisDestinatarioLabel);
 
-        reportData.setSentAmount(montoRealAPagar);
+        reportData.setSentAmount(montoEntregar);
         reportData.setFee(tasaDeCambio);
         reportData.setTotalPagar(totalPagar);
 
@@ -709,6 +729,48 @@ public class PaymentCommand implements Serializable {
      */
     public void setRelacionDestinatarioIndex(String relacionDestinatarioIndex) {
         this.relacionDestinatarioIndex = relacionDestinatarioIndex;
+    }
+
+    /**
+     * @return the codEstadoRemiteLabel
+     */
+    public String getCodEstadoRemiteLabel() {
+        return codEstadoRemiteLabel;
+    }
+
+    /**
+     * @param codEstadoRemiteLabel the codEstadoRemiteLabel to set
+     */
+    public void setCodEstadoRemiteLabel(String codEstadoRemiteLabel) {
+        this.codEstadoRemiteLabel = codEstadoRemiteLabel;
+    }
+
+    /**
+     * @return the codEstadoDestinatarioLabel
+     */
+    public String getCodEstadoDestinatarioLabel() {
+        return codEstadoDestinatarioLabel;
+    }
+
+    /**
+     * @param codEstadoDestinatarioLabel the codEstadoDestinatarioLabel to set
+     */
+    public void setCodEstadoDestinatarioLabel(String codEstadoDestinatarioLabel) {
+        this.codEstadoDestinatarioLabel = codEstadoDestinatarioLabel;
+    }
+
+    /**
+     * @return the codPaisDestinatarioLabel
+     */
+    public String getCodPaisDestinatarioLabel() {
+        return codPaisDestinatarioLabel;
+    }
+
+    /**
+     * @param codPaisDestinatarioLabel the codPaisDestinatarioLabel to set
+     */
+    public void setCodPaisDestinatarioLabel(String codPaisDestinatarioLabel) {
+        this.codPaisDestinatarioLabel = codPaisDestinatarioLabel;
     }
 
 }

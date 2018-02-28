@@ -27,6 +27,7 @@ public class PaymentMultiAction extends MultiAction implements Serializable {
         System.out.println("PaymentMultiAction -> inicializarFlujo :: agenciaOrigen = " + agenciaOrigen);
 
         PaymentCommand command = new PaymentCommand();
+
         command.setAgenciaOrigen(agenciaOrigen);
 
         context.getFlowScope().put("command", command);
@@ -62,13 +63,16 @@ public class PaymentMultiAction extends MultiAction implements Serializable {
             }
 
             context.getFlowScope().put("resp", str);
-            
+
             ReportData reportData = command.toReportData();
-            
-            if(transferencia != null){
+
+            if (transferencia != null) {
                 reportData.setCodEnvio(transferencia.getCodEnvio());
             }
-           
+
+            System.out.println("-------------- PaymentCommand ------------");
+            System.out.println(command.toString());
+
             System.out.println("PaymentMultiAction ->  context.getExternalContext().getSessionMap().put(reportData , reportData)");
             context.getExternalContext().getSessionMap().put("reportData", reportData);
 
