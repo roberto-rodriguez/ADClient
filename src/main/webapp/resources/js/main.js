@@ -1,5 +1,6 @@
 
 var host = "/ADClient/";
+ 
 //var host = "/"; 
 
 function login() {
@@ -46,20 +47,21 @@ function goTo(event) {
     });
 }
 
-function createCombo(id, url) {
+function createCombo(id, url ) {
     var source = url ?
             {
                 datatype: "json",
                 datafields: [
                     {name: 'nombre'},
-                    {name: 'codigo'}
+                    {name: 'codigo'},
+                    {name: 'moneda'} // For corresponsal 
                 ],
                 url: url,
                 async: true
             } : {};
 
     var dataAdapter = new $.jqx.dataAdapter(source, {
-        loadComplete: function (values) {
+        loadComplete: function (values) { 
             var previousValue = $('#' + id.split('Select')[0]).val();
             if (previousValue && $.grep(values, function (elem) {
                 return elem.codigo == previousValue

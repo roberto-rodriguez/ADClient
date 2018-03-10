@@ -23,6 +23,7 @@
         <form:input path="tarifaTagId"  id="tarifaTagId"/>
         <form:input path="formaPagoLabel"  id="formaPagoLabel"/>
         <form:input path="codCorresponsalLabel"  id="codCorresponsalLabel"/> 
+        <form:input path="moneda"  id="moneda"/> 
     </div>
     <table class="form-table" style="border-bottom: inset 1px #333;padding-bottom:20px">
         <tr>

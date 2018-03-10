@@ -16,6 +16,7 @@
     <div style="visibility: hidden">
         <form:input path="codPaisDestinatario"  id="pais"/> 
         <form:input path="codEstadoRemite"  id="codEstadoRemite"/>
+        <form:input path="codCiudadRemite" id="codCiudadRemite"/>
         <form:input path="nomCiudadRemite" id="nomCiudadRemite"/>
         <form:input path="remitentePresente" id="remitentePresente"/> 
         <form:input path="tipoId" id="tipoId"/> 

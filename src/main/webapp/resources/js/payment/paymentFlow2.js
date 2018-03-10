@@ -84,6 +84,7 @@ function validateTelefono() {
                     jQuery('#codEstadoRemiteSelect').jqxComboBox('val', resultData.estado);
                     $('#codEstadoRemite').val(resultData.estado);
                     $('#nomCiudadRemite').val(resultData.ciudad);
+                    debugger;
                     createCombo('nomCiudadRemiteSelect', resultData.estado && host + 'config/city/' + resultData.estado);
                 }
             }

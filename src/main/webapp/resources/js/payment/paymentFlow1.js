@@ -13,15 +13,16 @@ $(document).ready(function () {
 
     $("#codPaisDestinatarioSelect").on('change', function () {
         var val = $(this).val();
-        createCombo('codCorresponsalSelect', val && host + 'config/corresponsales/' + val);
+        createCombo('codCorresponsalSelect', val && host + 'config/corresponsales/' + val );
     });
 
     $("#codCorresponsalSelect").on('change', function (e) {
         var val = $(this).val();
-        
+       
          $('#codCorresponsalLabel').val(e.args && e.args.item && e.args.item.label);
-         
-        
+         $('#moneda').val(e.args && e.args.item && e.args.item.originalItem  && e.args.item.originalItem.moneda);
+  
+  debugger;
         if (!val) {
             $('#formaPago').val('');
             createCombo('formaPagoSelect');
@@ -32,8 +33,7 @@ $(document).ready(function () {
 
     $("#codPaisDestinatarioSelect,#codCorresponsalSelect").on('change', function (e) {
         $('#' + this.id.split('Select')[0]).val($(this).val());
-        validateCotizarForm();
-        debugger;
+        validateCotizarForm(); 
         var id = $(this) && $(this)[0] && $(this)[0].id
         
         if( id === 'codPaisDestinatarioSelect'){

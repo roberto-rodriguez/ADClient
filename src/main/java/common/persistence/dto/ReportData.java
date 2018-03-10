@@ -11,6 +11,7 @@ package common.persistence.dto;
  */
 public class ReportData {
 
+    private String moneda;  
     private String codEnvio;  //From response
     private String fecha;
     private String montoEnviado;
@@ -284,5 +285,19 @@ public class ReportData {
      */
     public void setCodEnvio(String codEnvio) {
         this.codEnvio = codEnvio;
+    }
+
+    /**
+     * @return the moneda
+     */
+    public String getMoneda() {
+        return moneda;
+    }
+
+    /**
+     * @param moneda the moneda to set
+     */
+    public void setMoneda(String moneda) {
+        this.moneda = moneda;
     }
 }

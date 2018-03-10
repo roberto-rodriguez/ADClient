@@ -81,7 +81,7 @@
                 <p>Tasa de Cambio: ${command.tasaDeCambio}</p> 
             </td> 
             <td>
-                <p>Monto a Entregar en ${command.codPaisDestinatario}: GTQ ${command.dineroEntregado}</p> 
+                <p>Monto a Entregar en ${command.codPaisDestinatario}: ${command.moneda} ${command.dineroEntregado}</p> 
             </td> 
         </tr>
         <tr>

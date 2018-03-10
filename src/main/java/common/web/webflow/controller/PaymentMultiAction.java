@@ -40,6 +40,10 @@ public class PaymentMultiAction extends MultiAction implements Serializable {
 
         PaymentCommand command = (PaymentCommand) context.getFlowScope().get("command");
 
+        if (command != null) {
+            command.complete();
+        }
+
         String host = env.getProperty("adserver.url");
 
         System.out.println("Sending to HOST = " + host);

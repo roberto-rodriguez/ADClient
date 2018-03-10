@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+ 
 /**
  * @author @Roberto Rodriguez :: <RobertoSoftwareEngineer@gmail.com>
  */
@@ -27,6 +27,7 @@ public class PaymentCommand implements Serializable {
         dateFormat = aDateFormat;
     }
 
+    private String moneda;
     private String agenciaOrigen;
     //Tarifas 
     private String codCorresponsal;
@@ -55,6 +56,7 @@ public class PaymentCommand implements Serializable {
     private String codEstadoRemite;
     private String codEstadoRemiteLabel;
     private String nomCiudadRemite;
+    private String codCiudadRemite;
 
     //Destinatario
     private Long destinatarioId;
@@ -66,6 +68,7 @@ public class PaymentCommand implements Serializable {
     private String codEstadoDestinatario;
     private String codEstadoDestinatarioLabel;
     private String nomCiudadDestinatario;
+    private String codCiudadDestinatario;
     private String numeroCuenta;
 
     //Para envios a Cuba
@@ -85,7 +88,16 @@ public class PaymentCommand implements Serializable {
     private String confirmacionNoEmigracion;
 
     public void complete() {
-        this.zipRemite = dirPostalRemite;
+        this.zipRemite = dirPostalRemite; 
+        this.codCiudadRemite = trim(nomCiudadRemite);
+        this.codCiudadDestinatario = trim(nomCiudadDestinatario); 
+    }
+
+    private static String trim(String val) {
+        if (val != null && val.length() > 5) {
+            return val.substring(0, 5);
+        }
+        return val;
     }
 
     @Override
@@ -110,6 +122,7 @@ public class PaymentCommand implements Serializable {
 
         reportData.setFecha(dateFormat.format(new Date()));
         reportData.setMontoEnviado(montoRealAEnviar);
+        reportData.setMoneda(moneda);
         reportData.setClavePago(tasaDeCambio);
         reportData.setPaisDestino(codPaisDestinatarioLabel);
         reportData.setPuntoDePago(codCorresponsalLabel);
@@ -123,7 +136,7 @@ public class PaymentCommand implements Serializable {
 
         reportData.setReceiverName(nomDestinatario);
         reportData.setReceiverPhone(telDestinatario);
-        reportData.setReceiverAddress(dirDestinatario + " " + nomCiudadDestinatario + " " + codEstadoDestinatarioLabel + " " + codPaisDestinatarioLabel);
+        reportData.setReceiverAddress(dirDestinatario + " " + getNomCiudadDestinatario() + " " + codEstadoDestinatarioLabel + " " + codPaisDestinatarioLabel);
 
         reportData.setSentAmount(montoEntregar);
         reportData.setFee(tasaDeCambio);
@@ -771,6 +784,48 @@ public class PaymentCommand implements Serializable {
      */
     public void setCodPaisDestinatarioLabel(String codPaisDestinatarioLabel) {
         this.codPaisDestinatarioLabel = codPaisDestinatarioLabel;
+    }
+
+    /**
+     * @return the codCiudadRemite
+     */
+    public String getCodCiudadRemite() {
+        return codCiudadRemite;
+    }
+
+    /**
+     * @param codCiudadRemite the codCiudadRemite to set
+     */
+    public void setCodCiudadRemite(String codCiudadRemite) {
+        this.codCiudadRemite = codCiudadRemite;
+    }
+
+    /**
+     * @return the codCiudadDestinatario
+     */
+    public String getCodCiudadDestinatario() {
+        return codCiudadDestinatario;
+    }
+
+    /**
+     * @param codCiudadDestinatario the codCiudadDestinatario to set
+     */
+    public void setCodCiudadDestinatario(String codCiudadDestinatario) {
+        this.codCiudadDestinatario = codCiudadDestinatario;
+    }
+
+    /**
+     * @return the moneda
+     */
+    public String getMoneda() {
+        return moneda;
+    }
+
+    /**
+     * @param moneda the moneda to set
+     */
+    public void setMoneda(String moneda) {
+        this.moneda = moneda;
     }
 
 }
