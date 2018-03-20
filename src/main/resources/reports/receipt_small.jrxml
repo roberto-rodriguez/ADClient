@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="receipt" language="groovy" pageWidth="288" pageHeight="2160" columnWidth="288" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="de846d7c-0adb-4208-bf5c-b8362cb05d17">
 	<property name="ireport.zoom" value="1.3310000000000006"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="192"/>
+	<property name="ireport.y" value="814"/>
 	<field name="fecha" class="java.lang.String"/>
 	<field name="montoEnviado" class="java.lang.String"/>
 	<field name="clavePago" class="java.lang.String"/>
@@ -131,9 +131,9 @@
 			<staticText>
 				<reportElement x="0" y="342" width="132" height="20" uuid="0949506f-44fa-4eee-9c03-6dce6a39e4df"/>
 				<textElement textAlignment="Right">
-					<font fontName="Arial" size="16"/>
+					<font fontName="Arial" size="14"/>
 				</textElement>
-				<text><![CDATA[Forma de Entrega: ]]></text>
+				<text><![CDATA[Forma de Pago: ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="261" width="133" height="20" uuid="89c28a6c-bbc3-4131-a2da-e9811aeada8a"/>
@@ -259,7 +259,7 @@
 				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="149" y="261" width="138" height="20" uuid="69539021-b7e4-4f6c-9218-473c1b378d0a"/>
+				<reportElement x="186" y="261" width="101" height="20" uuid="69539021-b7e4-4f6c-9218-473c1b378d0a"/>
 				<textElement>
 					<font fontName="Arial" size="16"/>
 				</textElement>
@@ -301,7 +301,7 @@
 				<textFieldExpression><![CDATA[$F{tasaDeCambio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="149" y="382" width="72" height="20" uuid="e33ffed7-294b-4d88-bf8a-7ec8ae1c062a"/>
+				<reportElement x="210" y="382" width="73" height="20" uuid="e33ffed7-294b-4d88-bf8a-7ec8ae1c062a"/>
 				<textElement>
 					<font fontName="Arial" size="16"/>
 				</textElement>
@@ -350,7 +350,7 @@
 				<textFieldExpression><![CDATA[$F{receiverAddress}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="149" y="686" width="124" height="20" uuid="603822f7-eb45-466d-8ea6-fd1b4f22e494"/>
+				<reportElement x="180" y="686" width="93" height="20" uuid="603822f7-eb45-466d-8ea6-fd1b4f22e494"/>
 				<textElement>
 					<font fontName="Arial" size="16"/>
 				</textElement>
@@ -364,7 +364,7 @@
 				<textFieldExpression><![CDATA[$F{fee}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="149" y="728" width="124" height="20" uuid="ee691017-428f-450c-9baf-6b4389d9c435"/>
+				<reportElement x="180" y="731" width="93" height="20" uuid="ee691017-428f-450c-9baf-6b4389d9c435"/>
 				<textElement>
 					<font fontName="Arial" size="16"/>
 				</textElement>
@@ -381,12 +381,33 @@
 				<textFieldExpression><![CDATA[$F{codEnvio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="221" y="382" width="67" height="20" uuid="90d93bf1-1ead-4b26-a456-b28edaf19ddb"/>
+				<reportElement x="151" y="382" width="59" height="20" uuid="90d93bf1-1ead-4b26-a456-b28edaf19ddb"/>
 				<textElement>
-					<font size="16"/>
+					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{moneda}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="135" y="261" width="45" height="20" uuid="4c8b5452-b067-4336-8006-c1354b842f0e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[USD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="686" width="45" height="20" uuid="60fb4fbf-08c2-4b2e-a634-734ecf9bae1a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[USD ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="730" width="45" height="20" uuid="c568823b-6764-4e3d-9fab-644d0a6b46a6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[USD ]]></text>
+			</staticText>
 		</band>
 		<band height="1033">
 			<staticText>
@@ -460,14 +481,14 @@
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="16"/>
 				</textElement>
-				<text><![CDATA[Transaccion: ]]></text>
+				<text><![CDATA[Transaccion:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="251" width="131" height="20" uuid="d3cba5d8-e429-4d9f-9916-121fbac01016"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="16"/>
 				</textElement>
-				<text><![CDATA[Fecha: ]]></text>
+				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="291" width="132" height="20" uuid="7c64d068-1b10-4a21-aec5-1cce34edaae1"/>
@@ -481,42 +502,42 @@
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="16"/>
 				</textElement>
-				<text><![CDATA[Pais Destino: ]]></text>
+				<text><![CDATA[Pais Destino:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="331" width="131" height="20" uuid="8be0f1aa-dca7-47bd-be17-5aaf50c5f4e9"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="16"/>
 				</textElement>
-				<text><![CDATA[Punto de Pago: ]]></text>
+				<text><![CDATA[Punto de Pago:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="350" width="132" height="20" uuid="7e72df4c-55b3-4e77-814c-b23e7a2ec740"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="16"/>
 				</textElement>
-				<text><![CDATA[Forma de Entrega: ]]></text>
+				<text><![CDATA[Forma de Pago:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="271" width="179" height="20" uuid="190e4ec7-bda3-4ae2-8045-34f071d32028"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="16"/>
 				</textElement>
-				<text><![CDATA[Monto Enviado:    USD ]]></text>
+				<text><![CDATA[ Monto Enviado:    USD ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="370" width="132" height="20" uuid="ef5ed885-c02c-48cd-9513-1d73addf47a0"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="16"/>
 				</textElement>
-				<text><![CDATA[Tasa de Cambio:  ]]></text>
+				<text><![CDATA[Tasa de Cambio:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="390" width="133" height="20" uuid="be420b83-1790-4986-81dd-9f759bd6d897"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="16"/>
 				</textElement>
-				<text><![CDATA[Monto a Entregar: ]]></text>
+				<text><![CDATA[Monto a Entregar:]]></text>
 			</staticText>
 			<line>
 				<reportElement x="12" y="182" width="270" height="1" uuid="03e274d3-ac16-49e9-a5b2-674c91e75203"/>
@@ -598,7 +619,7 @@
 				<textFieldExpression><![CDATA[$F{tasaDeCambio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="151" y="389" width="58" height="20" uuid="8fe5b49f-f774-4bb2-a460-a59529ef200f"/>
+				<reportElement x="210" y="390" width="68" height="20" uuid="8fe5b49f-f774-4bb2-a460-a59529ef200f"/>
 				<textElement>
 					<font fontName="Arial" size="16"/>
 				</textElement>
@@ -622,7 +643,7 @@
 				<text><![CDATA[Tarifa por Envio:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="151" y="679" width="124" height="20" uuid="26c7652a-971f-45c1-b7ef-8bd5aecacfb9"/>
+				<reportElement x="197" y="679" width="78" height="20" uuid="26c7652a-971f-45c1-b7ef-8bd5aecacfb9"/>
 				<textElement>
 					<font fontName="Arial" size="16"/>
 				</textElement>
@@ -668,7 +689,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="16"/>
 				</textElement>
-				<text><![CDATA[Monto Enviado : ]]></text>
+				<text><![CDATA[Monto Enviado:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="13" y="460" width="268" height="20" uuid="1e432aa7-a434-4687-9dea-d18cd63ec896"/>
@@ -692,7 +713,7 @@
 				<textFieldExpression><![CDATA[$F{receiverAddress}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="151" y="721" width="124" height="20" uuid="e50c7f36-96b9-47fc-886f-ff14139bfcbd"/>
+				<reportElement x="197" y="721" width="78" height="20" uuid="e50c7f36-96b9-47fc-886f-ff14139bfcbd"/>
 				<textElement>
 					<font fontName="Arial" size="16"/>
 				</textElement>
@@ -713,12 +734,26 @@
 				<textFieldExpression><![CDATA[$F{receiverName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="209" y="389" width="78" height="20" uuid="5105b7c7-931f-4cc3-b072-0ee6403ac4fc"/>
+				<reportElement x="151" y="390" width="59" height="20" uuid="5105b7c7-931f-4cc3-b072-0ee6403ac4fc"/>
 				<textElement>
 					<font fontName="Arial" size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{moneda}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="135" y="679" width="45" height="20" uuid="76c309b2-7cb2-4f4f-908c-9f78bdbbbc3a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[USD ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="149" y="721" width="31" height="20" uuid="fe63b95d-b4d3-4fae-8101-dd44919a8b2a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[USD]]></text>
+			</staticText>
 		</band>
 	</detail>
 </jasperReport>

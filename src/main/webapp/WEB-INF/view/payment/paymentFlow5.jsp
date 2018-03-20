@@ -1,3 +1,6 @@
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <input type="hidden" id="flowExecutionUrl" value="${flowExecutionUrl}"/>
 
 <div class="top-bar"> 
@@ -5,20 +8,38 @@
 </div> 
 
 <table class="resumen-table">
-    <tr>
-        <td>
-            <p style="font-size: 24px; color: black;">Transacción Pendiente</p>
-        </td> 
-    </tr> 
-    <tr>
-        <td>
-            <p style="font-size: 20px">Por favor llame a Servicio al Cliente y use la referencia: (001T32)</p>
-        </td> 
-    </tr> 
+    <c:choose>
+        <c:when test="${transferencia.success}">
+             <tr>
+                <td>
+                    <p style="font-size: 24px; color: green;">Satisfactoriamente</p>
+                </td> 
+            </tr> 
+             <tr>
+                <td>
+                    <p style="font-size: 20px">Clave de Pago:</p>
+                    <p style="font-size:30px;">${transferencia.clavePago}</p>
+                </td> 
+            </tr>
+        </c:when>    
+        <c:otherwise>
+            <tr>
+                <td>
+                    <p style="font-size: 24px; color: red;">Transacción Pendiente</p>
+                </td> 
+            </tr> 
+            <tr>
+                <td>
+                    <p style="font-size: 20px">Por favor llame a Servicio al Cliente y use la referencia: (${transferencia.codEnvio})</p>
+                </td> 
+            </tr>
+        </c:otherwise>
+    </c:choose>
+    
     <tr>
         <td>
             <p style="font-size: 20px">Número de Envio:</p>
-            <p style="font-size:36px;color: red;">001T32</p>
+            <p style="font-size:30px">${transferencia.codEnvio}</p>
         </td> 
     </tr>  
     <tr>

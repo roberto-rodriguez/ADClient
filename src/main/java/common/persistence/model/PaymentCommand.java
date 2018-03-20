@@ -3,9 +3,10 @@ package common.persistence.model;
 import common.persistence.dto.ReportData;
 import java.io.Serializable;
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
- 
+
 /**
  * @author @Roberto Rodriguez :: <RobertoSoftwareEngineer@gmail.com>
  */
@@ -87,10 +88,23 @@ public class PaymentCommand implements Serializable {
     private String confirmacionNoProhibido;
     private String confirmacionNoEmigracion;
 
+    private String formatAmount(String amount) {
+        if (amount != null) {
+            try {
+                return String.format("%.2f", Double.parseDouble(amount));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+        return "";
+
+    }
+
     public void complete() {
-        this.zipRemite = dirPostalRemite; 
+        this.zipRemite = dirPostalRemite;
         this.codCiudadRemite = trim(nomCiudadRemite);
-        this.codCiudadDestinatario = trim(nomCiudadDestinatario); 
+        this.codCiudadDestinatario = trim(nomCiudadDestinatario);
     }
 
     private static String trim(String val) {
@@ -117,18 +131,18 @@ public class PaymentCommand implements Serializable {
         return sb.toString();
     }
 
-    public ReportData toReportData() {
+    public ReportData toReportData(String clavePago) {
         ReportData reportData = new ReportData();
 
         reportData.setFecha(dateFormat.format(new Date()));
-        reportData.setMontoEnviado(montoRealAEnviar);
+        reportData.setMontoEnviado(getMontoRealAEnviarStr());
         reportData.setMoneda(moneda);
-        reportData.setClavePago(tasaDeCambio);
+        reportData.setClavePago(clavePago);
         reportData.setPaisDestino(codPaisDestinatarioLabel);
         reportData.setPuntoDePago(codCorresponsalLabel);
         reportData.setFormaDeEntrega(formaPagoLabel);
-        reportData.setTasaDeCambio(tasaDeCambio);
-        reportData.setMontoEntregar(montoEntregar);
+        reportData.setTasaDeCambio(getTasaDeCambioStr());
+        reportData.setMontoEntregar(getDineroEntregadoStr());
 
         reportData.setSenderName(nomRemite);
         reportData.setSenderAddress(dirRemite + " " + nomCiudadRemite + " " + codEstadoRemiteLabel + " " + dirPostalRemite);
@@ -138,9 +152,9 @@ public class PaymentCommand implements Serializable {
         reportData.setReceiverPhone(telDestinatario);
         reportData.setReceiverAddress(dirDestinatario + " " + getNomCiudadDestinatario() + " " + codEstadoDestinatarioLabel + " " + codPaisDestinatarioLabel);
 
-        reportData.setSentAmount(montoEntregar);
-        reportData.setFee(tasaDeCambio);
-        reportData.setTotalPagar(totalPagar);
+        reportData.setSentAmount(getMontoEntregarStr());
+        reportData.setFee(getTasaDeCambioStr());
+        reportData.setTotalPagar(getTotalPagarStr());
 
         return reportData;
     }
@@ -190,6 +204,9 @@ public class PaymentCommand implements Serializable {
     public String getDineroEntregado() {
         return dineroEntregado;
     }
+    public String getDineroEntregadoStr() {
+        return formatAmount(dineroEntregado);
+    }
 
     /**
      * @param dineroEntregado the dineroEntregado to set
@@ -232,6 +249,9 @@ public class PaymentCommand implements Serializable {
     public String getTipoCambio() {
         return tipoCambio;
     }
+    public String getTipoCambioStr() {
+        return formatAmount(tipoCambio);
+    }
 
     /**
      * @param tipoCambio the tipoCambio to set
@@ -245,6 +265,9 @@ public class PaymentCommand implements Serializable {
      */
     public String getMontoEntregar() {
         return montoEntregar;
+    }
+    public String getMontoEntregarStr() { 
+        return formatAmount(montoEntregar);
     }
 
     /**
@@ -261,6 +284,10 @@ public class PaymentCommand implements Serializable {
         return montoRealAEnviar;
     }
 
+    public String getMontoRealAEnviarStr() { 
+         return formatAmount(montoRealAEnviar);
+    }
+
     /**
      * @param montoRealAEnviar the montoRealAEnviar to set
      */
@@ -273,6 +300,9 @@ public class PaymentCommand implements Serializable {
      */
     public String getMontoRealAPagar() {
         return montoRealAPagar;
+    }
+    public String getMontoRealAPagarStr() {
+        return formatAmount(montoRealAPagar);
     }
 
     /**
@@ -287,6 +317,9 @@ public class PaymentCommand implements Serializable {
      */
     public String getTotalPagar() {
         return totalPagar;
+    }
+    public String getTotalPagarStr() {
+        return formatAmount(totalPagar);
     }
 
     /**
@@ -483,6 +516,9 @@ public class PaymentCommand implements Serializable {
      */
     public String getTasaDeCambio() {
         return tasaDeCambio;
+    }
+    public String getTasaDeCambioStr() {
+        return formatAmount(tasaDeCambio);
     }
 
     /**

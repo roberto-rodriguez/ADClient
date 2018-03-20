@@ -48,13 +48,6 @@
             </div>
             <div id="navbar" class="nav-bar">
                 <input type="button" class="main-menu-button" value="Enviar Dinero"/>
-                <input type="button" class="main-menu-button" value="Reportes"/>
-                <!--                <div id="lavaWrapper"  style="float: left;">
-                                    <ul class="lavaLamp" >
-                                        <li><a id="home" class="menuItem" href="javascript:goTo('index')">ENVIAR DINERO</a></li> 
-                                        <li><a id="facturasMenu" class="menuItem" href="javascript:goTo('facturas/facturasView')">REPORTES</a></li> 
-                                        <li><a id="storesMenu" class="menuItem" href="javascript:goTo('stores/storesView')">Stores</a></li> 
-                                    </ul>
-                                </div> -->
+                <input type="button" class="main-menu-button" value="Reportes" onclick="javascript:nav('reports/goToSearch')"/> 
             </div>
         </header>  

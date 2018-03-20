@@ -47,6 +47,12 @@ function goTo(event) {
     });
 }
 
+function nav(path) {
+    $.get(host + path, function (data) {
+            $('#content').html(data);
+        }) 
+}
+
 function createCombo(id, url ) {
     var source = url ?
             {

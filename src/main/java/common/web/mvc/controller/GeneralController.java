@@ -57,10 +57,10 @@ public class GeneralController {
         String host = env.getProperty("adserver.url");
         System.out.println("host = " + host);
 
-        if (!doLogin(loginCommand)) {
-            loginCommand.setInvalidCredentials(Boolean.TRUE);
-            return new ModelAndView("login", "loginCommand", loginCommand);
-        }
+//        if (!doLogin(loginCommand)) {
+//            loginCommand.setInvalidCredentials(Boolean.TRUE);
+//            return new ModelAndView("login", "loginCommand", loginCommand);
+//        }
 
         ResponseEntity<String> response = restTemplate.getForEntity(host + "alodiga/mobile/config", String.class);
 
@@ -74,7 +74,7 @@ public class GeneralController {
 
         String agenciaOrigen = (String) request.getParameter("agenciaOrigen");
 
-        agenciaOrigen =  loginCommand.getUsername();//"MIA-1";
+        agenciaOrigen = "11502223";//  loginCommand.getUsername();//"MIA-1";
 
         request.getSession().setAttribute("agenciaOrigen", agenciaOrigen);
 

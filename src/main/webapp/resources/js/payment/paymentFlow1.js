@@ -21,8 +21,7 @@ $(document).ready(function () {
        
          $('#codCorresponsalLabel').val(e.args && e.args.item && e.args.item.label);
          $('#moneda').val(e.args && e.args.item && e.args.item.originalItem  && e.args.item.originalItem.moneda);
-  
-  debugger;
+   
         if (!val) {
             $('#formaPago').val('');
             createCombo('formaPagoSelect');

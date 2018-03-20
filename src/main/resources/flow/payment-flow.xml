@@ -38,12 +38,12 @@
     </view-state>
        
     <view-state id="paymentFlow4" view="payment/paymentFlow4"  model="command"> 
-        <transition on="next" to="paymentFlowResponse">
-           <evaluate expression="paymentMultiAction.enviar"/>
-        </transition>
-<!--        <transition on="next" to="paymentFlow5">
+        <!--        <transition on="next" to="paymentFlowResponse">
            <evaluate expression="paymentMultiAction.enviar"/>
         </transition>-->
+        <transition on="next" to="paymentFlow5">
+            <evaluate expression="paymentMultiAction.enviar"/>
+        </transition>
         <transition on="back" to="paymentFlow3"/> 
     </view-state>
     

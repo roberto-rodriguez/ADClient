@@ -6,11 +6,7 @@
  */
 package common.persistence.dto;
 
-import java.io.StringReader;
-import java.io.StringWriter;
-import javax.xml.bind.JAXB;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
@@ -50,7 +46,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  *
  * @author rrodriguez
  */ 
-public class Transferencia {
+public class Transferencia implements Serializable{
 
     private String codEnvio;
     private String codCorresponsal;
@@ -128,11 +124,30 @@ public class Transferencia {
 
     public Transferencia() {
     }
+    
+    public Boolean getSuccess(){
+        return clavePago != null 
+                && !clavePago.isEmpty() 
+                && respuesta != null 
+                && respuesta.equalsIgnoreCase("ACK");
+    }
 
     public Transferencia(String codEnvio) {
         this.codEnvio = codEnvio;
     }
  
+        private String formatAmount(Double amount) {
+        if (amount != null) {
+            try {
+                return String.format("%.2f", amount );
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+        return "";
+
+    }
 
     @Override
     public String toString() {
@@ -235,8 +250,8 @@ public class Transferencia {
         this.tipoCambio = tipoCambio;
     }
 
-    public Double getTotalPagar() {
-        return totalPagar;
+    public String getTotalPagar() {
+        return formatAmount(totalPagar);
     }
 
   
@@ -275,8 +290,8 @@ public class Transferencia {
         this.dineroEntregado = dineroEntregado;
     }
 
-    public Double getMontoEntregar() {
-        return montoEntregar;
+    public String getMontoEntregar() {
+        return  formatAmount(montoEntregar); 
     }
  
     public void setMontoEntregar(Double montoEntregar) {
@@ -516,8 +531,8 @@ public class Transferencia {
     /**
      * @return the comision
      */
-    public Double getComision() {
-        return comision;
+    public String getComision() {
+        return  formatAmount(comision); 
     }
 
    
@@ -552,7 +567,13 @@ public class Transferencia {
      * @return the tarifa
      */
     public String getTarifa() {
-        return tarifa;
+        Double t = 0D;
+        
+        try{
+            t = Double.parseDouble(tarifa);
+        }catch(Exception e){}
+        
+        return  formatAmount(t);  
     }
  
     public void setTarifa(String tarifa) {
@@ -620,7 +641,13 @@ public class Transferencia {
      * @return the comisionAD
      */
     public String getComisionAD() {
-        return comisionAD;
+          Double t = 0D;
+        
+        try{
+            t = Double.parseDouble(comisionAD);
+        }catch(Exception e){}
+        
+        return formatAmount(t) ;
     }
 
  

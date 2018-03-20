@@ -58,7 +58,7 @@
                 <b>Datos del Envío</b>
             </td>
             <td class="border-top">
-                <p>Monto a Enviar: USD ${command.montoEntregar}</p>  
+                <p>Monto a Enviar: USD ${command.montoRealAEnviarStr}</p>  
             </td>
             <td class="border-top">
                 <p>Punto de Pago: ${command.codCorresponsalLabel}</p> 
@@ -71,24 +71,24 @@
                 <p>Método de Entrega: ${command.formaPagoLabel}</p> 
             </td> 
             <td>
-                <p>Tarifa: USD ${command.tipoCambio}</p> 
+                <p>Tarifa: USD ${command.tipoCambioStr}</p> 
             </td> 
         </tr>
         <tr>
             <td> 
             </td>
             <td>
-                <p>Tasa de Cambio: ${command.tasaDeCambio}</p> 
+                <p>Tasa de Cambio: ${command.tasaDeCambioStr}</p> 
             </td> 
             <td>
-                <p>Monto a Entregar en ${command.codPaisDestinatario}: ${command.moneda} ${command.dineroEntregado}</p> 
+                <p>Monto a Entregar en ${command.codPaisDestinatario}: ${command.moneda} ${command.dineroEntregadoStr}</p> 
             </td> 
         </tr>
         <tr>
             <td> 
             </td>
             <td>
-                <p>Total a Pagar: USD ${command.totalPagar}</p> 
+                <p>Total a Pagar: USD ${command.totalPagarStr}</p> 
             </td>  
         </tr>
         <tr>

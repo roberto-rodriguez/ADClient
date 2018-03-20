@@ -62,13 +62,15 @@ public class PaymentMultiAction extends MultiAction implements Serializable {
 
             System.out.println("*** transferencia = " + (transferencia != null));
 
-            if (transferencia != null) {
-                System.out.println(transferencia.getRespuesta());
+            if (transferencia == null) {
+                transferencia = new Transferencia();
             }
 
-            context.getFlowScope().put("resp", str);
+            context.getFlowScope().put("transferencia", transferencia);
+            
+            String clavePago = transferencia == null ? "" : transferencia.getClavePago();
 
-            ReportData reportData = command.toReportData();
+            ReportData reportData = command.toReportData(clavePago);
 
             if (transferencia != null) {
                 reportData.setCodEnvio(transferencia.getCodEnvio());

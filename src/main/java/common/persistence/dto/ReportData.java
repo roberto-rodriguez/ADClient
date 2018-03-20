@@ -67,7 +67,7 @@ public class ReportData {
      * @return the clavePago
      */
     public String getClavePago() {
-        return clavePago;
+        return clavePago == null ? "" : clavePago;
     }
 
     /**
