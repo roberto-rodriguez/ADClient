@@ -5,6 +5,65 @@
 
 /*________ HEADER ___________*/
 
+.search-form{
+    border-color: #212529;
+    border-width: .5px;
+    border-style: solid;
+    background-color: #f5f5f5;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 10px;
+}
+
+.p-search{
+    color: #212529;
+    margin-bottom: 2px;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+.toRight {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap; 
+}
+
+.toLeft {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap; 
+}
+
+
+.pg-column{
+    width: 33%;
+    display: inline-block; 
+}
+
+.pg-buton{
+    background-color: #212529; 
+    color: white; 
+    margin-left: 20px; 
+    border-color: #212529;
+    display: inline-block;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 6px;
+}
+
+.pg-input{
+    width: 30px; 
+    display: inline-block; 
+    background-color: #212529; 
+    color:white;padding-left:10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 .mainHeader{
     margin: 2% 0%;
     height: auto;

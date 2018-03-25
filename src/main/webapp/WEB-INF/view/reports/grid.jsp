@@ -35,14 +35,14 @@
         <div class="container-table100">
             <div class="wrap-table100">
                 <div class="table100">
-                    <table style="border-width: 2px; border-color: red">
+                    <table >
                         <thead>
                             <tr class="table100-head">
                                 <th class="column1">Fecha</th>
                                 <th class="column2">Estatus</th>
                                 <th class="column3">Remitente</th>
                                 <th class="column4">Destinatario</th>
-                                <th class="column5">Cod Envio</th>
+                                <th class="column5">Codigo</th>
                                 <th class="column6">Pais</th>
                             </tr>
                         </thead>

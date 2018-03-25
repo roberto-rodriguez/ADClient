@@ -6,17 +6,14 @@
 package common.web.mvc.controller;
 
 import com.google.gson.Gson;
-import common.persistence.dto.LoginCommand;
 import common.persistence.dto.ReportData;
 import common.persistence.dto.ResultList;
 import common.persistence.dto.Transferencia;
-import common.persistence.model.BaseCotizar;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +44,15 @@ public class ReportController {
     public ModelAndView index(HttpServletRequest request, @RequestParam(required = false) Integer type) {
         System.out.println("goToSearch...");
         
+        return new ModelAndView("reports/reports");
+    }
+    
+  
+    
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public ModelAndView search(HttpServletRequest request, @RequestParam(required = false) Integer type) {
+        System.out.println("search...");
+        
         String host = env.getProperty("adserver.url");
         
         String url = host + "alodiga/mobile/buscar?agenciaOrigen=11502223&page=1&limit=5&fechaDel=&fechaAl=&nombreR=&nombreD=";
@@ -66,7 +72,7 @@ public class ReportController {
         
         List<Transferencia> list = resultList == null ? new ArrayList<>() : resultList.getList();
  
-        return new ModelAndView("grid/grid", "list", list);
+        return new ModelAndView("reports/grid", "list", list);
     }
     
     @RequestMapping(value = "/receipt", method = RequestMethod.GET)

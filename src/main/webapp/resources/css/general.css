@@ -6,15 +6,6 @@
     border-width: 0px;
 }
 
-.centered {
-    display: block; 
-    padding-top: 50px; 
-    width: 50%;
-
-    position: absolute;
-    padding-left:50%;
-    /*margin-left: -100px;*/
-}
 
 .td-border-left{
     border-left: 1px solid #333;
