@@ -153,7 +153,7 @@ public class PaymentCommand implements Serializable {
         reportData.setReceiverAddress(dirDestinatario + " " + getNomCiudadDestinatario() + " " + codEstadoDestinatarioLabel + " " + codPaisDestinatarioLabel);
 
         reportData.setSentAmount(getMontoEntregarStr());
-        reportData.setFee(getTasaDeCambioStr());
+        reportData.setFee(getTipoCambioStr());
         reportData.setTotalPagar(getTotalPagarStr());
 
         return reportData;

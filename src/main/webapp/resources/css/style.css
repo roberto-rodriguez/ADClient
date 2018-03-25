@@ -4,15 +4,39 @@
 */
 
 /*________ HEADER ___________*/
+.topBar{
+    padding: 12px;
+}
+
+.topLink{
+    margin-right: 25px;  
+    display: inline-block; 
+}
 
 .search-form{
+    display: none;
     border-color: #212529;
     border-width: .5px;
-    border-style: solid;
-    background-color: #f5f5f5;
+    border-style: solid; 
     padding: 15px;
     margin: 15px;
     border-radius: 10px;
+}
+
+.closeBtn{
+    font-size: 20px; 
+    color:white; 
+    background-color: transparent;
+    border-color: transparent;
+    float: right;
+}
+
+.search-form, .search-form table tbody tr{
+    background-color:#36304a;
+}
+
+.search-form table tbody tr td p{
+    color: white;
 }
 
 .p-search{
