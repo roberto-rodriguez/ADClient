@@ -13,5 +13,5 @@
           p:url="classpath:reports/receipt_small.jasper" 
     /> 
     
- 
+    <bean id="txExcelView" class="common.util.ExcelBuilder"/> 
 </beans>

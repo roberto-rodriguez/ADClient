@@ -16,7 +16,7 @@
 <!--        <a href="" class="topLink">
             <img src="<c:url value="/resources/images/icon/pdf.png" />" >
         </a>-->
-        <a class="topLink">
+        <a class="topLink" onclick="javascript:doReport('excel')">
             <img src="<c:url value="/resources/images/icon/xls.png" />">
         </a>
     </div> 

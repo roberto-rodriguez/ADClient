@@ -57,11 +57,14 @@ public class GeneralController {
         String host = env.getProperty("adserver.url");
         System.out.println("host = " + host);
 
-//        if (!doLogin(loginCommand)) {
-//            loginCommand.setInvalidCredentials(Boolean.TRUE);
-//            return new ModelAndView("login", "loginCommand", loginCommand);
-//        }
+        if (!doLogin(loginCommand)) {
+            loginCommand.setInvalidCredentials(Boolean.TRUE);
+            return new ModelAndView("login", "loginCommand", loginCommand);
+        }
 
+        String agenciaOrigen = loginCommand.getUsername();
+
+// String agenciaOrigen = "11502223";
         ResponseEntity<String> response = restTemplate.getForEntity(host + "alodiga/mobile/config", String.class);
 
         String str = response.getBody();
@@ -72,10 +75,6 @@ public class GeneralController {
 
         repo.setConfig(paises);
 
-        String agenciaOrigen = (String) request.getParameter("agenciaOrigen");
-
-        agenciaOrigen = "11502223";//  loginCommand.getUsername();//"MIA-1";
-
         request.getSession().setAttribute("agenciaOrigen", agenciaOrigen);
 
         System.out.println("agenciaOrigen = " + agenciaOrigen);
@@ -84,25 +83,24 @@ public class GeneralController {
     }
 
     private boolean doLogin(LoginCommand loginCommand) {
-        String url = "http://sales.alodiga.us:8080/ESPServlet/ESPServlet?method=login&login=" + loginCommand.getUsername() +"&password=" + loginCommand.getPassword();
+        String url = "http://sales.alodiga.us:8080/ESPServlet/ESPServlet?method=login&login=" + loginCommand.getUsername() + "&password=" + loginCommand.getPassword();
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
         String str = response.getBody();
-        
+
         System.out.println("Login Result = " + str);
-        
+
         return str != null && !str.isEmpty() && str.charAt(0) == '0';
     }
 
     public static void main(String[] args) {
-       RestTemplate restTemplate = new RestTemplate();
-          String url = "http://sales.alodiga.us:8080/ESPServlet/ESPServlet?method=login&login=11502223&password=5074" ;
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://sales.alodiga.us:8080/ESPServlet/ESPServlet?method=login&login=11502223&password=5074";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
         String str = response.getBody();
-        
+
         System.out.println("str = " + str);
-         
-         
+
     }
 }

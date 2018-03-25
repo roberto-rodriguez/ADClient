@@ -23,7 +23,7 @@ function doSearch(increment) {
     }
 
     $.ajax({
-        url: host + "reports/" + (request.codEnvio ? 'searchByCode' : 'search' ),
+        url: host + "reports/search",
         type: "POST",
         data: JSON.stringify(request),
         contentType: "application/json",
@@ -32,6 +32,10 @@ function doSearch(increment) {
             $('#results').html(response);
         }
     })
+}
+
+function doReport(type){
+    window.open(host + "reports/" + type);
 }
 
 function toogleSearchForm(show){ 

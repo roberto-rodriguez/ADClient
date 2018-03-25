@@ -24,11 +24,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/grid/css/main.css"/>"  />
     <!--===============================================================================================-->
 </head>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-    });
-</script>
+ 
 
 <div > 
     <div class="limiter">
@@ -42,7 +38,7 @@
                                 <th class="column2">Estatus</th>
                                 <th class="column3">Remitente</th>
                                 <th class="column4">Destinatario</th>
-                                <th class="column5">Codigo</th>
+                                <th class="column5">Código</th>
                                 <th class="column6">Pais</th>
                             </tr>
                         </thead>
